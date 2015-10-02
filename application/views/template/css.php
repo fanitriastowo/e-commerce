@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="assets/images/favicon.ico">
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="icon" href="<?php echo site_url('assets/images/favicon.ico'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php  echo site_url('assets/css/bootstrap-theme.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/main.css'); ?>">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

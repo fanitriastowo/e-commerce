@@ -12,6 +12,7 @@
  			<nav class="e-nav">
  				<a class="btn btn-default" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0</a>
  				<a class="e-nav-item active" href="#">Your name</a>
+ 				<a class="e-nav-item" href="#">Registration</a>
  				<a class="e-nav-item" href="#">Logout</a>
  			</nav>
  		</div>

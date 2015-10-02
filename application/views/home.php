@@ -14,7 +14,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-2">
-				<h3 class="text-center">Sidebar</h3>
+				<h3 class="text-center">Category</h3>
 			</div>
 			<div class="col-sm-8">
 				<h3 class="text-center">Welcome to CodeIgniter!</h3>

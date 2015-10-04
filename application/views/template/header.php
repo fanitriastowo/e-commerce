@@ -1,5 +1,5 @@
 <div class="row text-center">
-	<h1>Pencarian Produk</h1>
+	<h4>Pencarian Produk</h4>
 	<div class="col-lg-offset-2 col-lg-8">
 		<?php echo form_open(); ?>
 		<div class="input-group">

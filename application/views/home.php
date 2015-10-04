@@ -17,54 +17,18 @@
 			<!-- Main Content (Product) -->
 			<div class="col-sm-8">
 				<h3 class="text-center bg-info"><strong>Our Products</strong></h3>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
+				<?php foreach ($products as $product): ?>
+					<div class="col-sm-4">
+						<div class="thumbnail">
+							<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product->name; ?>'></a>
+							<div class="caption text-center">
+								<div class="text-danger">
+									<strong><?php echo $product->name; ?></strong>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnail">
-						<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt="Product Name"></a>
-						<div class="caption">
-							<h3>Product Name</h3>
-						</div>
-					</div>
-				</div>
+				<?php endforeach ?>
 			</div>
 
 			<!-- Right Content (New Product) -->

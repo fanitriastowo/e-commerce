@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Create_category extends CI_Migration {
+class Migration_Create_categories extends CI_Migration {
 
 	public function up() {
-		$this->dbforge->add_field(array(
+		/*$this->dbforge->add_field(array(
 			'id' => array(
 				'type' => 'INT',
 				'constraint' => 11,
@@ -18,7 +18,15 @@ class Migration_Create_category extends CI_Migration {
 			)
 		));
 		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->create_table('CATEGORIES');
+		$this->dbforge->create_table('CATEGORIES');*/
+		
+		// code dibawah 100% sama dengan code diatas
+		$query = "CREATE TABLE CATEGORIES (
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				name VARCHAR(100) NOT NULL,
+				PRIMARY KEY (id))";
+		
+		$this->db->query($query);
 	}
 
 	public function down() {

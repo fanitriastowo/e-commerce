@@ -3,7 +3,7 @@
 class Migration_Create_products extends CI_Migration {
 
 	public function up() {
-		$this->dbforge->add_field(array(
+		/*$this->dbforge->add_field(array(
 			'id' => array(
 				'type' => 'INT',
 				'constraint' => 11,
@@ -26,7 +26,19 @@ class Migration_Create_products extends CI_Migration {
 			)
 		));
 		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->create_table('PRODUCTS');
+		$this->dbforge->create_table('PRODUCTS');*/
+
+		$query = "CREATE TABLE PRODUCTS (
+				id INT(11) NOT NULL AUTO_INCREMENT,
+				category_id INT(11),
+				name VARCHAR(100) NOT NULL,
+				price DOUBLE NOT NULL,
+				description TEXT,
+				PRIMARY KEY (id),
+				KEY category_id (category_id),
+				CONSTRAINT category_id_fk FOREIGN KEY (category_id)
+				REFERENCES CATEGORIES (id))";
+		$this->db->query($query);
 	}
 
 	public function down() {

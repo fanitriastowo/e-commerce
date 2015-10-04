@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="<?php echo site_url('assets/images/favicon.ico'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php  echo site_url('assets/css/bootstrap-theme.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php  echo site_url('assets/css/font-awesome.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap-theme.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/font-awesome.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/main.css'); ?>">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

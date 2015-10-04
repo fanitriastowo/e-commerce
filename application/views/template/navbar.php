@@ -3,11 +3,12 @@
  		<div class="navbar-header">
  			<a class="e-navbar-brand" href="#">E - Randu Jati</a>
  		</div>
- 		<form class="navbar-form navbar-left">
- 			<div class="form-group">
- 				<input type="text" placeholder="Pencarian : Produk . . ." class="form-control" name="search">
- 			</div>
- 		</form>
+ 		<div class="navbar-left">
+ 			<nav class="e-nav">
+ 				<a class="e-nav-item" href="#">Menu</a>
+ 				<a class="e-nav-item" href="#">Menu</a>
+ 			</nav>
+ 		</div>
  		<div class="navbar-right">
  			<nav class="e-nav">
  				<a class="btn btn-default" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0</a>

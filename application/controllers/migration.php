@@ -6,9 +6,9 @@ class Migration extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function index() {
+	public function migrate($version) {
 		$this->load->library('migration');
-		if ( ! $this->migration->version(2)) {
+		if ( ! $this->migration->version($version)) {
 			show_error($this->migration->error_string());
 		} else {
 			echo "Migration Worked";

@@ -1,13 +1,7 @@
  <div class="e-masthead">
  	<div class="container">
  		<div class="navbar-header">
- 			<a class="e-navbar-brand" href='<?php echo site_url(); ?>'>e - Randu Jati</a>
- 		</div>
- 		<div class="navbar-left">
- 			<nav class="e-nav">
- 				<a class="e-nav-item" href="#">Menu</a>
- 				<a class="e-nav-item" href="#">Menu</a>
- 			</nav>
+ 			<a class="e-navbar-brand" href='<?php echo site_url(); ?>'><span class="fa fa-lg fa-internet-explorer"></span> - Randu Jati</a>
  		</div>
  		<div class="navbar-right">
  			<nav class="e-nav">

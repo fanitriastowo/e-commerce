@@ -16,8 +16,8 @@
 				<?php echo form_open('', array('class' => 'form-signin')); ?>
 					<h2 class="form-signin-heading">Please sign in</h2>
 
-					<?php echo form_label('Username', 'username', array('class' => 'sr-only')); ?>
-					<?php echo form_input(array('name' => 'username', 'id' => 'username', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Username', 'required' => '', 'autofocus' => '')); ?>
+					<?php echo form_label('Email', 'email', array('class' => 'sr-only')); ?>
+					<?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Email Address', 'required' => '', 'autofocus' => '')); ?>
 
 					<?php echo form_label('Password', 'password', array('class' => 'sr-only')); ?>
 					<?php echo form_password(array('name' => 'password', 'id' => 'password', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Password', 'required' => '')); ?>

@@ -21,34 +21,34 @@
  </div>
 
  <!-- Modal -->
- <?php echo form_open('', 'class = form-horizontal'); ?>
+ <?php echo form_open('user/registration', 'class = form-horizontal'); ?>
  <div class="modal fade" id="registration_modal" tabindex="-1" role="dialog" aria-labelledby="registration_modal_label">
  	<div class="modal-dialog" role="document">
  		<div class="modal-content">
- 			<div class="modal-header">
+ 			<div class="modal-header bg-danger">
  				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 				<h4 class="modal-title" id="registration_modal_label">Input your identity</h4>
+ 				<h4 class="modal-title" id="registration_modal_label"><strong>Input your identity</strong></h4>
  			</div>
  			<div class="modal-body">
 
  				<div class="form-group">
 	 				<?php echo form_label('Username', 'register_username', array('class' => 'col-sm-2 control-label')); ?>
  					<div class="col-sm-10">
- 						<?php echo form_input('username','', 'class="form-control" id="register_username" placeholder="Username"'); ?>
+ 						<?php echo form_input('username','', 'class="form-control" id="register_username" placeholder="Username" required'); ?>
  					</div>
  				</div>
 
  				<div class="form-group">
 	 				<?php echo form_label('Email', 'register_email', array('class' => 'col-sm-2 control-label')); ?>
  					<div class="col-sm-10">
- 						<?php echo form_input('email','', 'class="form-control" id="register_email" placeholder="Email"'); ?>
+ 						<?php echo form_input('email','', 'class="form-control" id="register_email" placeholder="Email" required'); ?>
  					</div>
  				</div>
 
  				<div class="form-group">
  					<?php echo form_label('Password', 'register_password', array('class' => 'col-sm-2 control-label')); ?>
  					<div class="col-sm-10">
- 						<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password"'); ?>
+ 						<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password" required'); ?>
  					</div>
  				</div>
 

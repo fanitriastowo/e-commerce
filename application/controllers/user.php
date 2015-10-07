@@ -19,4 +19,8 @@ class User extends CI_Controller {
 		$this->ion_auth->logout();
 		redirect('user/login');
 	}
+
+	public function registration() {
+		$this->load->view('registration');
+	}
 }

@@ -6,7 +6,7 @@
  		<div class="navbar-right">
  			<nav class="e-nav">
  				<?php if (!$this->ion_auth->logged_in()): ?>
-	 				<a id="registration" class="e-nav-item" href="#">Registration</a>
+	 				<a id="registration" class="e-nav-item" href="<?php echo site_url('user/registration'); ?>">Registration</a>
 	 				<a id="login" class="e-nav-item" href="<?php echo site_url('user/login'); ?>">Login</a>
  				<?php endif ?>
  				

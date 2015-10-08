@@ -21,7 +21,10 @@ class Home extends CI_Controller {
 		$data['categories'] = $this->category_m->get();
 
 		// Fetch All Products
-		$data['products'] = $this->product_m->get();
+		$data['products'] = $this->product_m->get_all_limit();
+
+		// Fetch All Random Products
+		$data['products_rands'] = $this->product_m->get_all_limit(6);
 
 		// Pass to home view
 		$this->load->view('home', $data);

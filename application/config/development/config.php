@@ -2,7 +2,7 @@
 
 function __autoload($classname) {
 	if (strpos($classname, 'CI_') !== 0) {
-		$file = APPPATH . 'helpers/' . $classname . '.php';
+		$file = APPPATH . 'libraries/' . $classname . '.php';
 		if (file_exists($file) && is_file($file)) {
 			@include_once($file);
 		}

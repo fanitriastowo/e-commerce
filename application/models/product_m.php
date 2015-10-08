@@ -25,4 +25,9 @@ class Product_m extends MY_Model {
 		$this->db->limit($limit);
 		return parent::get();
 	}
+
+	public function get_all_by_category_id($id) {
+		$this->db->limit(6);
+		return parent::get_by('category_id', $id);
+	}
 }

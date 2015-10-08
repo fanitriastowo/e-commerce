@@ -3,14 +3,14 @@
 class Home extends Frontend_Controller {
 
 	/**
-	 * [__construct default constructor from CI_Controller]
+	 * [__construct default constructor from Frontend_Controller]
 	 */
 	function __construct() {
 		parent::__construct();
 	}
 
 	/**
-	 * [Home Page, show all list of products and categories]
+	 * [Home Page, show all list of products but limit that to 6 item]
 	 * @return [view(home)]
 	 */
 	public function index(){

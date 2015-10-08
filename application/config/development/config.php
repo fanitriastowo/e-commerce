@@ -1,5 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+function __autoload($classname) {
+	if (strpos($classname, 'CI_') !== 0) {
+		$file = APPPATH . 'helpers/' . $classname . '.php';
+		if (file_exists($file) && is_file($file)) {
+			@include_once($file);
+		}
+	}
+}
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

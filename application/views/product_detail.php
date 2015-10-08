@@ -3,7 +3,7 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Selamat datang pengujung</title>
+	<title>Product Detail</title>
 </head>
 <body>
 	<!-- Navbar -->
@@ -16,19 +16,15 @@
 
 			<!-- Main Content (Product) -->
 			<div class="col-sm-8">
-				<h3 class="text-center bg-info"><strong>Our Products</strong></h3>
-				<?php foreach ($products_rands as $product_rand): ?>
-					<div class="col-sm-4">
-						<div class="thumbnail">
-							<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>'></a>
-							<div class="caption text-center">
-								<div class="text-danger">
-									<strong><?php echo $product_rand->name; ?></strong>
-								</div>
-							</div>
+				<h3 class="text-center bg-info"><strong>Detail Product</strong></h3>
+				<div class="thumbnail">
+					<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'></a>
+					<div class="caption text-center">
+						<div class="text-danger">
+							<strong><?php echo $product_detail->name; ?></strong>
 						</div>
 					</div>
-				<?php endforeach ?>
+				</div>
 			</div>
 
 			<!-- Right Content (New Product) -->

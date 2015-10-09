@@ -3,14 +3,13 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Selamat Admin</title>
+	<title>Your Profile</title>
 </head>
 <body>
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
-		<h1>Welcome User</h1>
+		<h1>Profile</h1>
 	</div>
 
 	<!-- Footer -->
@@ -18,5 +17,10 @@
 
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#profile').addClass('active');
+		});
+	</script>
 </body>
 </html>

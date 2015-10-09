@@ -7,7 +7,6 @@ class User extends User_Controller {
 	 */
 	function __construct() {
 		parent::__construct();
-		$this->load->model('user_m');
 	}
 
 	public function home() {
@@ -38,9 +37,9 @@ class User extends User_Controller {
 		$password = $this->input->post('password');
 		if ($this->ion_auth->login($email, $password) == TRUE) {
 			if ($this->ion_auth->is_admin()){
-				redirect('administrator/home');
+				redirect('administrator/pemesanan');
 			} else if($this->ion_auth->in_group('members')) {
-				redirect('user/user/home');
+				redirect('user/profile');
 			} else {
 				$this->session->set_flashdata('error', TRUE);
 				redirect('user/user/login');

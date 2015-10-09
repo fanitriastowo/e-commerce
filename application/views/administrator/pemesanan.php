@@ -3,14 +3,13 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Selamat Admin</title>
+	<title>Daftar Pemesanan</title>
 </head>
 <body>
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
-		<h1>Welcome Administrator</h1>
+		<h1>Daftar Pemesanan</h1>
 	</div>
 
 	<!-- Footer -->
@@ -18,5 +17,10 @@
 
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#pemesanan').addClass('active');
+		});
+	</script>
 </body>
 </html>

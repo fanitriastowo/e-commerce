@@ -20,8 +20,15 @@
 						<strong><?php echo validation_errors(); ?></strong>
 					</div>
 				<?php endif ?>
+				<?php if (($this->session->flashdata('error'))): ?>
+					<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button>
+						<strong>We could not log you in</strong>
+					</div>
+				<?php endif ?>
 	
-				<?php echo form_open('', array('class' => 'form-signin')); ?>
+				<?php echo form_open('user/user/post_login', array('class' => 'form-signin')); ?>
 					<h2 class="form-signin-heading">Please sign in</h2>
 
 					<?php echo form_label('Email', 'email', array('class' => 'sr-only')); ?>

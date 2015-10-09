@@ -10,17 +10,39 @@ class User extends Frontend_Controller {
 		$this->load->model('user_m');
 	}
 
+	public function home() {
+		$this->load->view('user/home');
+	}
+
 	/**
 	 * [View Login page if login is valid than redirect to administrator view]
 	 * @return [view('login')] [show login page]
 	 */
 	public function login() {
+		$this->session->set_flashdata('error', FALSE);
+		$this->load->view('user/login');
+	}
+
+	/**
+	 * [Post Login and check credential]
+	 * @return [view('login')] [post login]
+	 */
+	public function post_login() {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		if ($this->ion_auth->login($email, $password) == TRUE) {
-			redirect('administrator');
+			if ($this->ion_auth->is_admin()){
+				redirect('administrator/home');
+			} else if($this->ion_auth->in_group('members')) {
+				redirect('user/user/home');
+			} else {
+				$this->session->set_flashdata('error', TRUE);
+				redirect('user/user/login');
+			}
+		} else {
+			$this->session->set_flashdata('error', TRUE);
+			redirect('user/user/login');
 		}
-		$this->load->view('login');
 	}
 
 	/**
@@ -29,7 +51,7 @@ class User extends Frontend_Controller {
 	 */
 	public function logout () {
 		$this->ion_auth->logout();
-		redirect('user/login');
+		redirect('user/user/login');
 	}
 
 	/**
@@ -53,13 +75,13 @@ class User extends Frontend_Controller {
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
-			redirect('user/login');
+			redirect('user/user/login');
 		} else {
 			$this->load->view('login');
 		}
 	}
 
-	public function _unique_email($str){
+	public function _unique_email(){
 		// Do NOT validate if email already exists
 		// UNLESS it's the email for the current user
 		

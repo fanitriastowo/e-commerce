@@ -7,13 +7,13 @@
  			<nav class="e-nav">
  				<?php if (!$this->ion_auth->logged_in()): ?>
  					<?php echo anchor('#', 'Registration', 'id="registration" class="e-nav-item" title="Input your registration identity" data-toggle="modal" data-target="#registration_modal"'); ?>
- 					<?php echo anchor('user/login', 'Login', 'id="login" class="e-nav-item"'); ?>
+ 					<?php echo anchor('user/user/login', 'Login', 'id="login" class="e-nav-item"'); ?>
  				<?php endif ?>
  				
  				<?php if ($this->ion_auth->logged_in()): ?>
  					<?php echo anchor('#', '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0', 'class="btn btn-default"'); ?>
  					<?php echo anchor('#', 'Your Profile', 'id="profile" class="e-nav-item"'); ?>
- 					<?php echo anchor('user/logout', 'Logout', 'class="e-nav-item"'); ?>
+ 					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>
  			</nav>
  		</div>
@@ -21,7 +21,7 @@
  </div>
 
  <!-- Registration Modal -->
- <?php echo form_open('user/registration', 'class = form-horizontal'); ?>
+ <?php echo form_open('user/user/registration', 'class = form-horizontal'); ?>
  <div class="modal fade" id="registration_modal" tabindex="-1" role="dialog" aria-labelledby="registration_modal_label">
  	<div class="modal-dialog" role="document">
  		<div class="modal-content">

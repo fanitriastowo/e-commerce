@@ -1,6 +1,6 @@
 <?php 
 
-class Home extends Backend_Controller {
+class Home extends Admin_Controller {
 
 	function __construct() {
 		parent::__construct();

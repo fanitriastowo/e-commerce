@@ -10,9 +10,18 @@
  					<?php echo anchor('user/user/login', 'Login', 'id="login" class="e-nav-item"'); ?>
  				<?php endif ?>
  				
- 				<?php if ($this->ion_auth->logged_in()): ?>
+ 				<?php if ($this->ion_auth->logged_in() && !$this->ion_auth->is_admin()): ?>
  					<?php echo anchor('#', '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0', 'class="btn btn-default"'); ?>
- 					<?php echo anchor('#', 'Your Profile', 'id="profile" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Profile', 'id="profile" class="e-nav-item"'); ?>
+ 					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
+ 				<?php endif ?>
+
+ 				<?php if ($this->ion_auth->is_admin()): ?>
+ 					<?php echo anchor('#', 'Products', 'id="products" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Categories', 'id="categories" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Pemesanan', 'id="pemesanan" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Users', 'id="users" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Config', 'id="users" class="e-nav-item"'); ?>
  					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>
  			</nav>

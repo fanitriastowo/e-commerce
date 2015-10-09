@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends Frontend_Controller {
+class User extends User_Controller {
 
 	/**
 	 * [Default constructor from CI_Controller]
@@ -19,6 +19,12 @@ class User extends Frontend_Controller {
 	 * @return [view('login')] [show login page]
 	 */
 	public function login() {
+		// redirect if already logged in
+        if ($this->ion_auth->is_admin() == TRUE) {
+            redirect('administrator/home');
+        } else if ($this->ion_auth->in_group('members') == TRUE) {
+        	redirect('user/user/home');
+        }
 		$this->session->set_flashdata('error', FALSE);
 		$this->load->view('user/login');
 	}

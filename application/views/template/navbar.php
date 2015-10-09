@@ -20,21 +20,29 @@
  	</div>
  </div>
 
- <!-- Modal -->
+ <!-- Registration Modal -->
  <?php echo form_open('user/registration', 'class = form-horizontal'); ?>
  <div class="modal fade" id="registration_modal" tabindex="-1" role="dialog" aria-labelledby="registration_modal_label">
  	<div class="modal-dialog" role="document">
  		<div class="modal-content">
- 			<div class="modal-header bg-danger">
+ 			<div class="modal-header bg-info">
  				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 				<h4 class="modal-title" id="registration_modal_label"><strong>Input your identity</strong></h4>
+ 				<h4 class="modal-title" id="registration_modal_label"><strong>Create Account</strong></h4>
+ 				<p>It's free and always be</p>
  			</div>
  			<div class="modal-body">
 
  				<div class="form-group">
-	 				<?php echo form_label('Username', 'register_username', array('class' => 'col-sm-2 control-label')); ?>
+	 				<?php echo form_label('Firstname', 'register_firstname', array('class' => 'col-sm-2 control-label')); ?>
  					<div class="col-sm-10">
- 						<?php echo form_input('username','', 'class="form-control" id="register_username" placeholder="Username" required'); ?>
+ 						<?php echo form_input('firstname','', 'class="form-control" id="register_firstname" placeholder="Firstname" required'); ?>
+ 					</div>
+ 				</div>
+
+ 				<div class="form-group">
+	 				<?php echo form_label('Lastname', 'register_lastname', array('class' => 'col-sm-2 control-label')); ?>
+ 					<div class="col-sm-10">
+ 						<?php echo form_input('lastname','', 'class="form-control" id="register_lastname" placeholder="Lastname" required'); ?>
  					</div>
  				</div>
 
@@ -49,6 +57,20 @@
  					<?php echo form_label('Password', 'register_password', array('class' => 'col-sm-2 control-label')); ?>
  					<div class="col-sm-10">
  						<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password" required'); ?>
+ 					</div>
+ 				</div>
+
+ 				<div class="form-group">
+ 					<?php echo form_label('Confirm Password', 'register_confirm_password', array('class' => 'col-sm-2 control-label')); ?>
+ 					<div class="col-sm-10">
+ 						<?php echo form_password('confirm_password','', 'class="form-control" id="register_confirm_password" placeholder="Confirm Password" required'); ?>
+ 					</div>
+ 				</div>
+
+ 				<div class="form-group">
+ 					<?php echo form_label('Phone', 'register_phone', array('class' => 'col-sm-2 control-label')); ?>
+ 					<div class="col-sm-10">
+ 						<?php echo form_password('phone','', 'class="form-control" id="register_phone" placeholder="Phone Number" required'); ?>
  					</div>
  				</div>
 

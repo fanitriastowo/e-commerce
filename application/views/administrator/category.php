@@ -19,8 +19,8 @@
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">
-									<a href="#" class="btn btn-info">Update</a>
-									<a href="#" class="btn btn-danger">Delete</a>
+									<a href="#" class="btn btn-info"><i class="fa fa-pencil"></i>&nbsp; Update</a>
+									<a href="#" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp; Delete</a>
 								</div>
 
 
@@ -30,7 +30,7 @@
 				<?php endforeach ?>
 			</div>
 			<div class="panel-footer">
-				<a href="#" class="btn btn-success btn-lg btn-block">Add</a>
+				<a href="#" class="btn btn-success btn-lg btn-block"><i class="fa fa-plus"></i>&nbsp; Add Category</a>
 			</div>
 		</div>
 		

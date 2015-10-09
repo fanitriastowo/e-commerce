@@ -3,7 +3,7 @@
 	<ul class="nav nav-pills nav-stacked">
 		<?php foreach ($products as $product): ?>
 			<li role="presentation">
-				<a href="<?php echo site_url('product/detail/' . $product->id); ?>"><?php echo $product->name; ?></a>
+				<a href="<?php echo site_url('product/detail/' . $product->id); ?>"><i class="fa fa-star fa-fw"></i>&nbsp; <?php echo $product->name; ?></a>
 			</li>
 		<?php endforeach ?>
 	</ul>

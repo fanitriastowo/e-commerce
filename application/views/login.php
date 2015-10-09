@@ -13,6 +13,14 @@
 		<div class="row">
 			<!-- Main Content (Login Form) -->
 			<div class="col-sm-offset-2 col-sm-8">
+				<?php if (validation_errors()): ?>
+					<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button>
+						<strong><?php echo validation_errors(); ?></strong>
+					</div>
+				<?php endif ?>
+	
 				<?php echo form_open('', array('class' => 'form-signin')); ?>
 					<h2 class="form-signin-heading">Please sign in</h2>
 

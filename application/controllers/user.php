@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends MY_Controller {
+class User extends Frontend_Controller {
 
 	/**
 	 * [Default constructor from CI_Controller]
@@ -37,11 +37,41 @@ class User extends MY_Controller {
 	 * @return [view('user/login')] [redirect to login page]
 	 */
 	public function registration() {
-		$username = $this->input->post('username');
+
+		$first_name = $this->input->post('first_name');
+		$last_name = $this->input->post('last_name');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-		$this->ion_auth->register($username, $password, $email);
-		redirect('user/login');
+		$confirm_password = $this->input->post('confirm_password');
+		$phone = $this->input->post('phone');
+		$additional = array(
+						'first_name' => $first_name,
+						'last_name' => $last_name,
+						'phone' => $phone
+					);
+		$rules = $this->user_m->rules;
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() == TRUE) {
+			$this->ion_auth->register($first_name, $password, $email, $additional);
+			redirect('user/login');
+		} else {
+			$this->load->view('login');
+		}
+	}
+
+	public function _unique_email($str){
+		// Do NOT validate if email already exists
+		// UNLESS it's the email for the current user
+		
+		$this->db->where('email', $this->input->post('email'));
+		$user = $this->user_m->get();
+		
+		if (count($user)) {
+			$this->form_validation->set_message('_unique_email', '%s should be unique');
+			return FALSE;
+		}
+		
+		return TRUE;
 	}
 }
 

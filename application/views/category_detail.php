@@ -20,7 +20,7 @@
 				<?php foreach ($produts_by_categories as $category_detail): ?>
 					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>'></a>
+							<a href="<?php echo site_url('product/detail/' . $category_detail->id); ?>"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>'></a>
 							<div class="caption text-center">
 								<div class="text-danger">
 									<strong><?php echo $category_detail->name; ?></strong>

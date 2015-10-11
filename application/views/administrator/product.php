@@ -10,6 +10,22 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
+		<?php if (!empty($this->session->flashdata('error'))): ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error'); ?></strong>
+			</div>
+		<?php endif ?>
+
+		<?php if (!empty($this->session->flashdata('notif'))): ?>
+			<div class="alert alert-success alert-dismissible text-center" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('notif'); ?></strong>
+			</div>
+		<?php endif ?>
+
 		<h1 class="text-center">Daftar Product</h1>
 		
 		<div class="text-right">

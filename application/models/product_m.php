@@ -4,6 +4,35 @@ class Product_m extends MY_Model {
 
 	protected $_table_name = 'products';
 	protected $_order_by = 'created desc';
+	protected $_timestamps = TRUE;
+
+	public $rules = array(
+				'created' => array(
+					'field' => 'created', 
+					'label' => 'Created Date',
+					'rules' => 'trim|exact_length[10]'
+				),
+				'category_id' => array(
+					'field' => 'category_id', 
+					'label' => 'Category ID', 
+					'rules' => 'trim|required|integer'
+				),
+				'name' => array(
+					'field' => 'name', 
+					'label' => 'Nama', 
+					'rules' => 'trim|required|xss_clean'
+				),
+				'price' => array(
+					'field' => 'price', 
+					'label' => 'Harga', 
+					'rules' => 'trim|required|xss_clean|integer'
+				),
+				'description' => array(
+					'field' => 'description', 
+					'label' => 'Deskripsi', 
+					'rules' => 'trim|xss_clean'
+				)
+			);
 
 	/**
 	 * [default constructor from MY_Model]

@@ -17,7 +17,7 @@ class Category_m extends MY_Model {
 		$return = array();
 		if( is_array( $result ) && count( $result ) > 0 ){
 			foreach($result as $row) {
-				$return[$row['name']] = $row['name'];
+				$return[$row['id']] = $row['name'];
 			}
 		}
 		return $return;

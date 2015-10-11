@@ -100,7 +100,7 @@ class MY_Model extends CI_Model {
 		if ($this->_timestamps == TRUE) {
 			$now = date('Y-m-d h:i:s');
 			$id || $data['created'] = $now;
-			$data['modified'] = $now;
+			$data['created'] = $now;
 		}
 
 		// Condition to Insert OR Update base on $id

@@ -32,6 +32,7 @@
 
 					<?php echo form_submit('submit', 'Login', 'class = "btn btn-lg btn-primary btn-block"'); ?>
 				<?php echo form_close(); ?>
+				
 				<?php if (($this->session->flashdata('error'))): ?>
 					<div class="alert alert-danger alert-dismissible text-center" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">

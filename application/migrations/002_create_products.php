@@ -38,7 +38,9 @@ class Migration_Create_products extends CI_Migration {
 				PRIMARY KEY (id),
 				KEY category_id (category_id),
 				CONSTRAINT category_id_fk FOREIGN KEY (category_id)
-				REFERENCES categories (id))";
+				REFERENCES categories (id)
+				ON DELETE CASCADE ON UPDATE NO ACTION
+				)";
 
 		$insert_meja1 = "INSERT INTO `products` SET category_id=1, name='Meja Makan', price=800000, description='Meja makan merek Sunda.', created=NOW()";
 		$insert_meja2 = "INSERT INTO `products` SET category_id=1, name='Meja Komputer', price=300000, description='Meja untuk komputer. ergonomic', created=NOW() - INTERVAL 1 DAY";

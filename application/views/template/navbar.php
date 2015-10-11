@@ -30,7 +30,7 @@
  </div>
 
  <!-- Registration Modal -->
- <?php echo form_open('user/user/registration', 'class = form-horizontal'); ?>
+ <?php echo form_open('user/user/registration', 'class="form-horizontal"'); ?>
  <div class="modal fade" id="registration_modal" tabindex="-1" role="dialog" aria-labelledby="registration_modal_label">
  	<div class="modal-dialog" role="document">
  		<div class="modal-content">

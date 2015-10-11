@@ -22,8 +22,6 @@
 									<a href="#" class="btn btn-info"><i class="fa fa-pencil"></i>&nbsp; Update</a>
 									<a href="#" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp; Delete</a>
 								</div>
-
-
 							</div>
 						</div>
 					</div>

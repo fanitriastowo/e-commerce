@@ -62,6 +62,12 @@ class Product_m extends MY_Model {
 		// return it using get_by() method from MY_Model
 		return parent::get_by('category_id', $id);
 	}
+
+	public function get_all_product_and_category() {
+		$this->db->select('products.*, categories.name AS category_name');
+        $this->db->join('categories', 'products.category_id = categories.id');
+        return parent::get();
+	}
 }
 
 /* End of file product_m.php */

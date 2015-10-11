@@ -18,6 +18,7 @@
 					<th>Name</th>
 					<th>Price</th>
 					<th>Description</th>
+					<th>Category</th>
 					<th>Operation</th>
 				</tr>
 			</thead>
@@ -28,6 +29,7 @@
 					<td><?php echo $product->name; ?></td>
 					<td><?php echo $product->price; ?></td>
 					<td><?php echo $product->description; ?></td>
+					<td><?php echo $product->category_name; ?></td>
 					<td>
 						<a href="<?php echo site_url('#'); ?>" class="btn btn-info">Update</a>
 						<a href="<?php echo site_url('#'); ?>" class="btn btn-danger">Delete</a>

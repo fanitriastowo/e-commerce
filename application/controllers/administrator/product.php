@@ -8,7 +8,7 @@ class Product extends Admin_Controller {
 	}
 
 	public function index() {
-		$model['products'] = $this->product_m->get();
+		$model['products'] = $this->product_m->get_all_product_and_category();
 		$this->load->view('administrator/product', $model);
 	}
 }

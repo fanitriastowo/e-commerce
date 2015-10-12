@@ -18,6 +18,13 @@
 					<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
 				</div>
 			<?php endif ?>
+			<?php if (!empty($this->session->flashdata('error_update'))): ?>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
+				</div>
+			<?php endif ?>
 			<?php if (!empty($this->session->flashdata('notif'))): ?>
 				<div class="alert alert-success alert-dismissible text-center" role="alert">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -35,7 +42,7 @@
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">
-									<a href="#" class="btn btn-info"><i class="fa fa-pencil"></i>&nbsp; Update</a>
+									<a href="<?php echo site_url('administrator/category/detail/' . $category->id); ?>" class="btn btn-info trigger-update"><i class="fa fa-pencil"></i>&nbsp; Update</a>
 									<a href="<?php echo site_url('administrator/category/delete/' . $category->id); ?>" class="btn btn-danger trigger-delete"><i class="fa fa-trash"></i>&nbsp; Delete</a>
 								</div>
 							</div>
@@ -50,7 +57,7 @@
 		</div>
 	</div>
 
-	<!-- Modal -->
+	<!-- Add Modal -->
 	<?php echo form_open('administrator/category/insert', 'class="form-horizontal"'); ?>
 	<div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="add-category-modal-label">
 		<div class="modal-dialog" role="document">
@@ -64,7 +71,35 @@
 					<div class="form-group">
 						<label for="insert_name" class="col-sm-2 control-label">Nama</label>
 						<div class="col-sm-10">
-							<?php echo form_input('name', '', 'class="form-control" placeholder="Nama Kategori" id="insert_name"'); ?>
+							<?php echo form_input('name', '', 'class="form-control" placeholder="Nama Kategori" id="insert_name" required'); ?>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo form_close(); ?>
+
+	<!-- Update Modal -->
+	<?php echo form_open('administrator/category/update', 'class="form-horizontal"'); ?>
+	<?php echo form_hidden('update_id'); ?>
+	<div class="modal fade" id="update-category-modal" tabindex="-1" role="dialog" aria-labelledby="update-category-modal-label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="update-category-modal-label"><strong>Add Category</strong></h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="update_name" class="col-sm-2 control-label">Nama</label>
+						<div class="col-sm-10">
+							<?php echo form_input('update_name', '', 'class="form-control" placeholder="Nama Kategori" id="update_name" required'); ?>
 						</div>
 					</div>
 				</div>
@@ -108,6 +143,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#categories').addClass('active');
+		});
+
+		$('.trigger-update').click(function(e) {
+			e.preventDefault();
+			var updateURL = $(this).attr("href");
+			$.getJSON(updateURL, function(data) {
+				$('input[name="update_id"]').val(data.id);
+				$('#update_name').val(data.name);
+			});
+			$('#update-category-modal').modal();
 		});
 
 		$('.trigger-delete').click(function(e) {

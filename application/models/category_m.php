@@ -12,6 +12,14 @@ class Category_m extends MY_Model {
 					)
 				);
 
+	public $rules_update = array(
+					'name' => array(
+						'field' => 'update_name', 
+						'label' => 'Name',
+						'rules' => 'trim|required|xss_clean|max_length[100]'
+					)
+				);
+
 	/**
 	 * [default constructor from MY_Model]
 	 */

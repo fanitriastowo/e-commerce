@@ -26,6 +26,22 @@
 			</div>
 		<?php endif ?>
 
+		<?php if (!empty($this->session->flashdata('error_update'))): ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
+			</div>
+		<?php endif ?>
+
+		<?php if (!empty($this->session->flashdata('notif_update'))): ?>
+			<div class="alert alert-success alert-dismissible text-center" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('notif_update'); ?></strong>
+			</div>
+		<?php endif ?>
+
 		<h1 class="text-center">Daftar Product</h1>
 		
 		<div class="text-right">
@@ -36,7 +52,7 @@
 		<table id="products_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					<th>No.</th>
+					<th width="5%">No.</th>
 					<th>Name</th>
 					<th>Price</th>
 					<th>Description</th>
@@ -53,7 +69,7 @@
 					<td><?php echo $product->description; ?></td>
 					<td><?php echo $product->category_name; ?></td>
 					<td>
-						<a href="<?php echo site_url('administrator/product/detail/' . $product->id); ?>" class="btn btn-info">Update</a>
+						<a href="<?php echo site_url('administrator/product/detail/' . $product->id); ?>" class="btn btn-info trigger-update">Update</a>
 						<a href="<?php echo site_url('administrator/product/delete/' . $product->id); ?>" class="btn btn-danger trigger-delete">Delete</a>
 					</td>
 				</tr>
@@ -104,7 +120,58 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
 							<i class="fa fa-times"></i> Cancel</button>
-						<button type="submit" class="btn btn-success">
+						<button type="submit" class="btn btn-success" name="submit_save">
+							<i class="fa fa-check-circle"></i> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php echo form_close(); ?>
+
+	<!-- Update Modal -->
+	<?php echo form_open('administrator/product/update', 'class="form-horizontal"'); ?>
+		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="modalLabelUpdate">Update Product</h4>
+					</div>
+					<div class="modal-body">
+						<?php echo form_hidden('update_id'); ?>
+						<div class="form-group">
+							<label for="input_name" class="col-sm-2 control-label">Nama:</label>
+							<div class="col-sm-10">
+								<?php echo form_input('update_name','', 'class="form-control" id="input_name" placeholder="Input Nama Product" required'); ?>
+							</div>
+						</div>			
+
+						<div class="form-group">
+							<label for="input_price" class="col-sm-2 control-label">Harga:</label>
+							<div class="col-sm-10">
+								<?php echo form_input('update_price','', 'class="form-control" id="input_price" placeholder="Input Harga" required'); ?>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="select_category" class="col-sm-2 control-label">Kategori:</label>
+							<div class="col-sm-4">
+								<?php echo form_dropdown('update_category_id', $categories_dropdown, '', 'class="form-control" id="select_category"'); ?>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="input_description" class="col-sm-2 control-label">Deskripsi:</label>
+							<div class="col-sm-10">
+								<?php echo form_textarea(array( 'name' => 'update_description', 'id' => 'input_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
+							</div>
+						</div>						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<i class="fa fa-times"></i> Cancel</button>
+						<button type="submit" class="btn btn-success" name="submit_update">
 							<i class="fa fa-check-circle"></i> Save</button>
 					</div>
 				</div>
@@ -148,6 +215,19 @@
 			$('#products_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
 			});
+		});
+
+		$('.trigger-update').click(function(e) {
+			e.preventDefault();
+			var updateURL = $(this).attr("href");
+			$.getJSON(updateURL, function(data) {
+				$('input[name="update_id"]').val(data.id);
+				$('#input_name').val(data.name);
+				$('#input_price').val(data.price);
+				$('#select_category').val(data.category_id);
+				$('#input_description').val(data.description);
+			});
+			$('#update-modal').modal();
 		});
 
 		$('.trigger-delete').click(function(e) {

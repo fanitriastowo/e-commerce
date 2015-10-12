@@ -33,7 +33,6 @@ class Product_m extends MY_Model {
 					'rules' => 'trim|xss_clean'
 				)
 			);
-
 	/**
 	 * [default constructor from MY_Model]
 	 */

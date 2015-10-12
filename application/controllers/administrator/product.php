@@ -20,25 +20,27 @@ class Product extends Admin_Controller {
 	}
 
 	public function insert() {
-		$name = $this->input->post('name');
-		$price = $this->input->post('price');
-		$category_id = $this->input->post('category_id');
-		$description = $this->input->post('description');
-		$product = array(
-					'category_id' => $category_id,
-					'name' => $name,
-					'price' => $price,
-					'description' => $description
-				);
-		$rules = $this->product_m->rules;
-		$this->form_validation->set_rules($rules);
-		if ($this->form_validation->run() == TRUE) {
-			$this->product_m->save($product);
-			$this->session->set_flashdata('notif', 'Insert Product Successful!');
-			redirect('administrator/product');
-		} else {
-			$this->session->set_flashdata('error', validation_errors());
-			redirect('administrator/product');
+		if (isset($_POST['submit_save'])) {
+			$name = $this->input->post('name');
+			$price = $this->input->post('price');
+			$category_id = $this->input->post('category_id');
+			$description = $this->input->post('description');
+			$product = array(
+						'category_id' => $category_id,
+						'name' => $name,
+						'price' => $price,
+						'description' => $description
+					);
+			$rules = $this->product_m->rules;
+			$this->form_validation->set_rules($rules);
+			if ($this->form_validation->run() == TRUE) {
+				$this->product_m->save($product);
+				$this->session->set_flashdata('notif', 'Insert Product Successful!');
+				redirect('administrator/product');
+			} else {
+				$this->session->set_flashdata('error', 'Insert Product Failed');
+				redirect('administrator/product');
+			}
 		}
 	}
 
@@ -46,5 +48,31 @@ class Product extends Admin_Controller {
 		$this->product_m->delete($id);
 		$this->session->set_flashdata('notif', 'Delete Product Successful!');
 		redirect('administrator/product');
+	}
+
+	public function update() {
+		if (isset($_POST['submit_update'])) {
+			$id = $this->input->post('update_id');
+			$name = $this->input->post('update_name');
+			$price = $this->input->post('update_price');
+			$category_id = $this->input->post('update_category_id');
+			$description = $this->input->post('update_description');
+			$product = array(
+						'category_id' => $category_id,
+						'name' => $name,
+						'price' => $price,
+						'description' => $description
+					);
+			$rules = $this->product_m->rules;
+			$this->form_validation->set_rules($rules);
+			if ($this->form_validation->run() == TRUE) {
+				$this->product_m->save($product, $id);
+				$this->session->set_flashdata('notif_update', 'Update Product Successful!');
+				redirect('administrator/product');
+			} else {
+				$this->session->set_flashdata('error_update', 'Update Product Failed');
+				redirect('administrator/product');
+			}
+		}
 	}
 }

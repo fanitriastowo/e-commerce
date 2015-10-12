@@ -33,6 +33,34 @@ class Product_m extends MY_Model {
 					'rules' => 'trim|xss_clean'
 				)
 			);
+
+	public $rules_update = array(
+				'created' => array(
+					'field' => 'created', 
+					'label' => 'Created Date',
+					'rules' => 'trim|exact_length[10]'
+				),
+				'category_id' => array(
+					'field' => 'update_category_id', 
+					'label' => 'Category ID', 
+					'rules' => 'trim|required|integer'
+				),
+				'name' => array(
+					'field' => 'update_name', 
+					'label' => 'Nama', 
+					'rules' => 'trim|required|xss_clean'
+				),
+				'price' => array(
+					'field' => 'update_price', 
+					'label' => 'Harga', 
+					'rules' => 'trim|required|xss_clean|integer'
+				),
+				'description' => array(
+					'field' => 'update_description', 
+					'label' => 'Deskripsi', 
+					'rules' => 'trim|xss_clean'
+				)
+			);
 	/**
 	 * [default constructor from MY_Model]
 	 */

@@ -10,11 +10,19 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php if (!empty($this->session->flashdata('error'))): ?>
+		<?php if (!empty($this->session->flashdata('error_insert'))): ?>
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error'); ?></strong>
+				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
+			</div>
+		<?php endif ?>
+
+		<?php if (!empty($this->session->flashdata('error_update'))): ?>
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
 			</div>
 		<?php endif ?>
 
@@ -53,8 +61,8 @@
 					<td><?php echo $product->description; ?></td>
 					<td><?php echo $product->category_name; ?></td>
 					<td>
-						<a href="<?php echo site_url('administrator/product/detail/' . $product->id); ?>" class="btn btn-info trigger-update">Update</a>
-						<a href="<?php echo site_url('administrator/product/delete/' . $product->id); ?>" class="btn btn-danger trigger-delete">Delete</a>
+						<a href="<?php echo site_url('administrator/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i> Update</a>
+						<a href="<?php echo site_url('administrator/product/delete/' . $product->id); ?>" class="btn btn-xs btn-danger trigger-delete"><i class="fa fa-trash"></i> Delete</a>
 					</td>
 				</tr>
 				<?php endforeach ?>
@@ -64,13 +72,14 @@
 
 	<!-- Add Modal -->
 	<?php echo form_open('administrator/product/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_hidden('form_insert', 'form_insert'); ?>
 		<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="modalLabel">Tambah Product</h4>
+						<h4 class="modal-title">Tambah Product</h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
@@ -114,13 +123,14 @@
 
 	<!-- Update Modal -->
 	<?php echo form_open('administrator/product/update', 'class="form-horizontal"'); ?>
+	<?php echo form_hidden('form_update', 'form_update'); ?>
 		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="modalLabelUpdate">Update Product</h4>
+						<h4 class="modal-title">Update Product</h4>
 					</div>
 					<div class="modal-body">
 						<?php echo form_hidden('update_id'); ?>

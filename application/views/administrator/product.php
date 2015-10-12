@@ -26,22 +26,6 @@
 			</div>
 		<?php endif ?>
 
-		<?php if (!empty($this->session->flashdata('error_update'))): ?>
-			<div class="alert alert-danger alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
-			</div>
-		<?php endif ?>
-
-		<?php if (!empty($this->session->flashdata('notif_update'))): ?>
-			<div class="alert alert-success alert-dismissible text-center" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('notif_update'); ?></strong>
-			</div>
-		<?php endif ?>
-
 		<h1 class="text-center">Daftar Product</h1>
 		
 		<div class="text-right">
@@ -171,6 +155,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
 							<i class="fa fa-times"></i> Cancel</button>
+
 						<button type="submit" class="btn btn-success" name="submit_update">
 							<i class="fa fa-check-circle"></i> Save</button>
 					</div>

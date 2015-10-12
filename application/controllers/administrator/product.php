@@ -20,7 +20,7 @@ class Product extends Admin_Controller {
 	}
 
 	public function insert() {
-		if (isset($_POST['submit_save'])) {
+		if ($this->input->post('submit_save')) {
 			$name = $this->input->post('name');
 			$price = $this->input->post('price');
 			$category_id = $this->input->post('category_id');
@@ -38,9 +38,11 @@ class Product extends Admin_Controller {
 				$this->session->set_flashdata('notif', 'Insert Product Successful!');
 				redirect('administrator/product');
 			} else {
-				$this->session->set_flashdata('error', 'Insert Product Failed');
+				$this->session->set_flashdata('error', validation_errors());
 				redirect('administrator/product');
 			}
+		} else {
+			dump($_POST);
 		}
 	}
 
@@ -51,7 +53,7 @@ class Product extends Admin_Controller {
 	}
 
 	public function update() {
-		if (isset($_POST['submit_update'])) {
+		if ($this->input->post('submit_update')) {
 			$id = $this->input->post('update_id');
 			$name = $this->input->post('update_name');
 			$price = $this->input->post('update_price');
@@ -67,12 +69,14 @@ class Product extends Admin_Controller {
 			$this->form_validation->set_rules($rules);
 			if ($this->form_validation->run() == TRUE) {
 				$this->product_m->save($product, $id);
-				$this->session->set_flashdata('notif_update', 'Update Product Successful!');
+				$this->session->set_flashdata('notif', 'Update Product Successful!');
 				redirect('administrator/product');
 			} else {
-				$this->session->set_flashdata('error_update', 'Update Product Failed');
+				$this->session->set_flashdata('error', validation_errors());
 				redirect('administrator/product');
 			}
+		} else {
+			dump($_POST);
 		}
 	}
 }

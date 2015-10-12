@@ -64,7 +64,6 @@ class User extends User_Controller {
 	 * @return [view('user/login')] [redirect to login page]
 	 */
 	public function registration() {
-
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
 		$email = $this->input->post('email');

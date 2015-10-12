@@ -79,10 +79,13 @@ class User extends User_Controller {
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
+			$this->session->set_flashdata('notif_register', 'Registration Successful!');
 			redirect('user/user/login');
 		} else {
-			$this->load->view('login');
+			$this->session->set_flashdata('error_register', validation_errors());
+			redirect('user/user/login');
 		}
+		echo $this->ion_auth->messages();
 	}
 
 	public function _unique_email(){

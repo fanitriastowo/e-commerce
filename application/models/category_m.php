@@ -4,6 +4,13 @@ class Category_m extends MY_Model {
 
 	protected $_table_name = 'categories';
 	protected $_order_by = 'name';
+	public $rules = array(
+					'name' => array(
+						'field' => 'name', 
+						'label' => 'Name',
+						'rules' => 'trim|required|xss_clean|max_length[100]'
+					)
+				);
 
 	/**
 	 * [default constructor from MY_Model]

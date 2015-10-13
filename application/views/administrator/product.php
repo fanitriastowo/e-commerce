@@ -41,7 +41,7 @@
 				<span class="fa fa-plus" aria-hidden="true"></span> Add Product</button> <br /> <br />
 		</div>
 
-		<table id="products_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+		<table id="products_table" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th width="5%">No.</th>

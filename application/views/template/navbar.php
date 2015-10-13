@@ -20,8 +20,8 @@
  					<?php echo anchor('administrator/product', 'Products', 'id="products" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/category', 'Categories', 'id="categories" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/pemesanan', 'Pemesanan', 'id="pemesanan" class="e-nav-item"'); ?>
- 					<?php echo anchor('#', 'Users', 'id="users" class="e-nav-item"'); ?>
- 					<?php echo anchor('#', 'Config', 'id="users" class="e-nav-item"'); ?>
+ 					<?php echo anchor('administrator/user', 'Users', 'id="users" class="e-nav-item"'); ?>
+ 					<?php echo anchor('#', 'Config', 'id="config" class="e-nav-item"'); ?>
  					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>
  			</nav>

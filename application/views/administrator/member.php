@@ -11,27 +11,19 @@
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
 	
-		<?php if (!empty($this->session->flashdata('notif_insert'))): ?>
+		<?php if (!empty($this->session->flashdata('notif'))): ?>
 			<div class="alert alert-info alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('notif_insert'); ?></strong>
+				<strong><?php echo $this->session->flashdata('notif'); ?></strong>
 			</div>
 		<?php endif ?>
 
-		<?php if (!empty($this->session->flashdata('notif_delete'))): ?>
-			<div class="alert alert-info alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('notif_delete'); ?></strong>
-			</div>
-		<?php endif ?>
-
-		<?php if (!empty($this->session->flashdata('error_insert'))): ?>
+		<?php if (!empty($this->session->flashdata('error'))): ?>
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
+				<strong><?php echo $this->session->flashdata('error'); ?></strong>
 			</div>
 		<?php endif ?>
 
@@ -71,7 +63,7 @@
 		</table>
 	</div>
 
-	<!-- Registration Modal -->
+	<!-- Insert Modal -->
 	<?php echo form_open('administrator/member/insert', 'class="form-horizontal"'); ?>
 	<div class="modal fade" id="insert_modal" tabindex="-1" role="dialog" aria-labelledby="insert_modal_label">
 		<div class="modal-dialog" role="document">
@@ -122,6 +114,58 @@
 	</div>
 	<?php echo form_close(); ?>
 
+	<!-- Update Modal -->
+	<?php echo form_open('administrator/member/update', 'class="form-horizontal"'); ?>
+	<div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="update_modal_label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="update_modal_label"><strong>Update Member</strong></h4>
+				</div>
+				<div class="modal-body">
+					<?php echo form_hidden('update_id'); ?>
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<?php echo form_input('first_name','', 'class="form-control" id="update_firstname" placeholder="Firstname" required'); ?>
+						</div>
+						<div class="col-sm-6">
+							<?php echo form_input('last_name','', 'class="form-control" id="update_lastname" placeholder="Lastname" required'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<?php echo form_password('password','', 'class="form-control" id="update_password" placeholder="Password"'); ?>
+						</div>
+						<div class="col-sm-6">
+							<?php echo form_password('confirm_password','', 'class="form-control" id="update_confirm_password" placeholder="Confirm Password"'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_input('email','', 'class="form-control" id="update_email" placeholder="Email" required'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_input('phone','', 'class="form-control" id="update_phone" placeholder="Phone Number" required'); ?>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<?php echo form_submit('submit', 'Update', 'class="btn btn-primary"'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo form_close(); ?>
+
 	<!-- Modal Remove -->
 	<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -164,6 +208,19 @@
 			e.preventDefault();
 			$('#modal-delete .btn-delete').attr("href", $(this).attr("href"));
 			$('#modal-delete').modal();
+		});
+
+		$('.trigger-update').click(function(e) {
+			e.preventDefault();
+			var updateURL = $(this).attr("href");
+			$.getJSON(updateURL, function(data) {
+				$('input[name="update_id"]').val(data.id);
+				$('#update_firstname').val(data.first_name);
+				$('#update_lastname').val(data.last_name);
+				$('#update_email').val(data.email);
+				$('#update_phone').val(data.phone);
+			});
+			$('#update_modal').modal();
 		});
 	</script>
 </body>

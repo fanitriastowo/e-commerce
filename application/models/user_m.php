@@ -23,6 +23,38 @@ class User_m extends MY_Model {
 				'password' => array(
 					'field' => 'password', 
 					'label' => 'Password', 
+					'rules' => 'trim|matches[confirm_password]|required'
+				),
+				'confirm_password' => array(
+					'field' => 'confirm_password', 
+					'label' => 'Confirm password', 
+					'rules' => 'trim|matches[password]|required'
+				),
+				'phone' => array(
+					'field' => 'phone', 
+					'label' => 'Phone', 
+					'rules' => 'trim|integer|max_length[15]|required'
+				)
+			);
+	public $rules_update = array(
+				'first_name' => array(
+					'field' => 'first_name', 
+					'label' => 'Firstname', 
+					'rules' => 'trim|required|xss_clean'
+				), 
+				'last_name' => array(
+					'field' => 'last_name', 
+					'label' => 'Lastname', 
+					'rules' => 'trim|required|xss_clean'
+				), 
+				'email' => array(
+					'field' => 'email', 
+					'label' => 'Email', 
+					'rules' => 'trim|required|valid_email|callback__unique_email|xss_clean'
+				), 
+				'password' => array(
+					'field' => 'password', 
+					'label' => 'Password', 
 					'rules' => 'trim|matches[confirm_password]'
 				),
 				'confirm_password' => array(
@@ -33,7 +65,7 @@ class User_m extends MY_Model {
 				'phone' => array(
 					'field' => 'phone', 
 					'label' => 'Phone', 
-					'rules' => 'trim|integer|max_length[15]'
+					'rules' => 'trim|integer|max_length[15]|required'
 				)
 			);
 	/**

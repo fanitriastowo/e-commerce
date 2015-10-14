@@ -1,6 +1,6 @@
 <?php 
 
-class User extends Admin_Controller {
+class Member extends Admin_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -8,8 +8,8 @@ class User extends Admin_Controller {
 	}
 
 	public function index() {
-		$model['users'] = $this->ion_auth->users(2)->result();
-		$this->load->view('administrator/user', $model);
+		$model['members'] = $this->ion_auth->users(2)->result();
+		$this->load->view('administrator/member', $model);
 	}
 
 	public function insert() {
@@ -29,16 +29,21 @@ class User extends Admin_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
 			$this->session->set_flashdata('notif_insert', 'Insert new User Successful!');
-			redirect('administrator/user');
+			redirect('administrator/member');
 		} else {
 			$this->session->set_flashdata('error_insert', validation_errors());
-			redirect('administrator/user');
+			redirect('administrator/member');
 		}
 	}
 
 	public function delete($id) {
 		$this->ion_auth->delete_user($id);
 		$this->session->set_flashdata('notif_delete', 'Delete User Successful!');
-		redirect('administrator/user');
+		redirect('administrator/member');
+	}
+
+	public function detail($id) {
+		$member = $this->user_m->get($id);
+		return $this->output->set_content_type('application/json')->set_output(json_encode($member));
 	}
 }

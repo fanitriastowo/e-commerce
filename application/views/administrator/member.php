@@ -3,7 +3,7 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Daftar User</title>
+	<title>Daftar Member</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/datatables.bootstrap.min.css'); ?>">
 </head>
 <body>
@@ -40,7 +40,7 @@
 			<button class="btn btn-success" data-toggle="modal" data-target="#insert_modal">
 				<i class="fa fa-plus"></i> Add User</button>
 		</div> <br />
-		<table id="user_table" class="table table-hover table-striped table-bordered">
+		<table id="member_table" class="table table-hover table-striped table-bordered">
 			<thead>
 				<tr>
 					<th width="5%">No.</th>
@@ -52,17 +52,17 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($users as $key => $user): ?>
+			<?php foreach ($members as $key => $member): ?>
 				<tr>
 					<td><?php echo $key + 1; ?></td>
-					<td><?php echo $user->first_name; ?></td>
-					<td><?php echo $user->last_name; ?></td>
-					<td><?php echo $user->email; ?></td>
-					<td><?php echo $user->phone; ?></td>
+					<td><?php echo $member->first_name; ?></td>
+					<td><?php echo $member->last_name; ?></td>
+					<td><?php echo $member->email; ?></td>
+					<td><?php echo $member->phone; ?></td>
 					<td>
-						<a href="#" class="btn btn-xs btn-info">
+						<a href="<?php echo site_url('administrator/member/detail/' . $member->id); ?>" class="btn btn-xs btn-info trigger-update">
 							<i class="fa fa-pencil"></i> Update</a>
-						<a href="<?php echo site_url('administrator/user/delete/' . $user->id); ?>" class="btn btn-xs btn-danger trigger-delete">
+						<a href="<?php echo site_url('administrator/member/delete/' . $member->id); ?>" class="btn btn-xs btn-danger trigger-delete">
 							<i class="fa fa-trash"></i> Delete</a>
 					</td>
 				</tr>
@@ -72,7 +72,7 @@
 	</div>
 
 	<!-- Registration Modal -->
-	<?php echo form_open('administrator/user/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open('administrator/member/insert', 'class="form-horizontal"'); ?>
 	<div class="modal fade" id="insert_modal" tabindex="-1" role="dialog" aria-labelledby="insert_modal_label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -154,8 +154,8 @@
 	<script type="text/javascript" src="<?php echo site_url('assets/js/datatables.bootstrap.min.js'); ?>"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#users').addClass('active');
-			$('#user_table').DataTable({
+			$('#member').addClass('active');
+			$('#member_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
 			});
 		});

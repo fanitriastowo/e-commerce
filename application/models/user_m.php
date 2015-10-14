@@ -43,17 +43,6 @@ class User_m extends MY_Model {
 		parent::__construct();
 	}
 
-	public function get_user_by_member() {
-		$query = "SELECT users.*
-				    FROM users
-				        INNER JOIN users_groups
-				            ON users.id = users_groups.user_id
-				        INNER JOIN groups
-				            ON users_groups.group_id = groups.id
-				    WHERE groups.name = 'members'";
-		return $this->db->query($query)->result();
-	}
-
 }
 
 /* End of file user_m.php */

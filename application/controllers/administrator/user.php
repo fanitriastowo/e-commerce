@@ -8,7 +8,7 @@ class User extends Admin_Controller {
 	}
 
 	public function index() {
-		$model['users'] = $this->user_m->get_user_by_member();
+		$model['users'] = $this->ion_auth->users(2)->result();
 		$this->load->view('administrator/user', $model);
 	}
 

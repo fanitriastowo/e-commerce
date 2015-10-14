@@ -85,7 +85,6 @@ class User extends User_Controller {
 			$this->session->set_flashdata('error_register', validation_errors());
 			redirect('user/user/login');
 		}
-		echo $this->ion_auth->messages();
 	}
 
 	public function _unique_email(){

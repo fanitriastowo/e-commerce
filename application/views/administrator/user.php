@@ -10,9 +10,34 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
+	
+		<?php if (!empty($this->session->flashdata('notif_insert'))): ?>
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('notif_insert'); ?></strong>
+			</div>
+		<?php endif ?>
+
+		<?php if (!empty($this->session->flashdata('notif_delete'))): ?>
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('notif_delete'); ?></strong>
+			</div>
+		<?php endif ?>
+
+		<?php if (!empty($this->session->flashdata('error_insert'))): ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
+			</div>
+		<?php endif ?>
+
 		<h1 class="text-center">Daftar User</h1>
 		<div class="text-right">
-			<button class="btn btn-success">
+			<button class="btn btn-success" data-toggle="modal" data-target="#insert_modal">
 				<i class="fa fa-plus"></i> Add User</button>
 		</div> <br />
 		<table id="user_table" class="table table-hover table-striped table-bordered">
@@ -37,13 +62,87 @@
 					<td>
 						<a href="#" class="btn btn-xs btn-info">
 							<i class="fa fa-pencil"></i> Update</a>
-						<a href="#" class="btn btn-xs btn-danger">
+						<a href="<?php echo site_url('administrator/user/delete/' . $user->id); ?>" class="btn btn-xs btn-danger trigger-delete">
 							<i class="fa fa-trash"></i> Delete</a>
 					</td>
 				</tr>
 			<?php endforeach ?>
 			</tbody>
 		</table>
+	</div>
+
+	<!-- Registration Modal -->
+	<?php echo form_open('administrator/user/insert', 'class="form-horizontal"'); ?>
+	<div class="modal fade" id="insert_modal" tabindex="-1" role="dialog" aria-labelledby="insert_modal_label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="insert_modal_label"><strong>Create Account</strong></h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<?php echo form_input('first_name','', 'class="form-control" id="register_firstname" placeholder="Firstname" required'); ?>
+						</div>
+						<div class="col-sm-6">
+							<?php echo form_input('last_name','', 'class="form-control" id="register_lastname" placeholder="Lastname" required'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-6">
+							<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password" required'); ?>
+						</div>
+						<div class="col-sm-6">
+							<?php echo form_password('confirm_password','', 'class="form-control" id="register_confirm_password" placeholder="Confirm Password" required'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_input('email','', 'class="form-control" id="register_email" placeholder="Email" required'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_input('phone','', 'class="form-control" id="register_phone" placeholder="Phone Number" required'); ?>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<?php echo form_submit('submit', 'Register', 'class = "btn btn-primary"'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo form_close(); ?>
+
+	<!-- Modal Remove -->
+	<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Hapus User</h4>
+				</div>
+				<div class="modal-body">
+					<strong>Apakah Anda yakin akan menghapus?</strong>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<i class="fa fa-times"></i> Cancel</button>
+					<a href="" class="btn btn-danger btn-delete">
+						<i class="fa fa-check-circle"></i> Delete</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Footer -->
@@ -59,6 +158,12 @@
 			$('#user_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
 			});
+		});
+
+		$('.trigger-delete').click(function(e) {
+			e.preventDefault();
+			$('#modal-delete .btn-delete').attr("href", $(this).attr("href"));
+			$('#modal-delete').modal();
 		});
 	</script>
 </body>

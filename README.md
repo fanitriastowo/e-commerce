@@ -16,6 +16,7 @@ password: `password`
 9. Halaman Profile Member (Setting akun + daftar pemesanan-nya)
 10. Pemesanan Member
 11. Render Image dan upload image ke filesystem
+12. ~~Ganti Footer supaya menarik~~
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

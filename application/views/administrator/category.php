@@ -9,30 +9,30 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
+
+		<?php if (!empty($this->session->flashdata('error_insert'))): ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
+			</div>
+		<?php endif ?>
+		<?php if (!empty($this->session->flashdata('error_update'))): ?>
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
+			</div>
+		<?php endif ?>
+		<?php if (!empty($this->session->flashdata('notif'))): ?>
+			<div class="alert alert-success alert-dismissible text-center" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span></button>
+				<strong><?php echo $this->session->flashdata('notif'); ?></strong>
+			</div>
+		<?php endif ?>
+		
 		<div class="panel panel-primary">
-
-			<?php if (!empty($this->session->flashdata('error_insert'))): ?>
-				<div class="alert alert-danger alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button>
-					<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
-				</div>
-			<?php endif ?>
-			<?php if (!empty($this->session->flashdata('error_update'))): ?>
-				<div class="alert alert-danger alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button>
-					<strong><?php echo $this->session->flashdata('error_update'); ?></strong>
-				</div>
-			<?php endif ?>
-			<?php if (!empty($this->session->flashdata('notif'))): ?>
-				<div class="alert alert-success alert-dismissible text-center" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span></button>
-					<strong><?php echo $this->session->flashdata('notif'); ?></strong>
-				</div>
-			<?php endif ?>
-
 			<div class="panel-heading text-center"><strong class="panel-title">Daftar Category</strong></div>
 			<div class="panel-body">
 				<?php foreach ($categories as $category): ?>

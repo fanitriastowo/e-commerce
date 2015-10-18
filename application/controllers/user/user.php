@@ -19,12 +19,9 @@ class User extends User_Controller {
 	 */
 	public function login() {
 		// redirect if already logged in
-        if ($this->ion_auth->is_admin() == TRUE) {
-            redirect('administrator/home');
-        } else if ($this->ion_auth->in_group('members') == TRUE) {
+		if ($this->ion_auth->in_group('members') == TRUE) {
         	redirect('user/user/home');
         }
-		$this->session->set_flashdata('error', FALSE);
 		$this->load->view('user/login');
 	}
 
@@ -35,16 +32,10 @@ class User extends User_Controller {
 	public function post_login() {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-		if ($this->ion_auth->login($email, $password) == TRUE) {
-			if ($this->ion_auth->is_admin()){
-				redirect('administrator/pemesanan');
-			} else if($this->ion_auth->in_group('members')) {
-				redirect('user/profile');
-			} else {
-				$this->session->set_flashdata('error', TRUE);
-				redirect('user/user/login');
-			}
+		if ($this->ion_auth->login($email, $password) == TRUE && !$this->ion_auth->is_admin()) {
+			redirect('user/profile');
 		} else {
+			$this->ion_auth->logout();
 			$this->session->set_flashdata('error', TRUE);
 			redirect('user/user/login');
 		}
@@ -55,8 +46,12 @@ class User extends User_Controller {
 	 * @return [view('user/login')] [redirect to login page]
 	 */
 	public function logout () {
-		$this->ion_auth->logout();
-		redirect('user/user/login');
+		if ($this->ion_auth->logged_in()) {
+			$this->ion_auth->logout();
+			redirect('user/user/login');
+		} else {
+			redirect('user/user/login');
+		}
 	}
 
 	/**

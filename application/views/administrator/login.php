@@ -4,33 +4,16 @@
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/login.css'); ?>">
-	<title>Please Login</title>
+	<title>Please Login Administrator</title>
 </head>
 <body>
 	<!-- Navbar -->
-	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
 		<!-- Main Content (Login Form) -->
-		<?php if (!empty($this->session->flashdata('notif_register'))): ?>
-			<div class="alert alert-info alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('notif_register'); ?></strong>
-			</div>
-		<?php endif ?>
-
-		<?php if (!empty($this->session->flashdata('error_register'))): ?>
-			<div class="alert alert-danger alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error_register'); ?></strong>
-			</div>
-		<?php endif ?>
 
 		<div class="wrapper">
-
-			<?php echo form_open('user/user/post_login', array('class' => 'form-signin')); ?>
-			<h3 class="form-signin-heading">Please sign in</h3>
+			<?php echo form_open('administrator/administrator/post_login', array('class' => 'form-signin')); ?>
+			<h3 class="form-signin-heading">Welcome Administrator</h3>
 			<hr class="colorgraph"><br>
 			<?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Email Address', 'required' => '', 'autofocus' => '')); ?>
 
@@ -54,10 +37,5 @@
 
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#login').addClass('active');
-		});
-	</script>
 </body>
 </html>

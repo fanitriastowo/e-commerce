@@ -22,7 +22,7 @@
  					<?php echo anchor('administrator/pemesanan', 'Pemesanan', 'id="pemesanan" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/member', 'Members', 'id="member" class="e-nav-item"'); ?>
  					<?php echo anchor('#', 'Config', 'id="config" class="e-nav-item"'); ?>
- 					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
+ 					<?php echo anchor('administrator/administrator/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>
  			</nav>
  		</div>

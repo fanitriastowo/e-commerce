@@ -1,6 +1,12 @@
+### User Admin
+username: `admin@admin.com`     
+password: `password`
+
 ### TODO
 1. Penambahan menu navbar
-2. Pisah Login Admin dan Member
+2. ~~Pisah Login Admin dan Member~~
+    * login admin `localhost/e-commerce/admin`
+    * login user `klik login di navbar`
 3. JQuery Validation di products (administrator)
 4. JQuery Validation di categories (administrator)
 5. Daftar pemesanan (administrator)

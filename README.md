@@ -10,13 +10,37 @@ password: `password`
 3. JQuery Validation di products (administrator)
 4. JQuery Validation di categories (administrator)
 5. Daftar pemesanan (administrator)
+	* Daftar pemesanan hari ini (Ascending Datetime)
+	* form detail pemesanan
+	* Approve pemesanan
+	* generate bukti pemesanan
+	* ubah status pemesanan menjadi terkirim
 6. JQuery Validation di member (administrator)
 7. Halaman Config Admin (Setting Akun)
 8. JQuery Validation di form registrasi
 9. Halaman Profile Member (Setting akun + daftar pemesanan-nya)
 10. Pemesanan Member
+	* sebelum pesan, check login status
+	* redirect ke halaman sebelumnya setelah login
+	* pilih product dan quantity (tampilkan juga stock)
+	* product masuk ke cart (simpan di session)
+	* checkout di menu keranjang
+	* tampilkan daftar pemesanan dan ubah quantity
+	* form identitas penerima pesanan
+	* generate bukti pemesanan
+	* kembali ke menu pilih product
 11. Render Image dan upload image ke filesystem
 12. ~~Ganti Footer supaya menarik~~
+
+### Issue Pemesanan
+1. Member
+	* pesan 2 kali
+	* batal pesan
+2. Admin
+	* Pemesanan Ganda
+	* batal pemesanan member
+	* pemesanan lampau
+	* status pengiriman
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

@@ -3,7 +3,7 @@ username: `admin@admin.com`
 password: `password`
 
 ### TODO
-1. Penambahan menu navbar
+1. ~~Penambahan menu navbar~~
 2. ~~Pisah Login Admin dan Member~~
     * login admin `localhost/e-commerce/admin`
     * login user `klik login di navbar`

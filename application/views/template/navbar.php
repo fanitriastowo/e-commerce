@@ -6,12 +6,16 @@
  		<div class="navbar-right">
  			<nav class="e-nav">
  				<?php if (!$this->ion_auth->logged_in()): ?>
+ 					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
+ 					<?php echo anchor('ketentuan', 'Ketentuan', 'id="ketentuan" class="e-nav-item"'); ?>
  					<?php echo anchor('#', 'Registration', 'id="registration" class="e-nav-item" title="Input your registration identity" data-toggle="modal" data-target="#registration_modal"'); ?>
  					<?php echo anchor('user/user/login', 'Login', 'id="login" class="e-nav-item"'); ?>
  				<?php endif ?>
  				
  				<?php if ($this->ion_auth->logged_in() && !$this->ion_auth->is_admin()): ?>
  					<?php echo anchor('#', '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0', 'class="btn btn-default"'); ?>
+ 					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
+ 					<?php echo anchor('ketentuan', 'Ketentuan', 'id="ketentuan" class="e-nav-item"'); ?>
  					<?php echo anchor('user/profile', 'Profile', 'id="profile" class="e-nav-item"'); ?>
  					<?php echo anchor('user/user/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>

@@ -4,7 +4,7 @@ password: `password`
 
 ### TODO
 1. ~~Penambahan menu navbar~~
-	* Halaman Ketentuan Pemesanan
+	* ~~Halaman Ketentuan Pemesanan~~
 	* ~~Halaman About~~
 2. ~~Pisah Login Admin dan Member~~
     * ~~login admin `localhost/e-commerce/admin`~~

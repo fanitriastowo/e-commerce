@@ -6,7 +6,7 @@
                 <div class="col-xs-12">
                     <div class="footer-desc text-center">
                         <img src="<?php echo site_url('assets/images/logo.png') ?>" width="82" height="48" alt="">
-                        <p>
+                        <p class="text-muted">
                             Aplikasi pemesanan online (e-commerce) furniture <br>
                             seperti kursi, meja, bedset, kithcen set dan banyak lainnya.
                         </p>

@@ -33,7 +33,7 @@ class User extends User_Controller {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		if ($this->ion_auth->login($email, $password) == TRUE && !$this->ion_auth->is_admin()) {
-			redirect('user/profile');
+			redirect('home');
 		} else {
 			$this->ion_auth->logout();
 			$this->session->set_flashdata('error', TRUE);

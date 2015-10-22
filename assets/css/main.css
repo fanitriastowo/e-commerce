@@ -7,11 +7,11 @@ html {
 body {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	color: #555;
-	/*background-color: #333;*/
+	padding-top: 70px;
 }
 
 .e-masthead {
-	background-color: #DF9C0D;
+	background-color: #428bca;
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,12 +24,12 @@ body {
 	padding: 10px;
 	font-weight: 500;
 	font-family: Georgia, "Times New Roman", Times, serif;
-	color: #000;
+	color: #cdddeb;
 }
 
 .e-nav-item:hover,
 .e-nav-item:focus {
-	color: #FFF;
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -57,7 +57,7 @@ body {
 	padding: 15px 15px;
 	font-size: 18px;
 	line-height: 20px;
-	color: #8D2900;
+	color: #cdddeb;
 }
 
 .e-navbar-brand:hover,
@@ -76,7 +76,7 @@ body {
 
 /*FOOTER 1*/
 .footer1 .footer {
-	background-color: #F4B83A;
+	background-color: #94C3EA;
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	padding: 35px 0;
@@ -84,7 +84,7 @@ body {
 }
 
 .footer1 .footer .footer-desc p {
-	color: #FFF;
+	color: #000;
 	margin: 15px 0 8px;
 }
 
@@ -145,7 +145,7 @@ body {
 }
 
 .footer1 .footer-bottom {
-	background-color: #8B5E00;
+	background-color: #0A5A9C;
 	padding: 15px 0;
 	color: #FFF;
 	font-size: 13px;

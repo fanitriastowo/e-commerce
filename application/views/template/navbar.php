@@ -1,4 +1,4 @@
- <div class="e-masthead">
+ <div class="e-masthead navbar-fixed-top">
  	<div class="container">
  		<div class="navbar-header">
  			<?php echo anchor('/', '<span class="fa fa-lg fa-internet-explorer"></span> - Randu Jati', 'class="e-navbar-brand"'); ?>
@@ -13,7 +13,7 @@
  				<?php endif ?>
  				
  				<?php if ($this->ion_auth->logged_in() && !$this->ion_auth->is_admin()): ?>
- 					<?php echo anchor('#', '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 0', 'class="btn btn-default"'); ?>
+ 					<button type="button" class="btn btn-default"><span id="cart"  class="glyphicon glyphicon-shopping-cart"></span></button>
  					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
  					<?php echo anchor('ketentuan', 'Ketentuan', 'id="ketentuan" class="e-nav-item"'); ?>
  					<?php echo anchor('user/profile', 'Profile', 'id="profile" class="e-nav-item"'); ?>

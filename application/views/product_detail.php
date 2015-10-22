@@ -18,11 +18,17 @@
 			<div class="col-sm-8">
 				<h3 class="text-center bg-info"><strong>Detail Product</strong></h3>
 				<div class="thumbnail">
-					<a href="#"><img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'></a>
+					<img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 					<div class="caption text-center">
-						<div class="text-danger">
-							<strong><?php echo $product_detail->name; ?></strong>
-						</div>
+						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
+						<p><?php echo $product_detail->description; ?></p>
+						<?php echo form_open('user/pesan/add_product/' . $product_detail->id); ?>
+						<fieldset>
+							<label>Quantity</label> 
+							<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;"'); ?>
+							<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
+						</fieldset>
+						<?php echo form_close(); ?>
 					</div>
 				</div>
 			</div>

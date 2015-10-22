@@ -17,10 +17,12 @@ password: `password`
 	* Approve pemesanan
 	* generate bukti pemesanan
 	* ubah status pemesanan menjadi terkirim
-6. JQuery Validation di member (administrator)
+6. JQuery Validation di daftar member (administrator)
 7. Halaman Config Admin (Setting Akun)
 8. JQuery Validation di form registrasi
-9. Halaman Profile Member (Setting akun)
+9. ~~Halaman Profile Member (Setting akun)~~
+	* ~~Form ganti Profile~~
+	* JQuery Validation di ganti akun (member)
 10. Pemesanan Member
 	* sebelum pesan, check login status
 	* redirect ke halaman sebelumnya setelah login

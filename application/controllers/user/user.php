@@ -98,6 +98,7 @@ class User extends User_Controller {
 		
 		return TRUE;
 	}
+
 }
 
 /* End of file user.php */

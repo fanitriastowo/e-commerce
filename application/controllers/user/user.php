@@ -65,10 +65,12 @@ class User extends User_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
 		$additional = array(
 						'first_name' => $first_name,
 						'last_name' => $last_name,
-						'phone' => $phone
+						'phone' => $phone,
+						'address' => $address
 					);
 		$rules = $this->user_m->rules;
 		$this->form_validation->set_rules($rules);

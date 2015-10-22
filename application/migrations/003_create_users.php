@@ -29,6 +29,7 @@ class Migration_Create_users extends CI_Migration {
 				`last_name` varchar(50) DEFAULT NULL,
 				`company` varchar(100) DEFAULT NULL,
 				`phone` varchar(20) DEFAULT NULL,
+				`address` TEXT DEFAULT NULL,
 				PRIMARY KEY (`id`))";
 		
 		$user_group = "CREATE TABLE `users_groups` (
@@ -55,8 +56,8 @@ class Migration_Create_users extends CI_Migration {
 					(1,'admin','Administrator'),
 					(2,'members','General User')"	;
 
-		$insert_user = "INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES 
-					('1',0x7f000001,'administrator','59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4','9462e8eee0','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0')";
+		$insert_user = "INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `address`) VALUES 
+					('1',0x7f000001,'administrator','59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4','9462e8eee0','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','081542666676', 'Jalan Bhayangkara RT 02 RW 04 Desa Karangmangu Kroya')";
 					
 		$insert_user_group = "INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES (1,1,1)";
 

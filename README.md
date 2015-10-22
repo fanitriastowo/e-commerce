@@ -20,7 +20,7 @@ password: `password`
 6. JQuery Validation di member (administrator)
 7. Halaman Config Admin (Setting Akun)
 8. JQuery Validation di form registrasi
-9. Halaman Profile Member (Setting akun + daftar pemesanan-nya)
+9. Halaman Profile Member (Setting akun)
 10. Pemesanan Member
 	* sebelum pesan, check login status
 	* redirect ke halaman sebelumnya setelah login
@@ -33,6 +33,7 @@ password: `password`
 	* kembali ke menu pilih product
 11. Render Image dan upload image ke filesystem
 12. ~~Ganti Footer supaya menarik~~
+13. Search produk
 
 ### Issue Pemesanan
 1. Member

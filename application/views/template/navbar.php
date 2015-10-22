@@ -75,6 +75,12 @@
  					</div>
  				</div>
 
+ 				<div class="form-group">
+ 					<div class="col-sm-12">
+ 						<?php echo form_textarea('address','', 'class="form-control" id="register_address" placeholder="Alamat Member (alamat penerima)" style="resize : none;" required'); ?>
+ 					</div>
+ 				</div>
+
  			</div>
  			<div class="modal-footer">
  				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

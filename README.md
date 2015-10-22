@@ -28,8 +28,7 @@ password: `password`
 	* redirect ke halaman sebelumnya setelah login
 	* pilih product dan quantity (tampilkan juga stock)
 	* ~~product masuk ke cart (simpan di session)~~
-	* checkout di menu keranjang
-	* tampilkan daftar pemesanan dan ubah quantity
+	* ~~tampilkan daftar pemesanan dan ubah quantity~~
 	* form identitas penerima pesanan
 	* generate bukti pemesanan
 	* kembali ke menu pilih product

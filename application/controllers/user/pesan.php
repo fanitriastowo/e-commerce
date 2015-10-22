@@ -16,7 +16,9 @@ class Pesan extends User_Controller {
 			'qty'     => $qty,
 			'price'   => $product->price,
 			'name'    => $product->name,
-			'options' => array('category_id' => $product->category_id)
+			'options' => array(
+				'description' => $product->description
+			)
 		);
 		$this->cart->insert($data);
 		redirect('home');
@@ -28,7 +30,8 @@ class Pesan extends User_Controller {
 	}
 
 	public function show_all_products() {
-		dump($this->cart->contents());
+		$this->data['pemesanans'] = $this->cart->contents();
+		$this->load->view('user/daftar_pesanan', $this->data);
 	}
 
 	public function checkout(){

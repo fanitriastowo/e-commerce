@@ -13,7 +13,7 @@
  				<?php endif ?>
  				
  				<?php if ($this->ion_auth->logged_in() && !$this->ion_auth->is_admin()): ?>
- 					<button type="button" class="btn btn-default"><span id="cart"  class="glyphicon glyphicon-shopping-cart"></span></button>
+ 					<a href="<?php echo site_url('user/pesan/show_all_products'); ?>" class="btn btn-default"><span id="cart"  class="glyphicon glyphicon-shopping-cart"></span></a>
  					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
  					<?php echo anchor('ketentuan', 'Ketentuan', 'id="ketentuan" class="e-nav-item"'); ?>
  					<?php echo anchor('user/profile', 'Profile', 'id="profile" class="e-nav-item"'); ?>

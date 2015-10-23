@@ -24,9 +24,9 @@ password: `password`
 	* ~~Form ganti Profile~~
 	* JQuery Validation di ganti akun (member)
 10. Pemesanan Member
-	* sebelum pesan, check login status
-	* redirect ke halaman sebelumnya setelah login
-	* pilih product dan quantity (tampilkan juga stock)
+	* ~~sebelum pesan, check login status~~
+	* ~~redirect ke halaman sebelumnya setelah login~~
+	* ~~pilih product dan quantity (tampilkan juga stock)~~
 	* ~~product masuk ke cart (simpan di session)~~
 	* ~~tampilkan daftar pemesanan dan ubah quantity~~
 	* form identitas penerima pesanan

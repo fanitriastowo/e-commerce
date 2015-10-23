@@ -22,13 +22,18 @@
 					<div class="caption text-center">
 						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 						<p><?php echo $product_detail->description; ?></p>
-						<?php echo form_open('user/pesan/add_product/' . $product_detail->id); ?>
-						<fieldset>
-							<label>Quantity</label> 
-							<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;"'); ?>
-							<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-						</fieldset>
-						<?php echo form_close(); ?>
+
+						<?php if ($this->ion_auth->in_group('members')): ?>
+							<?php echo form_open('user/pesan/add_product/' . $product_detail->id); ?>
+							<fieldset>
+								<label>Quantity</label> 
+								<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;"'); ?>
+								<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
+							</fieldset>
+							<?php echo form_close(); ?>	
+						<?php else: ?>
+							<p class="text-warning">Silahkan Login terlebih dahulu untuk memesan</p>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>

@@ -16,7 +16,11 @@ class User_Controller extends MY_Controller {
 		$this->data['products'] = $this->product_m->get_all_limit();
 
 		// URL Exception
-		$exception = array('user/user/login', 'user/user/post_login', 'user/user/logout', 'user/user/registration');
+		$exception = array(
+			'user/user/login', 
+			'user/user/post_login', 
+			'user/user/logout'
+		);
 
 		if ($this->ion_auth->logged_in() == FALSE && $this->ion_auth->in_group('members') == FALSE && !in_array(uri_string(), $exception)) {
 			// Jika belum login, member dan selain URL Exception

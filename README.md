@@ -32,7 +32,7 @@ password: `password`
 	* ~~tampilkan daftar pemesanan dan ubah quantity~~
 	* ~~form identitas penerima pesanan (identitas penerima menggunakan identitas member)~~
 	* ~~generate bukti pemesanan~~
-	* redirect ke profile (tampilkan riwayat pemesanan)
+	* ~~redirect ke profile (tampilkan riwayat pemesanan)~~
 11. Render Image dan upload image ke filesystem
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk

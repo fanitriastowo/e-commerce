@@ -69,6 +69,36 @@
 				
 			</div>
 
+
+			<div class="col-sm-12">
+				<h3 class="text-center">Daftar Pesanan Anda</h3>
+				<hr>
+				<table class="table table-hover table-striped table-borderes">
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>ID Pemesanan</th>
+							<th>Tanggal Pemesanan</th>
+							<th>Status</th>
+							<th>Cetak</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($pemesanans as $i => $pemesanan): ?>
+						<tr>
+							<td><?php echo $i + 1; ?></td>
+							<td><?php echo $pemesanan->unique_pemesanan; ?></td>
+							<td><?php echo $pemesanan->created; ?></td>
+							<td><?php echo $pemesanan->status; ?></td>
+							<td>
+								<a href="<?php echo site_url('user/profile/cetak_bukti/' . $pemesanan->id); ?>" class="btn btn-xs btn-info"><i class="fa fa-pencil"></i></a>
+							</td>
+						</tr>
+					<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
+
 			<button type="button" id="trigger-update-profile" class="btn btn-primary btn-lg btn-block">Ganti Akun</button>
 		</div>
 

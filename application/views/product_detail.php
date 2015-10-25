@@ -17,6 +17,15 @@
 			<!-- Main Content (Product) -->
 			<div class="col-sm-8">
 				<h3 class="text-center bg-info"><strong>Detail Product</strong></h3>
+
+				<?php if (!empty($this->session->flashdata('notif'))): ?>
+					<div class="alert alert-info alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span></button>
+						<strong><?php echo $this->session->flashdata('notif'); ?></strong>
+					</div>
+				<?php endif ?>
+				
 				<div class="thumbnail">
 					<img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 					<div class="caption text-center">

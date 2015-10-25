@@ -2,6 +2,10 @@
 
 class Profile extends User_Controller {
 
+	/**
+	 * [Default constructor from User_Controller]
+	 * [check apakah login sebagai admin atau tidak]
+	 */
 	function __construct() {
 		parent::__construct();
 		// Load Model
@@ -16,18 +20,29 @@ class Profile extends User_Controller {
 		$this->data['products'] = $this->product_m->get_all_limit();
 	}
 
+	/**
+	 * [tampilkan profile member dan daftar pemesanan]
+	 */
 	public function index() {
 		$this->data['principal'] = $this->ion_auth->user()->row();
 		$this->data['pemesanans'] = $this->pemesanan_m->get();
 		$this->load->view('user/profile', $this->data);
 	}
 
+	/**
+	 * [Ambil object principal dan return sebagai json]
+	 * @return [principal] [json object principal]
+	 */
 	public function get_principal() {
 		$model = $this->ion_auth->user()->row();
 		return $this->output->set_content_type('application/json')->set_output(json_encode($model));
 	}
 
+	/**
+	 * [Ganti akun member]
+	 */
 	public function update() {
+		// ambil data dari form bootstrap modal
 		$id = $this->input->post('update_id');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
@@ -37,6 +52,7 @@ class Profile extends User_Controller {
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
 
+		// Assign ke array
 		$data = array(
 					'first_name' => $first_name,
 					'last_name' => $last_name,
@@ -46,8 +62,12 @@ class Profile extends User_Controller {
 					'phone' => $phone,
 					'address' => $address
 				);
+		// ambil rules_update
 		$rules = $this->user_m->rules_update;
+
+		// set rules
 		$this->form_validation->set_rules($rules);
+
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->update($id, $data);
 			$this->session->set_flashdata('notif', 'Update Account Successful!');
@@ -58,11 +78,21 @@ class Profile extends User_Controller {
 		}
 	}
 
+	/**
+	 * [Generate PDF detail pemesanan member]
+	 * @param  [Integer] $id [id pemesanan table]
+	 * @return [report]     [report dalam PDF format]
+	 */
 	public function cetak_bukti($id) {
+		// load library
+		$this->load->library('Report_Controller');
+
+		// load pemesanan_detail_m model
 		$this->load->model('pemesanan_detail_m');
+
+		// ambil detail pemesanan berdasarkan id pemesanan
 		$pemesanan_detail = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
 
-		$this->load->library('Report_Controller');
 		// create new PDF document
 		$pdf = new Report_Controller(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -99,7 +129,7 @@ class Profile extends User_Controller {
 		$pdf->setFontSubsetting(true);
 
 		// Set font
-		// dejavusans is a UTF-8 Unicode font, if you only need to
+		// helvetica is a UTF-8 Unicode font, if you only need to
 		// print standard ASCII chars, you can use core fonts like
 		// helvetica or times to reduce file size.
 		$pdf->SetFont('helvetica', '', 10, '', true);
@@ -111,6 +141,7 @@ class Profile extends User_Controller {
 		// set text shadow effect
 		$pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196,196,196), 'opacity' => 1, 'blend_mode' => 'Normal'));
 
+		// Construct content
 		$tbl_header = '
 		<style>
 		table {
@@ -149,7 +180,11 @@ class Profile extends User_Controller {
 		    </tr>';
 
 		$tbl = '';
+
+		// $i sebagai index untuk nomor urut
 		$i = 1;
+
+		// generate setiap detail pemesanan
 		foreach ($pemesanan_detail as $detail) {
 
 			$tbl .= '
@@ -176,3 +211,6 @@ class Profile extends User_Controller {
 		$pdf->Output(date('Y-m-d') . '.pdf', 'I');
 	}
 }
+
+/* End of file profile.php */
+/* Location: ./application/controllers/user/profile.php */

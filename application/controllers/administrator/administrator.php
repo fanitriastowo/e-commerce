@@ -1,4 +1,4 @@
-<?php 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Administrator extends Admin_Controller {
 
@@ -7,7 +7,7 @@ class Administrator extends Admin_Controller {
 	}
 
 	/**
-	 * [View Login page if login is valid than redirect to administrator view]
+	 * [View Administrator Login page if login is valid than redirect to administrator view]
 	 * @return [view('login')] [show login page]
 	 */
 	public function login() {
@@ -35,7 +35,7 @@ class Administrator extends Admin_Controller {
 	}
 
 	/**
-	 * [Logout User]
+	 * [Logout Administrator]
 	 * @return [view('user/login')] [redirect to login page]
 	 */
 	public function logout () {
@@ -47,3 +47,6 @@ class Administrator extends Admin_Controller {
 		}
 	}
 }
+
+/* End of file administrator.php */
+/* Location: ./application/controllers/administrator/administrator.php */

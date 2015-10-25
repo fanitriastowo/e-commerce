@@ -22,8 +22,8 @@ password: `password`
 8. JQuery Validation di form registrasi
 9. ~~Halaman Profile Member (Setting akun)~~
 	* ~~Form ganti Profile~~
-	* JQuery Validation di ganti akun (member
-	* Daftar Pemesanan terdahulu + status)
+	* JQuery Validation di ganti akun (member)
+	* ~~Daftar Pemesanan terdahulu + status~~
 10. Pemesanan Member
 	* ~~sebelum pesan, check login status~~
 	* ~~redirect ke halaman sebelumnya setelah login~~
@@ -33,6 +33,8 @@ password: `password`
 	* ~~form identitas penerima pesanan (identitas penerima menggunakan identitas member)~~
 	* ~~generate bukti pemesanan~~
 	* ~~redirect ke profile (tampilkan riwayat pemesanan)~~
+	* Secure Cetak Report (Cetak hanya untuk member saja)
+	* Redesign report
 11. Render Image dan upload image ke filesystem
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk

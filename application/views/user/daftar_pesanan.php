@@ -50,7 +50,8 @@
 					<?php endforeach ?>
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-lg btn-primary btn-block">Checkout</button>
+			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member</p>
+			<a href="<?php echo site_url('user/pesan/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>
 		</div>
 
 		<!-- Right Content (New Product) -->

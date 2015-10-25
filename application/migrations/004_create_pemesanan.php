@@ -4,10 +4,11 @@ class Migration_Create_Pemesanan extends CI_Migration {
 
 	public function up() {
 		$query = "CREATE TABLE `pemesanan` (
-				  `id` INT(11) NOT NULL,
+				  `id` INT(11) NOT NULL AUTO_INCREMENT,
 				  `pemesanan_id` VARCHAR(45) NOT NULL,
 				  `user_id` INT(11) UNSIGNED NOT NULL,
 				  `product_id` INT(11) NOT NULL,
+				  `created` DATETIME NOT NULL,
 				  `name` VARCHAR(100) NOT NULL,
 				  `qty` INT(11) NOT NULL,
 				  `price` BIGINT(15) NOT NULL,

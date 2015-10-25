@@ -22,6 +22,7 @@
 					<div class="caption text-center">
 						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 						<p><?php echo $product_detail->description; ?></p>
+						<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
 
 						<?php if ($this->ion_auth->in_group('members')): ?>
 							<?php echo form_open('user/pesan/add_product/' . $product_detail->id); ?>

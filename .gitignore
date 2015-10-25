@@ -1,1 +1,3 @@
 user_guide
+application/logs/*
+application/libraries/tcpdf/examples/*

@@ -6,6 +6,7 @@ class Pesan extends User_Controller {
 		parent::__construct();
 		$this->load->model('product_m');
 		$this->load->model('pemesanan_m');
+		$this->load->model('pemesanan_detail_m');
 		$this->load->library('cart');
 	}
 
@@ -37,19 +38,25 @@ class Pesan extends User_Controller {
 
 	public function checkout(){
 		$principal = $this->ion_auth->user()->row();
-		$pesanans = $this->cart->contents();
+		$details = $this->cart->contents();
 		if (count($this->cart->contents())) {
-			foreach ($pesanans as $pemesanan) {
-				$data = array(
-						'pemesanan_id' => $pemesanan['rowid'],
-						'user_id' => $principal->id,
-						'product_id' => $pemesanan['id'],
-						'name' => $pemesanan['name'],
-						'qty' => $pemesanan['qty'],
-						'price' => $pemesanan['price'],
-						'subtotal' => $pemesanan['subtotal']
+			$pemesanan = array(
+					'unique_pemesanan' => date('Ymdhis'),
+					'user_id' => $principal->id,
+					'created' => date('Y-m-d h:i:s'),
+					'status' => 'Proses'
+				);
+			$pemesanan_id = $this->pemesanan_m->save($pemesanan);
+			foreach ($details as $detail) {
+				$detail = array(
+						'pemesanan_id' => $pemesanan_id,
+						'product_id' => $detail['id'],
+						'name' => $detail['name'],
+						'qty' => $detail['qty'],
+						'price' => $detail['price'],
+						'subtotal' => $detail['subtotal']
 					);
-				$this->pemesanan_m->save($data);
+				$this->pemesanan_detail_m->save($detail);
 			}
 
 			// Destroy cart
@@ -146,7 +153,7 @@ class Pesan extends User_Controller {
 
 		$tbl = '';
 		$i = 1;
-		foreach ($pesanans as $pesanan) {
+		foreach ($details as $detail) {
 
 			$tbl .= '
 			    <tr>

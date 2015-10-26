@@ -10,19 +10,46 @@ class Pemesanan_m extends MY_Model {
 		parent::__construct();
 	}
 
+	/**
+	 * [ambil daftar pemesanan beserta membernya]
+	 * @return [list object] [list object pemesanan]
+	 */
 	public function get_pemesanan_with_user(){
+		// select P.id, P.created, P.status, U.first_name, U.last_name
 		$this->db->select('P.id, P.created, P.status, U.first_name, U.last_name');
+		
+		// from Pemesanan P
 		$this->db->from('pemesanan P');
+
+		// Join User U ON P.user_id = U.id
 		$this->db->join('users U', 'P.user_id = U.id');
+
+		// Where P.status = 'Proses'
 		$this->db->where('P.status', 'Proses');
+
+		// Return list object Pemesanan & User
 		return $this->db->get()->result();
 	}
 
+	/**
+	 * [ambil pemesanan dan user berdasarkan pemesanan id]
+	 * @param  [integer] $id [pemesanan id]
+	 * @return [object]     [object pemesanan & user]
+	 */
 	public function get_pemesanan_and_user_by_pemesanan_id($id){
+		// select P.*, U.first_name, U.last_name, U.address
 		$this->db->select('P.*, U.first_name, U.last_name, U.address');
+
+		// from pemesanan P
 		$this->db->from('pemesanan P');
+
+		// join users U, ON P.user_id = U.id
 		$this->db->join('users U', 'P.user_id = U.id');
+
+		// where P.id = $id
 		$this->db->where('P.id', $id);
+
+		// return pemesanan object
 		return $this->db->get()->row();
 	}
 }

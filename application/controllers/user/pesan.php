@@ -45,10 +45,12 @@ class Pesan extends User_Controller {
 	 * @return [integer] [total product json format]
 	 */
 	public function total_products() {
-		// ambil total item di cart
-		$total_products = $this->cart->total_items();
-		// return berupa json
-		return $this->output->set_content_type('application/json')->set_output(json_encode($total_products));
+		if ($this->ion_auth->in_group('members')) {	
+			// ambil total item di cart
+			$total_products = $this->cart->total_items();
+			// return berupa json
+			return $this->output->set_content_type('application/json')->set_output(json_encode($total_products));
+		}
 	}
 
 	/**

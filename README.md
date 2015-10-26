@@ -41,6 +41,7 @@ password: `password`
 11. Render Image dan upload image ke filesystem
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk
+14. Limit left and right bar item
 
 ### Issue Pemesanan
 1. Member

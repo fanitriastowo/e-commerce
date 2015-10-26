@@ -10,6 +10,10 @@ class Pemesanan_m extends MY_Model {
 		parent::__construct();
 	}
 
+	public function get_pemesanan_by_member($id) {
+		return $this->get_by('user_id', $id, FALSE);
+	}
+
 	/**
 	 * [ambil daftar pemesanan beserta membernya]
 	 * @return [list object] [list object pemesanan]

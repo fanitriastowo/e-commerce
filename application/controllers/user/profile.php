@@ -24,8 +24,9 @@ class Profile extends User_Controller {
 	 * [tampilkan profile member dan daftar pemesanan]
 	 */
 	public function index() {
-		$this->data['principal'] = $this->ion_auth->user()->row();
-		$this->data['pemesanans'] = $this->pemesanan_m->get();
+		$principal = $this->ion_auth->user()->row();
+		$this->data['principal'] = $principal;
+		$this->data['pemesanans'] = $this->pemesanan_m->get_pemesanan_by_member($principal->id);
 		$this->load->view('user/profile', $this->data);
 	}
 

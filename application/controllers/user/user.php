@@ -11,13 +11,6 @@ class User extends User_Controller {
 	}
 
 	/**
-	 * [tampilkan 'user/home' view]
-	 */
-	public function home() {
-		$this->load->view('user/home');
-	}
-
-	/**
 	 * [View Login page if login is valid than redirect to member view]
 	 * @return [view('login')] [show login page]
 	 */

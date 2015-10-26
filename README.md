@@ -12,14 +12,16 @@ password: `password`
 3. JQuery Validation di products (administrator)
 4. JQuery Validation di categories (administrator)
 5. Daftar pemesanan (administrator)
-	* Daftar pemesanan hari ini (Ascending Datetime)
+	* ~~Daftar pemesanan hari ini (Ascending Datetime)~~
 	* form detail pemesanan
 	* Approve pemesanan
 	* generate bukti pemesanan
 	* ubah status pemesanan menjadi terkirim
 6. JQuery Validation di daftar member (administrator)
 7. Halaman Config Admin (Setting Akun)
-8. JQuery Validation di form registrasi
+8. Form registrasi
+	* Jquery validation
+	* CAPTCHA
 9. ~~Halaman Profile Member (Setting akun)~~
 	* ~~Form ganti Profile~~
 	* JQuery Validation di ganti akun (member)

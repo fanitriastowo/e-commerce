@@ -4,38 +4,38 @@
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/datatables.bootstrap.min.css'); ?>">
-	<title>Daftar Pemesanan</title>
+	<title>Pemesanan Detail</title>
 </head>
 <body>
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<h1>Daftar Pemesanan</h1>
+		<h1>Detail Pemesanan</h1>
 
-		<table id="pemesanan_table" class="table table-hover table-bordered table-striped" cellspacing="0" width="100%">
+		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th width="5%">No.</th>
-					<th>Tanggal</th>
-					<th>Status</th>
-					<th>Pemesan</th>
-					<th>Aksi</th>
+					<th>Nama Produk</th>
+					<th>Jumlah</th>
+					<th>Harga</th>
+					<th>Subtotal</th>
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($pemesanans as $i => $pemesanan): ?>
+			<?php foreach ($pemesanan_details as $i => $pemesanan_detail): ?>
 				<tr>
 					<td><?php echo $i + 1; ?></td>
-					<td><?php echo date("d F Y G.i", strtotime($pemesanan->created)); ?></td>
-					<td><?php echo $pemesanan->status; ?></td>
-					<td><?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></td>
-					<td>
-						<a href="<?php echo site_url('administrator/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning trigger_detail_modal"><i class="fa fa-gear"></i></a>
-					</td>
+					<td><?php echo $pemesanan_detail->name; ?></td>
+					<td><?php echo $pemesanan_detail->qty; ?></td>
+					<td><?php echo $pemesanan_detail->price; ?></td>
+					<td><?php echo $pemesanan_detail->subtotal; ?></td>
 				</tr>
 			<?php endforeach ?>
 			</tbody>
 		</table>
+		<hr>
+		<a href="#" class="btn btn-lg btn-block btn-success">Approve</a>
 	</div>
 	<!-- Footer -->
 	<?php $this->load->view('template/footer'); ?>
@@ -47,7 +47,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#pemesanan').addClass('active');
-			$('#pemesanan_table').DataTable({
+			$('#pemesanan_detail_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
 			});
 		});

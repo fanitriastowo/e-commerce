@@ -5,6 +5,7 @@ class Pemesanan extends Admin_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('pemesanan_m');
+		$this->load->model('pemesanan_detail_m');
 	}
 
 	/**
@@ -13,7 +14,22 @@ class Pemesanan extends Admin_Controller {
 	public function index() {
 		$model['pemesanans'] = $this->pemesanan_m->get_pemesanan_with_user();
 		$this->load->view('administrator/pemesanan', $model);
-	}	
+	}
+
+	/**
+	 * [ambil detail pemesanan dan convert ke json]
+	 * @param  [integer] $id [Pemesanan ID]
+	 * @return [object]     [Json Format]
+	 */
+	public function detail($id)	{
+		$pemesanan = $this->pemesanan_m->get_pemesanan_and_user_by_pemesanan_id($id);
+		$pemesanan_details = $this->pemesanan_detail_m->get_pemesanan_detail_by_pemesanan_id($id);
+		$model = array(
+			'pemesanan' => $pemesanan, 
+			'pemesanan_details' => $pemesanan_details
+		);
+		$this->load->view('administrator/pemesanan_detail', $model);
+	}
 }
 
 /* End of file Pemesanan.php */

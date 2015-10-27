@@ -15,8 +15,8 @@ password: `password`
 	* ~~Daftar pemesanan hari ini (Ascending Datetime)~~ 
 	* ~~form detail pemesanan~~
 	* ~~Approve pemesanan~~
-	* generate bukti pemesanan
-	* ubah status pemesanan menjadi terkirim
+	* ~~generate bukti pemesanan~~
+	* ~~ubah status pemesanan menjadi terkirim~~
 	* Menampilkan daftar pemesanan terdahulu
 6. JQuery Validation di daftar member (administrator)
 7. Halaman Config Admin (Setting Akun)
@@ -52,7 +52,7 @@ password: `password`
 	* batal pemesanan member
 	* pemesanan lampau
 	* status pengiriman
-	* Tanggal harus tetap
+	* ~~Tanggal harus tetap~~
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

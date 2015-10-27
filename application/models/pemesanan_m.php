@@ -10,6 +10,21 @@ class Pemesanan_m extends MY_Model {
 		parent::__construct();
 	}
 
+	/**
+	 * [ganti status]
+	 * @param  [array] $data [data update]
+	 * @param  [integer] $id [id pemesanan]
+	 */
+	public function approve_pemesanan($data, $id) {
+		$this->_timestamps = FALSE;
+		return $this->save($data, $id);
+	}
+	
+	/**
+	 * [ambil pemesanan berdasarkan member id]
+	 * @param  [integer] $id [id member]
+	 * @return [object]     [single object]
+	 */
 	public function get_pemesanan_by_member($id) {
 		return $this->get_by('user_id', $id, FALSE);
 	}

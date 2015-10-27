@@ -90,6 +90,9 @@ class Profile extends User_Controller {
 
 		// load pemesanan_detail_m model
 		$this->load->model('pemesanan_detail_m');
+		
+		// Ambil pemesanan berdasarkan id
+		$pemesanan = $this->pemesanan_m->get($id, TRUE);
 
 		// ambil detail pemesanan berdasarkan id pemesanan
 		$pemesanan_detail = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
@@ -209,7 +212,7 @@ class Profile extends User_Controller {
 		
 		// Close and output PDF document
 		// This method has several options, check the source code documentation for more information.
-		$pdf->Output(date('Y-m-d') . '.pdf', 'I');
+		$pdf->Output($pemesanan->created . '.pdf', 'I');
 	}
 }
 

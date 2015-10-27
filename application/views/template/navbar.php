@@ -34,7 +34,7 @@
  </div>
 
  <!-- Registration Modal -->
- <?php echo form_open('user/user/registration', 'class="form-horizontal"'); ?>
+ <?php echo form_open('user/user/registration', 'class="form-horizontal" id="registration_form"'); ?>
  <div class="modal fade" id="registration_modal" tabindex="-1" role="dialog" aria-labelledby="registration_modal_label">
  	<div class="modal-dialog" role="document">
  		<div class="modal-content">
@@ -77,7 +77,7 @@
 
  				<div class="form-group">
  					<div class="col-sm-12">
- 						<?php echo form_textarea('address','', 'class="form-control" id="register_address" placeholder="Alamat Member (alamat penerima)" style="resize : none;" required'); ?>
+ 						<textarea name="address" rows="3" class="form-control" id="register_address" placeholder="Alamat member (alamat penerima)" style="resize : none;" required></textarea>
  					</div>
  				</div>
 

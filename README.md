@@ -18,10 +18,11 @@ password: `password`
 	* ~~generate bukti pemesanan~~
 	* ~~ubah status pemesanan menjadi terkirim~~
 	* Menampilkan daftar pemesanan terdahulu
+	* redesign report
 6. JQuery Validation di daftar member (administrator)
 7. Halaman Config Admin (Setting Akun)
 8. Form registrasi
-	* Jquery validation
+	* ~~Jquery validation~~
 	* CAPTCHA
 9. ~~Halaman Profile Member (Setting akun)~~
 	* ~~Form ganti Profile~~

@@ -30,7 +30,10 @@
 					<td><?php echo $pemesanan->status; ?></td>
 					<td><?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></td>
 					<td>
-						<a href="<?php echo site_url('administrator/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning trigger_detail_modal"><i class="fa fa-gear"></i></a>
+						<a href="<?php echo site_url('administrator/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning"><i class="fa fa-gear"></i></a>
+						<?php if ($pemesanan->status === 'Disetujui'): ?>
+						<a href="<?php echo site_url('administrator/pemesanan/cetak/' . $pemesanan->id); ?>" class="btn btn-xs btn-info"><i class="fa fa-gear"></i></a>
+						<?php endif ?>
 					</td>
 				</tr>
 			<?php endforeach ?>

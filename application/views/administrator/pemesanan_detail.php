@@ -10,8 +10,10 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<h1>Detail Pemesanan</h1>
-
+		<h1>Detail Pemesanan</h1><hr>
+		<p>Nama Pemesan : <?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></p><hr>
+		<?php echo form_open('administrator/pemesanan/approve'); ?>
+		<?php echo form_hidden('approve_id', $pemesanan->id); ?>
 		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped" cellspacing="0" width="100%">
 			<thead>
 				<tr>
@@ -35,7 +37,8 @@
 			</tbody>
 		</table>
 		<hr>
-		<a href="#" class="btn btn-lg btn-block btn-success">Approve</a>
+		<?php echo form_submit('submit', 'Approve', 'class="btn btn-lg btn-block btn-success"'); ?>
+		<?php echo form_close(); ?>
 	</div>
 	<!-- Footer -->
 	<?php $this->load->view('template/footer'); ?>
@@ -48,31 +51,7 @@
 		$(document).ready(function() {
 			$('#pemesanan').addClass('active');
 			$('#pemesanan_detail_table').DataTable({
-				"lengthMenu": [ 5, 10 ],
-
-				"footerCallback": function ( row, data, start, end, display ) {
-		            var api = this.api(), data;
-		 
-		            // Remove the formatting to get integer data for summation
-		            var intVal = function ( i ) {
-		                return typeof i === 'string' ? i.replace(/[\$,]/g, '')*1 : typeof i === 'number' ? i : 0;
-		            };
-		 
-		            // Total over all pages
-		            total = api.column( 4 ).data().reduce( function (a, b) {
-                    	return intVal(a) + intVal(b);
-                	});
-		 
-		            // Total over this page
-		            pageTotal = api.column( 4, { page: 'current'} ).data().reduce( function (a, b) {
-	                    return intVal(a) + intVal(b);
-	                }, 0 );
-		 
-		            // Update footer
-		            $( api.column( 4 ).footer() ).html(
-		                '$'+pageTotal +' ( $'+ total +' total)'
-		            );
-		        }
+				"lengthMenu": [ 5, 10 ]
 			});
 		});
 	</script>

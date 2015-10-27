@@ -30,6 +30,15 @@ class Pemesanan extends Admin_Controller {
 		);
 		$this->load->view('administrator/pemesanan_detail', $model);
 	}
+
+	public function approve() {
+		$id = $this->input->post('approve_id');
+		$data = array(
+			'status' => 'Disetujui'
+		);
+		$this->pemesanan_m->save($data, $id);
+		redirect('administrator/pemesanan');
+	}
 }
 
 /* End of file Pemesanan.php */

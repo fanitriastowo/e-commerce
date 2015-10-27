@@ -14,6 +14,7 @@
 		<div class="wrapper">
 			<?php echo form_open('administrator/administrator/post_login', array('class' => 'form-signin')); ?>
 			<h3 class="form-signin-heading">Welcome Administrator</h3>
+			<p class="text-center text-warning">*Please Login using Administrator Credential</p>
 			<hr class="colorgraph"><br>
 			<?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Email Address', 'required' => '', 'autofocus' => '')); ?>
 

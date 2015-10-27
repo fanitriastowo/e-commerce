@@ -29,7 +29,9 @@ class Pemesanan_m extends MY_Model {
 		$this->db->join('users U', 'P.user_id = U.id');
 
 		// Where P.status = 'Proses'
-		$this->db->where('P.status', 'Proses');
+		// $this->db->where('P.status', 'Proses');
+		
+		$this->db->order_by('P.status DESC');
 
 		// Return list object Pemesanan & User
 		return $this->db->get()->result();

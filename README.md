@@ -14,7 +14,7 @@ password: `password`
 5. Daftar pemesanan (administrator)
 	* ~~Daftar pemesanan hari ini (Ascending Datetime)~~ 
 	* ~~form detail pemesanan~~
-	* Approve pemesanan
+	* ~~Approve pemesanan~~
 	* generate bukti pemesanan
 	* ubah status pemesanan menjadi terkirim
 	* Menampilkan daftar pemesanan terdahulu
@@ -52,6 +52,7 @@ password: `password`
 	* batal pemesanan member
 	* pemesanan lampau
 	* status pengiriman
+	* Tanggal harus tetap
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

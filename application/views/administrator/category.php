@@ -14,7 +14,7 @@
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
+				<strong><?p
 			</div>
 		<?php endif ?>
 		<?php if (!empty($this->session->flashdata('error_update'))): ?>
@@ -108,6 +108,15 @@
 							<?php echo form_input('update_name', '', 'class="form-control" placeholder="Nama Kategori" id="update_name" required'); ?>
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="update_image" class="col-sm-2 control-label">Ganti Gambar</label>
+						<div class="col-sm-10">
+							<input type="file" name="update_image" id="update_image" class="form-control">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<img class="img-responsive" id="image_category" src="">
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -155,8 +164,9 @@
 			e.preventDefault();
 			var updateURL = $(this).attr("href");
 			$.getJSON(updateURL, function(data) {
-				$('input[name="update_id"]').val(data.id);
-				$('#update_name').val(data.name);
+				$('input[name="update_id"]').val(data.id),
+				$('#update_name').val(data.name),
+				$('img[id="image_category"]').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename)
 			});
 			$('#update-category-modal').modal();
 		});

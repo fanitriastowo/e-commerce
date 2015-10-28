@@ -67,7 +67,7 @@ class Category extends Admin_Controller {
 	 * @return [string]     [category json format]
 	 */
 	public function detail($id) {
-		$category = $this->category_m->get($id);
+		$category = $this->category_m->get($id, TRUE);
 		return $this->output->set_content_type('application/json')->set_output(json_encode($category));
 	}
 

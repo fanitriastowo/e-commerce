@@ -40,9 +40,12 @@ password: `password`
 	* Secure Cetak Report (Cetak hanya untuk member saja)
 	* Redesign report
 11. Render Image dan upload image ke filesystem
+	* user profile
+	* admin product
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk
 14. Limit left and right bar item
+15. Cache left dan right bar
 
 ### Issue Pemesanan
 1. Member
@@ -54,7 +57,7 @@ password: `password`
 	* pemesanan lampau
 	* status pengiriman
 	* ~~Tanggal harus tetap~~
-3. Refactor Frontend_Controller dengan User_Controller
+3. ~~Refactor Frontend_Controller dengan User_Controller~~
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

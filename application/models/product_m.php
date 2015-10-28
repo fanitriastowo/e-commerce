@@ -82,7 +82,7 @@ class Product_m extends MY_Model {
 		$this->db->limit($limit);
 
 		// return it using get() method from MY_Model
-		return parent::get();
+		return $this->get();
 	}
 	
 	/**

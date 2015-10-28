@@ -9,7 +9,6 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 

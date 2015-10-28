@@ -14,7 +14,7 @@
 			<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<strong><?p
+				<strong><?php echo $this->session->flashdata('error_insert'); ?></strong>
 			</div>
 		<?php endif ?>
 		<?php if (!empty($this->session->flashdata('error_update'))): ?>
@@ -77,7 +77,7 @@
 					<div class="form-group">
 						<label for="insert_image" class="col-sm-2 control-label">Upload</label>
 						<div class="col-sm-10">
-							<input type="file" name="filename" size="20" id="insert_image" />
+							<input type="file" name="filename" size="20" id="insert_image" class="form-control"/>
 						</div>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open('administrator/category/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/category/update', 'class="form-horizontal"'); ?>
 	<?php echo form_hidden('update_id'); ?>
 	<div class="modal fade" id="update-category-modal" tabindex="-1" role="dialog" aria-labelledby="update-category-modal-label">
 		<div class="modal-dialog" role="document">
@@ -109,9 +109,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="update_image" class="col-sm-2 control-label">Ganti Gambar</label>
+						<label for="update_image_category" class="col-sm-2 control-label">Ganti Gambar</label>
 						<div class="col-sm-10">
-							<input type="file" name="update_image" id="update_image" class="form-control">
+							<input type="file" name="update_filename" size="20" id="update_image_category" class="form-control">
 						</div>
 					</div>
 					<div class="col-sm-12">
@@ -164,9 +164,9 @@
 			e.preventDefault();
 			var updateURL = $(this).attr("href");
 			$.getJSON(updateURL, function(data) {
-				$('input[name="update_id"]').val(data.id),
-				$('#update_name').val(data.name),
-				$('img[id="image_category"]').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename)
+				$('input[name="update_id"]').val(data.id);
+				$('#update_name').val(data.name);
+				$('img[id="image_category"]').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename);
 			});
 			$('#update-category-modal').modal();
 		});

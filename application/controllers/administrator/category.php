@@ -21,7 +21,7 @@ class Category extends Admin_Controller {
 	public function insert() {
 		
 		// Ambil value form
-		$name = $this->input->post('name');
+		$name = str_replace(' ', '_', $this->input->post('name'));
 
 		// ambil rules
 		$rules = $this->category_m->rules;
@@ -79,7 +79,7 @@ class Category extends Admin_Controller {
 		// ambil single category
 		$category = $this->category_m->get($id, TRUE);
 
-		// hapus file menggunakan file helper
+		// hapus file 
 		unlink('images/categories/' . $category->filename);
 
 		// hapus category
@@ -97,10 +97,7 @@ class Category extends Admin_Controller {
 
 		// ambil id dari form_hidden
 		$id = $this->input->post('update_id');
-		$name = $this->input->post('update_name');
-
-		// assign ke array
-		$category = array('name' => $name);
+		$name = str_replace(' ', '_', $this->input->post('update_name'));
 
 		// ambil category rules_update
 		$rules = $this->category_m->rules_update;
@@ -110,7 +107,34 @@ class Category extends Admin_Controller {
 
 		// check value
 		if ($this->form_validation->run() == TRUE) {
-			$this->category_m->save($category, $id);
+
+			// Set filename
+			$config['file_name'] = time().$name;
+			$config['upload_path'] = './images/categories/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '500';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '1024';
+			$this->load->library('upload', $config);
+
+			// Do Upload
+			if ( ! $this->upload->do_upload('update_filename')){
+				$this->session->set_flashdata('error_update', $this->upload->display_errors());
+				redirect('administrator/category');
+			} else {
+				$data = $this->upload->data();
+				$category = $this->category_m->get($id, TRUE);
+
+				// hapus file 
+				unlink('images/categories/' . $category->filename);
+
+				$category = array(
+					'name' => $name,
+					'filename' => time().$name.$data['file_ext']
+				);
+				$this->category_m->save($category, $id);
+			}
+
 			$this->session->set_flashdata('notif', 'Update Category Successful!');
 			redirect('administrator/category');
 		} else {

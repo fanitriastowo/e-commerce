@@ -54,6 +54,7 @@ password: `password`
 	* pemesanan lampau
 	* status pengiriman
 	* ~~Tanggal harus tetap~~
+3. Refactor Frontend_Controller dengan User_Controller
 
 ### CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)

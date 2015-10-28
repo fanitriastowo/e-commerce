@@ -21,6 +21,7 @@ class Home extends Frontend_Controller {
 		// Pass to home view
 		$this->load->view('home', $this->data);
 	}
+
 }
 
 /* End of file home.php */

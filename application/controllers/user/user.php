@@ -76,6 +76,7 @@ class User extends User_Controller {
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
+		$captcha_word = $this->input->post('captcha_word');
 		$additional = array(
 						'first_name' => $first_name,
 						'last_name' => $last_name,
@@ -117,6 +118,22 @@ class User extends User_Controller {
 		}
 		
 		return TRUE;
+	}
+
+	/**
+	 * [Check captcha word]
+	 * @param  [string] $str [kata captcha]
+	 * @return [boolean]      [true jika valid]
+	 */
+	public function _check_captcha($str){
+		$word = $this->session->userdata('captchaWord');
+		if(strcmp(strtoupper($str),strtoupper($word)) == 0){
+			return true;
+		}
+		else{
+			$this->form_validation->set_message('_check_captcha', 'Please enter correct words!');
+			return false;
+		}
 	}
 
 }

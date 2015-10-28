@@ -81,6 +81,13 @@
  					</div>
  				</div>
 
+ 				<div class="form-group">
+ 					<div class="col-sm-12">
+						<label for="captcha_word"><?php echo $captcha['image']; ?></label>
+	 					<?php echo form_input('captcha_word', '', 'class="form-control" id="register_captcha_word" placeholder="Input Text Above" required'); ?>
+ 					</div>
+ 				</div>
+
  			</div>
  			<div class="modal-footer">
  				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -29,7 +29,8 @@
 					required: true,
 					number : true
 				},
-				address: "required"
+				address: "required",
+				captcha_word : "required"
 			},
 			messages: {
 				first_name: "Firstname harap diisi",
@@ -51,7 +52,8 @@
 					required: "Nomor telepon harap diisi",
 					number : "Input hanya berupa angka"
 				},
-				address: "Alamat harap diisi"
+				address: "Alamat harap diisi",
+				captcha_word : "Inputkan karakter captcha"
 			},
 			highlight : function(element) {
 				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');

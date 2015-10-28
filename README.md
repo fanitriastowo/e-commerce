@@ -23,7 +23,7 @@ password: `password`
 7. Halaman Config Admin (Setting Akun)
 8. Form registrasi
 	* ~~Jquery validation~~
-	* CAPTCHA
+	* ~~CAPTCHA~~
 9. ~~Halaman Profile Member (Setting akun)~~
 	* ~~Form ganti Profile~~
 	* JQuery Validation di ganti akun (member)

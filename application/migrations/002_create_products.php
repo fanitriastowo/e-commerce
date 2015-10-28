@@ -35,6 +35,7 @@ class Migration_Create_products extends CI_Migration {
 				`price` DOUBLE NOT NULL,
 				`description` TEXT,
 				`created` DATETIME,
+				`filename` VARCHAR(100),
 				PRIMARY KEY (id),
 				KEY category_id (category_id),
 				CONSTRAINT category_id_fk FOREIGN KEY (category_id)

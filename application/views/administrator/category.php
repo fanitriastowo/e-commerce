@@ -38,7 +38,7 @@
 				<?php foreach ($categories as $category): ?>
 					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="#"><img class="img-thumbnail" src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>'></a>
+							<img class="img-thumbnail" src='<?php echo site_url('images/categories/' . $category->filename); ?>' alt='<?php echo $category->name; ?>'>
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">
@@ -58,7 +58,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open('administrator/category/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/category/insert', 'class="form-horizontal"'); ?>
 	<div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="add-category-modal-label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -72,6 +72,12 @@
 						<label for="insert_name" class="col-sm-2 control-label">Nama</label>
 						<div class="col-sm-10">
 							<?php echo form_input('name', '', 'class="form-control" placeholder="Nama Kategori" id="insert_name" required'); ?>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="insert_image" class="col-sm-2 control-label">Upload</label>
+						<div class="col-sm-10">
+							<input type="file" name="filename" size="20" id="insert_image" />
 						</div>
 					</div>
 				</div>

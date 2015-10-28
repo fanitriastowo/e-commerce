@@ -19,12 +19,9 @@ class Category extends Admin_Controller {
 	 * [simpan kategori baru]
 	 */
 	public function insert() {
-
-		// ambil form value
+		
+		// Ambil value form
 		$name = $this->input->post('name');
-
-		// assign ke array
-		$category = array('name' => $name);
 
 		// ambil rules
 		$rules = $this->category_m->rules;
@@ -34,7 +31,28 @@ class Category extends Admin_Controller {
 
 		// check jika value benar
 		if ($this->form_validation->run() == TRUE) {
-			$this->category_m->save($category);
+
+			// Set filename
+			$config['file_name'] = time().$name;
+			$config['upload_path'] = './images/categories/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '500';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '1024';
+			$this->load->library('upload', $config);
+
+			// Do Upload
+			if ( ! $this->upload->do_upload('filename')){
+				$this->session->set_flashdata('error_insert', $this->upload->display_errors());
+				redirect('administrator/category');
+			} else {
+				$data = $this->upload->data();
+				$category = array(
+					'name' => $name,
+					'filename' => time().$name.$data['file_ext']
+				);
+				$this->category_m->save($category);
+			}
 			$this->session->set_flashdata('notif', 'Insert Category Successful!');
 			redirect('administrator/category');
 		} else {
@@ -58,7 +76,16 @@ class Category extends Admin_Controller {
 	 * @param  [integer] $id [id kategori]
 	 */
 	public function delete($id) {
+		// ambil single category
+		$category = $this->category_m->get($id, TRUE);
+
+		// hapus file menggunakan file helper
+		unlink('images/categories/' . $category->filename);
+
+		// hapus category
 		$this->category_m->delete($id);
+
+		//tampilkan notifikasi
 		$this->session->set_flashdata('notif', 'Delete Category Successful!');
 		redirect('administrator/category');
 	}

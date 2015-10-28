@@ -80,6 +80,11 @@
 							<input type="file" name="filename" size="20" id="insert_image" class="form-control"/>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<img class="img-responsive image_category" src="">
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -114,8 +119,10 @@
 							<input type="file" name="update_filename" size="20" id="update_image_category" class="form-control">
 						</div>
 					</div>
-					<div class="col-sm-12">
-						<img class="img-responsive" id="image_category" src="">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<img class="img-responsive image_category" src="">
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -166,7 +173,7 @@
 			$.getJSON(updateURL, function(data) {
 				$('input[name="update_id"]').val(data.id);
 				$('#update_name').val(data.name);
-				$('img[id="image_category"]').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename);
+				$('.image_category').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename);
 			});
 			$('#update-category-modal').modal();
 		});
@@ -175,6 +182,24 @@
 			e.preventDefault();
 			$('#modal-delete .btn-delete').attr("href", $(this).attr("href"));
 			$('#modal-delete').modal();
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('.image_category').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#insert_image").change(function(){
+			readURL(this);
+		});
+
+		$("#update_image_category").change(function(){
+			readURL(this);
 		});
 	</script>
 </body>

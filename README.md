@@ -38,7 +38,7 @@ password: `password`
 	* ~~generate bukti pemesanan~~
 	* ~~redirect ke profile (tampilkan riwayat pemesanan)~~
 	* Secure Cetak Report (Cetak hanya untuk member saja)
-	* Redesign report
+	* ~~Redesign report~~
 11. Render Image dan upload image ke filesystem
 	* user profile
 	* admin product

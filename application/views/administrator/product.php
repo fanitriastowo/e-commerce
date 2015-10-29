@@ -49,7 +49,7 @@
 					<th>Price</th>
 					<th>Description</th>
 					<th>Category</th>
-					<th>Operation</th>
+					<th width="15%">Operation</th>
 				</tr>
 			</thead>
 			<tbody>

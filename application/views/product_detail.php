@@ -27,7 +27,7 @@
 				<?php endif ?>
 				
 				<div class="thumbnail">
-					<img src='<?php echo site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+					<img class="img-responsive" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 					<div class="caption text-center">
 						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 						<p><?php echo $product_detail->description; ?></p>

@@ -42,6 +42,7 @@ password: `password`
 11. Render Image dan upload image ke filesystem
 	* user profile
 	* admin product
+	* scale images
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk
 14. Limit left and right bar item

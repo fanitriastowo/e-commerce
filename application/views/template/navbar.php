@@ -25,7 +25,7 @@
  					<?php echo anchor('administrator/category', 'Categories', 'id="categories" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/pemesanan', 'Pemesanan', 'id="pemesanan" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/member', 'Members', 'id="member" class="e-nav-item"'); ?>
- 					<?php echo anchor('#', 'Config', 'id="config" class="e-nav-item"'); ?>
+ 					<?php echo anchor('administrator/config', 'Config', 'id="config" class="e-nav-item"'); ?>
  					<?php echo anchor('administrator/administrator/logout', 'Logout', 'class="e-nav-item"'); ?>
  				<?php endif ?>
  			</nav>

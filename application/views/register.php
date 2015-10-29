@@ -62,7 +62,9 @@
 				</div>
 
 				<div class="form-group">
-					<?php echo form_submit('submit', 'Register', 'class = "btn btn-primary"'); ?>
+					<div class="col-sm-12">
+						<?php echo form_submit('submit', 'Register', 'class = "btn btn-primary"'); ?>
+					</div>
 				</div>
 			<?php echo form_close(); ?>
 		</div>

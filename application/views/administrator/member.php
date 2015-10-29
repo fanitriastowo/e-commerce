@@ -27,10 +27,10 @@
 			</div>
 		<?php endif ?>
 
-		<h1 class="text-center">Daftar User</h1>
+		<h1 class="text-center">Daftar Member</h1>
 		<div class="text-right">
 			<button class="btn btn-success" data-toggle="modal" data-target="#insert_modal">
-				<i class="fa fa-plus"></i> Add User</button>
+				<i class="fa fa-plus"></i> Add member</button>
 		</div> <br />
 		<table id="member_table" class="table table-hover table-striped table-bordered">
 			<thead>

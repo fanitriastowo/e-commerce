@@ -79,6 +79,75 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#registration').addClass('active');
+			// validate signup form on keyup and submit
+			$("#registration_form").validate({
+				rules: {
+					first_name: {
+						required : true,
+						maxlength : 50
+					},
+					last_name: {
+						required : true,
+						maxlength : 50
+					},
+					password: {
+						required: true,
+						minlength: 3
+					},
+					confirm_password: {
+						required: true,
+						minlength: 3,
+						equalTo: "#register_password"
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					phone: {
+						required: true,
+						number : true,
+						maxlength : 15
+					},
+					address: "required",
+					captcha_word : "required"
+				},
+				messages: {
+					first_name: {
+						required : "Firstname harap diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					last_name: {
+						required : "Lastname harap  diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					password: {
+						required: "Password harap diisi",
+						minlength: "minimal 3 karakter"
+					},
+					confirm_password: {
+						required: "Confirm Password harap diisi",
+						minlength: "minimal 3 karakter",
+						equalTo: "Confirm Password tidak sama"
+					},
+					email: {
+						required: "Email harap diisi",
+						email: "Format email tidak valid"
+					},
+					phone: {
+						required: "Nomor telepon harap diisi",
+						number : "Input hanya berupa angka",
+						maxlength : "Maksimal 50 Karakter"
+					},
+					address: "Alamat harap diisi",
+					captcha_word : "Inputkan karakter captcha"
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
 		});
 	</script>
 </body>

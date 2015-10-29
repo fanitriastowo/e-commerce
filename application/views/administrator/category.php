@@ -38,7 +38,10 @@
 				<?php foreach ($categories as $category): ?>
 					<div class="col-sm-4">
 						<div class="thumbnail">
-							<img class="img-thumbnail" src='<?php echo site_url('images/categories/' . $category->filename); ?>' alt='<?php echo $category->name; ?>'>
+							<img class="img-thumbnail" src='
+								<?php echo !empty($category->filename) ? site_url('images/categories/' . $category->filename ): 
+									site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>'
+							>
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">
@@ -173,7 +176,11 @@
 			$.getJSON(updateURL, function(data) {
 				$('input[name="update_id"]').val(data.id);
 				$('#update_name').val(data.name);
-				$('.image_category').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename);
+				if (!data.filename) {
+					$('.image_category').attr('src', '<?php echo site_url("images/blank.jpg"); ?>');
+				} else {
+					$('.image_category').attr('src', '<?php echo site_url("images/categories"); ?>' + '/' + data.filename);
+				};
 			});
 			$('#update-category-modal').modal();
 		});

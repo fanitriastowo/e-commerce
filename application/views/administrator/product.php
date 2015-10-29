@@ -71,7 +71,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open('administrator/product/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/product/insert', 'class="form-horizontal"'); ?>
 	<?php echo form_hidden('form_insert', 'form_insert'); ?>
 		<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -108,6 +108,19 @@
 							<div class="col-sm-10">
 								<?php echo form_textarea(array( 'name' => 'description', 'id' => 'add_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
 							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="add_filename" class="col-sm-2 control-label">Upload:</label>
+							<div class="col-sm-10">
+								<input type="file" name="add_filename" id="add_filename" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-12">
+								<img class="img-responsive image_product" src="">
+							</div>
 						</div>						
 					</div>
 					<div class="modal-footer">
@@ -122,7 +135,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open('administrator/product/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/product/update', 'class="form-horizontal"'); ?>
 	<?php echo form_hidden('form_update', 'form_update'); ?>
 		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -160,7 +173,20 @@
 							<div class="col-sm-10">
 								<?php echo form_textarea(array( 'name' => 'update_description', 'id' => 'input_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
 							</div>
-						</div>						
+						</div>	
+
+						<div class="form-group">
+							<label for="input_filename" class="col-sm-2 control-label">Upload:</label>
+							<div class="col-sm-10">
+								<input type="file" name="update_filename" id="input_filename" class="form-control">
+							</div>
+						</div>	
+
+						<div class="form-group">
+							<div class="col-sm-12">
+								<img class="img-responsive image_product" src="">
+							</div>
+						</div>				
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -221,6 +247,11 @@
 				$('#input_price').val(data.price);
 				$('#select_category').val(data.category_id);
 				$('#input_description').val(data.description);
+				if (!data.filename) {
+					$('.image_product').attr('src', '<?php echo site_url("images/blank.jpg"); ?>');
+				} else {
+					$('.image_product').attr('src', '<?php echo site_url("images/products"); ?>' + '/' + data.filename);
+				};
 			});
 			$('#update-modal').modal();
 		});
@@ -229,6 +260,24 @@
 			e.preventDefault();
 			$('#modal-delete .btn-delete').attr("href", $(this).attr("href"));
 			$('#modal-delete').modal();
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('.image_product').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#add_filename").change(function(){
+			readURL(this);
+		});
+
+		$("#input_filename").change(function(){
+			readURL(this);
 		});
 	</script>
 </body>

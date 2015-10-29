@@ -46,6 +46,7 @@ password: `password`
 13. Search produk
 14. Limit left and right bar item
 15. Cache left dan right bar
+16. Stok produk
 
 ### Issue Pemesanan
 1. Member

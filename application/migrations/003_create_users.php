@@ -30,6 +30,7 @@ class Migration_Create_users extends CI_Migration {
 				`company` varchar(100) DEFAULT NULL,
 				`phone` varchar(20) DEFAULT NULL,
 				`address` TEXT DEFAULT NULL,
+				`photo` VARCHAR(100) DEFAULT NULL,
 				PRIMARY KEY (`id`))";
 		
 		$user_group = "CREATE TABLE `users_groups` (

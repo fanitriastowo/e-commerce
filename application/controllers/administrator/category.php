@@ -21,7 +21,8 @@ class Category extends Admin_Controller {
 	public function insert() {
 		
 		// Ambil value form
-		$name = str_replace(' ', '_', $this->input->post('name'));
+		$name = $this->input->post('name');
+		$nice_name = str_replace(' ', '_', $name);
 
 		// ambil rules
 		$rules = $this->category_m->rules;
@@ -43,18 +44,22 @@ class Category extends Admin_Controller {
 
 			// Do Upload
 			if ( ! $this->upload->do_upload('filename')){
-				$this->session->set_flashdata('error_insert', $this->upload->display_errors());
+				$category = array(
+					'name' => $name
+				);
+				$this->category_m->save($category);
+				$this->session->set_flashdata('notif', 'Insert Category Successful!');
 				redirect('administrator/category');
 			} else {
 				$data = $this->upload->data();
 				$category = array(
 					'name' => $name,
-					'filename' => time().$name.$data['file_ext']
+					'filename' => time().$nice_name.$data['file_ext']
 				);
 				$this->category_m->save($category);
+				$this->session->set_flashdata('notif', 'Insert Category Successful!');
+				redirect('administrator/category');
 			}
-			$this->session->set_flashdata('notif', 'Insert Category Successful!');
-			redirect('administrator/category');
 		} else {
 			$this->session->set_flashdata('error_insert', validation_errors());
 			redirect('administrator/category');
@@ -97,7 +102,8 @@ class Category extends Admin_Controller {
 
 		// ambil id dari form_hidden
 		$id = $this->input->post('update_id');
-		$name = str_replace(' ', '_', $this->input->post('update_name'));
+		$name = $this->input->post('update_name');
+		$nice_name = str_replace(' ', '_', $name);
 
 		// ambil category rules_update
 		$rules = $this->category_m->rules_update;
@@ -119,7 +125,11 @@ class Category extends Admin_Controller {
 
 			// Do Upload
 			if ( ! $this->upload->do_upload('update_filename')){
-				$this->session->set_flashdata('error_update', $this->upload->display_errors());
+				$category = array(
+					'name' => $name
+				);
+				$this->category_m->save($category, $id);
+				$this->session->set_flashdata('notif', 'Update Category Successful!');
 				redirect('administrator/category');
 			} else {
 				$data = $this->upload->data();
@@ -130,13 +140,12 @@ class Category extends Admin_Controller {
 
 				$category = array(
 					'name' => $name,
-					'filename' => time().$name.$data['file_ext']
+					'filename' => time().$nice_name.$data['file_ext']
 				);
 				$this->category_m->save($category, $id);
+				$this->session->set_flashdata('notif', 'Update Category Successful!');
+				redirect('administrator/category');
 			}
-
-			$this->session->set_flashdata('notif', 'Update Category Successful!');
-			redirect('administrator/category');
 		} else {
 			$this->session->set_flashdata('error_update', validation_errors());
 			redirect('administrator/category');

@@ -12,7 +12,7 @@
 	<div class="container">
 		<h1>Daftar Pemesanan</h1>
 
-		<table id="pemesanan_table" class="table table-hover table-bordered table-striped" cellspacing="0" width="100%">
+		<table id="pemesanan_table" class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
 					<th width="5%">No.</th>

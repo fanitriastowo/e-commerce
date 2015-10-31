@@ -14,7 +14,7 @@
 		<p>Nama Pemesan : <?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></p><hr>
 		<?php echo form_open('administrator/pemesanan/approve'); ?>
 		<?php echo form_hidden('approve_id', $pemesanan->id); ?>
-		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped" cellspacing="0" width="100%">
+		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
 					<th width="5%">No.</th>

@@ -13,3 +13,17 @@
 	});
 </script>
 <?php endif ?>
+
+<?php if (!$this->ion_auth->is_admin()): ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".count_product_by_category").each(function(){
+		   	var id = $(this).attr('id');
+			var count = '<?php echo site_url("product/count_product_by_category/"); ?>/' + id;
+			$.getJSON(count, function(data) {
+				$('.count_product_by_category_result_' + id).html(data);
+			});
+		});
+	});
+</script>
+<?php endif ?>

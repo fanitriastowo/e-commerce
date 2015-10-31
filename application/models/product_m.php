@@ -124,6 +124,16 @@ class Product_m extends MY_Model {
         $this->db->join('categories', 'products.category_id = categories.id');
         return parent::get();
 	}
+	
+	/**
+	 * count product by category id
+	 * @param integer $id
+	 */
+	public function count_product_by_category($id) {
+		$this->db->where('category_id', $id);
+		$this->db->from('products');
+		return $this->db->count_all_results();
+	}
 }
 
 /* End of file product_m.php */

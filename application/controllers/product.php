@@ -18,6 +18,16 @@ class Product extends Frontend_Controller {
 		$this->data['product_detail'] = $this->product_m->get($id, TRUE);
 		$this->load->view('product_detail', $this->data);
 	}
+	
+	/**
+	 * count product by category id
+	 * @param integer $id
+	 * @return integer json object
+	 */
+	public function count_product_by_category($id) {
+		$count = $this->product_m->count_product_by_category($id);
+		return $this->output->set_content_type('application/json')->set_output(json_encode($count));
+	}
 }
 
 /* End of file product.php */

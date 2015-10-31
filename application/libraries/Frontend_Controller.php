@@ -16,6 +16,9 @@ class Frontend_Controller extends MY_Controller {
 		$this->data['products'] = $this->product_m->get_all_limit();
 	}
 
+	/**
+	 * Generate Captcha
+	 */
 	public function generate_captcha() {
 		// Load captcha helper
 		$this->load->helper('captcha');

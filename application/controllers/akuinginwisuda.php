@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin extends Admin_Controller {
+class Akuinginwisuda extends Admin_Controller {
 
 	/**
 	 * default constructor turunan Admin_Controller

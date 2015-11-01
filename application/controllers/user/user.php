@@ -16,7 +16,7 @@ class User extends User_Controller {
 	 */
 	public function login() {
 		// redirect if already logged in
-		if ($this->ion_auth->logged_in() == TRUE && !$this->ion_auth->is_admin()) {
+		if ($this->ion_auth->logged_in()) {
         	redirect('user/profile');
         }
 		$this->load->view('user/login');
@@ -32,11 +32,11 @@ class User extends User_Controller {
 		$password = $this->input->post('password');
 
 		// check credential dan jika buka administrator
-		if ($this->ion_auth->login($email, $password) && !$this->ion_auth->is_admin()) {
-			// Jika member
+		if ($this->ion_auth->login($email, $password)) {
 			redirect('home');
 		} 
 		
+		// jika invalid
 		$this->session->set_flashdata('error', TRUE);
 		redirect('user/user/login');
 	}
@@ -69,7 +69,7 @@ class User extends User_Controller {
 		$password = $this->input->post('password');
 
 		// check credential dan jika buka administrator
-		if ($this->ion_auth->login($email, $password) == TRUE && !$this->ion_auth->is_admin()) {
+		if ($this->ion_auth->login($email, $password)) {
 			// Jika member
 			redirect('product/show_all_products');
 		} else {

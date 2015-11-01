@@ -83,10 +83,10 @@ class Register extends Frontend_Controller {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
 			$this->ion_auth->login($email, $password);
 			$this->session->set_flashdata('notif_register', 'Registration Successful!');
-			redirect('daftar_pesanan');
+			redirect('product/show_all_products');
 		} else {
 			$this->session->set_flashdata('error_register', validation_errors());
-			redirect('daftar_pesanan');
+			redirect('product/show_all_products');
 		}
 	}
 

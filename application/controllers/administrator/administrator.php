@@ -12,7 +12,7 @@ class Administrator extends Admin_Controller {
 	 */
 	public function login() {
 		// redirect if already logged in
-        if ($this->ion_auth->is_admin() == TRUE) {
+        if ($this->ion_auth->is_admin()) {
             redirect('administrator/pemesanan');
         } 
 		$this->load->view('administrator/login');
@@ -25,7 +25,7 @@ class Administrator extends Admin_Controller {
 	public function post_login() {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-		if ($this->ion_auth->login($email, $password) == TRUE && !$this->ion_auth->in_group('members')) {
+		if ($this->ion_auth->login($email, $password) && $this->ion_auth->is_admin()) {
 			redirect('administrator/pemesanan');
 		} else {
 			$this->ion_auth->logout();

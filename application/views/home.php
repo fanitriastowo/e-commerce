@@ -18,17 +18,15 @@
 			<div class="col-sm-8">
 				<h3 class="text-center bg-info"><strong>Our Products</strong></h3>
 				<?php foreach ($products_rands as $product_rand): ?>
-					<div class="col-sm-4">
-						<div class="thumbnail">
-							<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">
-							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive">
-							</a>
-							<div class="caption text-center">
-								<div class="text-danger">
-									<strong><?php echo $product_rand->name; ?></strong>
-								</div>
-							</div>
+					<div class="col-sm-6">
+					<div class="thumbnail">
+						<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">
+							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="80%">
+						</a>
+						<div class="caption text-center">
+							<strong class="text-danger"><?php echo $product_rand->name; ?></strong>
 						</div>
+					</div>
 					</div>
 				<?php endforeach ?>
 			</div>

@@ -3,8 +3,11 @@
 	<ul class="nav nav-pills nav-stacked">
 		<?php foreach ($products as $product): ?>
 			<li role="presentation">
-				<a href="<?php echo site_url('product/detail/' . $product->id); ?>"><i class="fa fa-star fa-fw"></i>&nbsp; <?php echo $product->name; ?></a>
+				<a href="<?php echo site_url('product/detail/' . $product->id); ?>">
+					<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="50%">
+				</a>
 			</li>
+			<p><?php echo $product->name; ?></p>
 		<?php endforeach ?>
 	</ul>
 </div>

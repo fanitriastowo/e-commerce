@@ -9,12 +9,13 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
+		<h1 class="text-center">Pemesanan</h1><hr>
+
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 
 		<!-- Main Content (Product) -->
 		<div class="col-sm-8">
-			<h1 class="text-center">Pemesanan</h1>
 			<h2>Cara memesan</h2>
 			<img class="img-responsive img-thumbnail" src="<?php echo site_url('assets/images/alurpemesanan.png'); ?>">
 			<hr>

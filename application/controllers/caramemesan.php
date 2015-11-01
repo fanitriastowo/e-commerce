@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Ketentuan extends Frontend_Controller {
+class Caramemesan extends Frontend_Controller {
 
 	/**
 	 * mengambil data category dan latest product 
@@ -14,7 +14,7 @@ class Ketentuan extends Frontend_Controller {
 	 * load view 'ketentuan' dan membawa category list dan latest product list
 	 */
 	public function index() {
-		$this->load->view('ketentuan', $this->data);
+		$this->load->view('caramemesan', $this->data);
 	}
 }
 

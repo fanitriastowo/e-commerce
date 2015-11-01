@@ -3,7 +3,7 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Ketentuan Pemesanan</title>
+	<title>Cara Memesan</title>
 </head>
 <body>
 	<!-- Navbar -->
@@ -14,24 +14,17 @@
 
 		<!-- Main Content (Product) -->
 		<div class="col-sm-8">
-			<h1 class="text-center">Ketentuan Pemesanan</h1>
-			<h3>Syarat Pemesanan</h3>
+			<h1 class="text-center">Pemesanan</h1>
+			<h2>Cara memesan</h2>
+			<img class="img-responsive img-thumbnail" src="<?php echo site_url('assets/images/alurpemesanan.png'); ?>">
+			<hr>
+
+			<h2>Syarat Pemesanan</h2>
 			<ol>
 				<li>Melakukan registrasi untuk menjadi Member</li>
 				<li>Nomor telepon yang aktif</li>
 				<li>Berdomisili di Barlingmascakep</li>
 				<li>Pembayaran dilakukan dengan COD (cash on delivery)</li>
-			</ol>
-			<hr>
-			<h3>Cara memesan</h3>
-			<ol>
-				<li>Login sebagai member</li>
-				<li>Ubah identitas pribadi</li>
-				<li>Pilih produk yang diinginkan</li>
-				<li>Tentukan jumlah perproduk</li>
-				<li>Input alamat penerima</li>
-				<li>Cetak bukti pemesanan</li>
-				<li>Produk akan dikirim maksimal dalam 3 hari</li>
 			</ol>
 		</div>
 
@@ -46,7 +39,7 @@
 	<?php $this->load->view('template/js'); ?>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#ketentuan').addClass('active');
+			$('#caramemesan').addClass('active');
 		});
 	</script>
 </body>

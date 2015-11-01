@@ -64,7 +64,7 @@
 	</div>
 
 	<!-- Insert Modal -->
-	<?php echo form_open('administrator/member/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open('administrator/member/insert', 'class="form-horizontal insert_modal"'); ?>
 	<div class="modal fade" id="insert_modal" tabindex="-1" role="dialog" aria-labelledby="insert_modal_label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -76,31 +76,37 @@
 
 					<div class="form-group">
 						<div class="col-sm-6">
-							<?php echo form_input('first_name','', 'class="form-control" id="register_firstname" placeholder="Firstname" required'); ?>
+							<?php echo form_input('first_name','', 'class="form-control" id="register_firstname" placeholder="Firstname"'); ?>
 						</div>
 						<div class="col-sm-6">
-							<?php echo form_input('last_name','', 'class="form-control" id="register_lastname" placeholder="Lastname" required'); ?>
+							<?php echo form_input('last_name','', 'class="form-control" id="register_lastname" placeholder="Lastname"'); ?>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-sm-6">
-							<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password" required'); ?>
+							<?php echo form_password('password','', 'class="form-control" id="register_password" placeholder="Password"'); ?>
 						</div>
 						<div class="col-sm-6">
-							<?php echo form_password('confirm_password','', 'class="form-control" id="register_confirm_password" placeholder="Confirm Password" required'); ?>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-12">
-							<?php echo form_input('email','', 'class="form-control" id="register_email" placeholder="Email" required'); ?>
+							<?php echo form_password('confirm_password','', 'class="form-control" id="register_confirm_password" placeholder="Confirm Password"'); ?>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-sm-12">
-							<?php echo form_input('phone','', 'class="form-control" id="register_phone" placeholder="Phone Number" required'); ?>
+							<?php echo form_input('email','', 'class="form-control" id="register_email" placeholder="Email"'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_input('phone','', 'class="form-control" id="register_phone" placeholder="Phone Number"'); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-12">
+							<textarea name="address" rows="3" class="form-control" id="register_address" placeholder="Alamat member (alamat penerima)" style="resize : none;"></textarea>
 						</div>
 					</div>
 
@@ -115,7 +121,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open('administrator/member/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open('administrator/member/update', 'class="form-horizontal update_modal"'); ?>
 	<div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="update_modal_label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -128,10 +134,10 @@
 
 					<div class="form-group">
 						<div class="col-sm-6">
-							<?php echo form_input('first_name','', 'class="form-control" id="update_firstname" placeholder="Firstname" required'); ?>
+							<?php echo form_input('first_name','', 'class="form-control" id="update_firstname" placeholder="Firstname"'); ?>
 						</div>
 						<div class="col-sm-6">
-							<?php echo form_input('last_name','', 'class="form-control" id="update_lastname" placeholder="Lastname" required'); ?>
+							<?php echo form_input('last_name','', 'class="form-control" id="update_lastname" placeholder="Lastname"'); ?>
 						</div>
 					</div>
 
@@ -146,13 +152,19 @@
 
 					<div class="form-group">
 						<div class="col-sm-12">
-							<?php echo form_input('email','', 'class="form-control" id="update_email" placeholder="Email" required'); ?>
+							<?php echo form_input('email','', 'class="form-control" id="update_email" placeholder="Email"'); ?>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="col-sm-12">
-							<?php echo form_input('phone','', 'class="form-control" id="update_phone" placeholder="Phone Number" required'); ?>
+							<?php echo form_input('phone','', 'class="form-control" id="update_phone" placeholder="Phone Number"'); ?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-12">
+							<textarea name="address" rows="3" class="form-control" id="update_address" placeholder="Alamat member (alamat penerima)" style="resize : none;" required></textarea>
 						</div>
 					</div>
 
@@ -202,6 +214,124 @@
 			$('#member_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
 			});
+
+			// validate add member form on keyup and submit
+			$(".insert_modal").validate({
+				rules: {
+					first_name: {
+						required : true,
+						maxlength : 50
+					},
+					last_name: {
+						required : true,
+						maxlength : 50
+					},
+					password: {
+						required: true,
+						minlength: 3
+					},
+					confirm_password: {
+						required: true,
+						minlength: 3,
+						equalTo: "#register_password"
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					phone: {
+						required: true,
+						number : true,
+						maxlength : 15
+					},
+					address: "required"
+				},
+				messages: {
+					first_name: {
+						required : "Firstname harap diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					last_name: {
+						required : "Lastname harap  diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					password: {
+						required: "Password harap diisi",
+						minlength: "minimal 3 karakter"
+					},
+					confirm_password: {
+						required: "Confirm Password harap diisi",
+						minlength: "minimal 3 karakter",
+						equalTo: "Confirm Password tidak sama"
+					},
+					email: {
+						required: "Email harap diisi",
+						email: "Format email tidak valid"
+					},
+					phone: {
+						required: "Nomor telepon harap diisi",
+						number : "Input hanya berupa angka",
+						maxlength : "Maksimal 50 Karakter"
+					},
+					address: "Alamat harap diisi"
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
+
+			// validate update member form on keyup and submit
+			$(".update_modal").validate({
+				rules: {
+					first_name: {
+						required : true,
+						maxlength : 50
+					},
+					last_name: {
+						required : true,
+						maxlength : 50
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					phone: {
+						required: true,
+						number : true,
+						maxlength : 15
+					},
+					address: "required"
+				},
+				messages: {
+					first_name: {
+						required : "Firstname harap diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					last_name: {
+						required : "Lastname harap  diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					email: {
+						required: "Email harap diisi",
+						email: "Format email tidak valid"
+					},
+					phone: {
+						required: "Nomor telepon harap diisi",
+						number : "Input hanya berupa angka",
+						maxlength : "Maksimal 50 Karakter"
+					},
+					address: "Alamat harap diisi"
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
 		});
 
 		$('.trigger-delete').click(function(e) {
@@ -219,6 +349,7 @@
 				$('#update_lastname').val(data.last_name);
 				$('#update_email').val(data.email);
 				$('#update_phone').val(data.phone);
+				$('#update_address').val(data.address);
 			});
 			$('#update_modal').modal();
 		});

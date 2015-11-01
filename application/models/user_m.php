@@ -39,11 +39,6 @@ class User_m extends MY_Model {
 					'field' => 'address', 
 					'label' => 'Address', 
 					'rules' => 'trim|required|xss_clean'
-				),
-				'captcha_word' => array(
-					'field' => 'captcha_word', 
-					'label' => 'Captcha Word', 
-					'rules' => 'trim|required|xss_clean|callback__check_captcha'
 				)
 			);
 

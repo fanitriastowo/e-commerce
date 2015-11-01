@@ -24,6 +24,14 @@
 				<strong><?php echo $this->session->flashdata('failed'); ?></strong>
 			</div>
 			<?php endif ?>
+			<?php if (!empty($this->session->flashdata('notif'))): ?>
+				<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong><?php echo $this->session->flashdata('notif'); ?></strong>
+			</div>
+			<?php endif ?>
 			<h2 class="text-center">Daftar Pesanan Anda</h2>
 			<hr>
 			<table class="table table-hover table-bordered table-striped">

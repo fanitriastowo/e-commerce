@@ -27,11 +27,13 @@ class Member extends Admin_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
 		$additional = array(
-						'first_name' => $first_name,
-						'last_name' => $last_name,
-						'phone' => $phone
-					);
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'phone' => $phone,
+				'address' => $address 
+		);
 
 		// ambil rules
 		$rules = $this->user_m->rules;
@@ -83,13 +85,15 @@ class Member extends Admin_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
-		$data = array(
-					'first_name' => $first_name,
-					'last_name' => $last_name,
-					'email' => $email,
-					'password' => $password,
-					'phone' => $phone
-				);
+		$address = $this->input->post('address');
+		$data = array (
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'email' => $email,
+				'password' => $password,
+				'phone' => $phone,
+				'address' => $address 
+		);
 		
 		// ambil member rules_update
 		$rules = $this->user_m->rules_update;

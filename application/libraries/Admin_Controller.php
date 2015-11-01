@@ -5,7 +5,11 @@ class Admin_Controller extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		// URL Exception
-		$exception = array('administrator/administrator/login', 'administrator/administrator/post_login', 'administrator/administrator/logout');
+		$exception = array (
+				'administrator/administrator/login',
+				'administrator/administrator/post_login',
+				'administrator/administrator/logout' 
+		);
 
 		if ($this->ion_auth->logged_in() == FALSE && $this->ion_auth->is_admin() == FALSE && !in_array(uri_string(), $exception)) {
 

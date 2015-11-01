@@ -8,5 +8,6 @@
 				<button class="btn btn-default" type="button">Search</button></span>
 			</div>
 		<?php echo form_close(); ?>
+	<hr>
 	</div>	
 </div>

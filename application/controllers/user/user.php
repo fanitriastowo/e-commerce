@@ -16,8 +16,8 @@ class User extends User_Controller {
 	 */
 	public function login() {
 		// redirect if already logged in
-		if ($this->ion_auth->in_group('members') == TRUE) {
-        	redirect('user/user/home');
+		if ($this->ion_auth->logged_in() == TRUE) {
+        	redirect('user/profile');
         }
 		$this->load->view('user/login');
 	}
@@ -59,6 +59,25 @@ class User extends User_Controller {
 
 			// jika belum login
 			redirect('user/user/login');
+		}
+	}
+
+	/**
+	 * [Quick Login]
+	 */
+	public function quick_login () {
+		// ambil value dari form login
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+
+		// check credential dan jika buka administrator
+		if ($this->ion_auth->login($email, $password) == TRUE && !$this->ion_auth->is_admin()) {
+			// Jika member
+			redirect('product/show_all_products');
+		} else {
+			// Jika administrator
+			$this->session->set_flashdata('failed', "Kombinasi email atau password tidak valid");
+			redirect('product/show_all_products');
 		}
 	}
 }

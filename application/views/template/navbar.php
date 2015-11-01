@@ -7,7 +7,7 @@
 		<div class="navbar-right">
 			<nav class="e-nav">
  				<?php if (!$this->ion_auth->logged_in()): ?>
-	 				<a href="<?php echo site_url('user/pesan/show_all_products'); ?>" class="btn btn-default">
+	 				<a href="<?php echo site_url('product/show_all_products'); ?>" class="btn btn-default">
 	 					<span id="cart" class="glyphicon glyphicon-shopping-cart"></span></a>
  					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
  					<?php echo anchor('caramemesan', 'Cara Memesan', 'id="caramemesan" class="e-nav-item"'); ?>
@@ -16,7 +16,7 @@
  				<?php endif ?>
  				
  				<?php if ($this->ion_auth->logged_in() && !$this->ion_auth->is_admin()): ?>
-	 				<a href="<?php echo site_url('user/pesan/show_all_products'); ?>" class="btn btn-default">
+	 				<a href="<?php echo site_url('product/show_all_products'); ?>" class="btn btn-default">
 	 					<span id="cart" class="glyphicon glyphicon-shopping-cart"></span></a>
  					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
  					<?php echo anchor('caramemesan', 'Cara Memesan', 'id="caramemesan" class="e-nav-item"'); ?>

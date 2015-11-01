@@ -76,6 +76,68 @@ class Product extends Frontend_Controller {
 		$this->load->view('user/daftar_pesanan', $this->data);
 	}
 	
+	/**
+	 * [checkout pemesanan]
+	 * pemesanan yang dipilih akan masuk kedalam detail pemesanan
+	 * detail pemesanan berelasi dengan table pemesanan
+	 * table pemesanan menyimpan tanggal dan status pemesanan
+	 * @return [string] [redirect ke halaman profile member]
+	 */
+	public function checkout(){
+		$this->load->model('pemesanan_m');
+		$this->load->model('pemesanan_detail_m');
+
+		if ($this->ion_auth->logged_in()) {
+			// ambil object principal (user login)
+			$principal = $this->ion_auth->user()->row();
+
+			// ambil data di keranjang
+			$details = $this->cart->contents();
+
+			// cek jika keranjang berisi
+			if (count($this->cart->contents())) {
+
+				// siapkan data untuk disimpan ke table pemesanan
+				// Unique pemesanan harus unique dan diambil dari tanggal
+				// tambahkan status menjadi 'Proses'
+				$pemesanan = array(
+						'unique_pemesanan' => date('Ymdhis'),
+						'user_id' => $principal->id,
+						'created' => date('Y-m-d h:i:s'),
+						'status' => 'Proses'
+					);
+				// Simpan pemesanan ke table pemesanan dan return id
+				$pemesanan_id = $this->pemesanan_m->save($pemesanan);
+
+				// ambil data di keranjang
+				foreach ($details as $detail) {
+
+					// masukkan ke detail_pemesanan
+					$detail_pemesanan = array(
+							'pemesanan_id' => $pemesanan_id,
+							'product_id' => $detail['id'],
+							'name' => $detail['name'],
+							'qty' => $detail['qty'],
+							'price' => $detail['price'],
+							'subtotal' => $detail['subtotal']
+						);
+					// Simpan detail pemesanan
+					$this->pemesanan_detail_m->save($detail_pemesanan);
+				}
+
+				// Destroy cart
+				$this->cart->destroy();
+
+				// redirect ke halaman profile
+				redirect('user/profile');
+			}
+		} else {
+			// tampilkan form login menggunakan modal
+			$this->session->set_flashdata('not_logged_in', TRUE);
+			redirect('product/show_all_products');
+		}	
+	}
+	
 }
 
 /* End of file product.php */

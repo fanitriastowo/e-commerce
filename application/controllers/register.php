@@ -28,11 +28,11 @@ class Register extends Frontend_Controller {
 		$address = $this->input->post('address');
 		$captcha_word = $this->input->post('captcha_word');
 		$additional = array(
-						'first_name' => $first_name,
-						'last_name' => $last_name,
-						'phone' => $phone,
-						'address' => $address
-					);
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'phone' => $phone,
+				'address' => $address 
+		);
 		// ambil rule dari 'model/user_m'
 		$rules = $this->user_m->rules;
 
@@ -47,6 +47,46 @@ class Register extends Frontend_Controller {
 		} else {
 			$this->session->set_flashdata('error_register', validation_errors());
 			redirect('user/user/login');
+		}
+	}
+	
+
+	/**
+	 * [Quick Registration POST Method]
+	 * @return [view('daftar_pesanan')] [redirect ke halaman daftar pesanan]
+	 */
+	public function quick_registration() {
+
+		// Ambil value form
+		$first_name = $this->input->post('first_name');
+		$last_name = $this->input->post('last_name');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$confirm_password = $this->input->post('confirm_password');
+		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
+		$captcha_word = $this->input->post('captcha_word');
+		$additional = array(
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'phone' => $phone,
+				'address' => $address 
+		);
+		// ambil rule dari 'model/user_m'
+		$rules = $this->user_m->rules;
+
+		// set validation rules
+		$this->form_validation->set_rules($rules);
+
+		// check validation
+		if ($this->form_validation->run() == TRUE) {
+			$this->ion_auth->register($first_name, $password, $email, $additional);
+			$this->ion_auth->login($email, $password);
+			$this->session->set_flashdata('notif_register', 'Registration Successful!');
+			redirect('daftar_pesanan');
+		} else {
+			$this->session->set_flashdata('error_register', validation_errors());
+			redirect('daftar_pesanan');
 		}
 	}
 

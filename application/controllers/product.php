@@ -71,9 +71,10 @@ class Product extends Frontend_Controller {
 	 * tampilkan di halaman daftar pesanan
 	 */
 	public function show_all_products() {
+		$this->generate_captcha();
 		// simpan di global $data array karena halaman ini membutuhkan left panel & right panel data
 		$this->data['pemesanans'] = $this->cart->contents();
-		$this->load->view('user/daftar_pesanan', $this->data);
+		$this->load->view('daftar_pesanan', $this->data);
 	}
 	
 	/**

@@ -9,15 +9,11 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<h1 class="text-center">Pemesanan</h1><hr>
 
-		<!-- Left Content (Categories) -->
-		<?php $this->load->view('template/left'); ?>
-
-		<!-- Main Content (Product) -->
-		<div class="col-sm-8">
-			<h2>Cara memesan</h2>
-			<img class="img-responsive img-thumbnail" src="<?php echo site_url('assets/images/alurpemesanan.png'); ?>">
+		<!-- Main Content -->
+		<div class="col-sm-12">
+			<h2 class="text-center">Cara memesan</h2>
+			<img class="center-block img-responsive img-thumbnail" src="<?php echo site_url('assets/images/alurpemesanan.png'); ?>">
 			<hr>
 
 			<h2>Syarat Pemesanan</h2>
@@ -29,8 +25,6 @@
 			</ol>
 		</div>
 
-		<!-- Right Content (New Product) -->
-		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->

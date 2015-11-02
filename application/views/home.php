@@ -16,7 +16,7 @@
 
 			<!-- Main Content (Product) -->
 			<div class="col-sm-8">
-				<h3 class="text-center bg-info"><strong>Our Products</strong></h3>
+				<h3 class="text-center"><strong>Our Products</strong></h3>
 				<?php foreach ($products_rands as $product_rand): ?>
 					<div class="col-sm-6">
 					<div class="thumbnail">

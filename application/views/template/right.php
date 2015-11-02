@@ -1,13 +1,21 @@
 <div class="col-sm-2">
-	<h3 class="text-center bg-warning"><strong>New Product</strong></h3>
-	<ul class="nav nav-pills nav-stacked">
-		<?php foreach ($products as $product): ?>
-			<li role="presentation">
+	<div class="nav-side-menu">
+		<div class="brand"><strong>New Product</strong></div>
+		<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+		<div class="menu-list">
+			<ul id="menu-content" class="menu-content collapse out">
+
+			<?php foreach ($products as $product): ?>
+			<li class="text-center">
 				<a href="<?php echo site_url('product/detail/' . $product->id); ?>">
-					<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="50%">
-				</a>
+					<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="80%">
+				</a><br>
+				<?php echo $product->name; ?>
 			</li>
-			<p><?php echo $product->name; ?></p>
-		<?php endforeach ?>
-	</ul>
+			<br>
+			<?php endforeach ?>
+			</ul>
+		</div>
+	</div>
 </div>

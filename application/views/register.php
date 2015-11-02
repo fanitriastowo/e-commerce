@@ -56,7 +56,7 @@
 
 				<div class="form-group">
 					<div class="col-sm-12">
-						<label for="captcha_word"><?php echo $captcha['image']; ?></label>
+						<label for="register_captcha_word"><?php echo $captcha['image']; ?></label>
 						<?php echo form_input('captcha_word', '', 'class="form-control" id="register_captcha_word" placeholder="Input Text Above" required'); ?>
 					</div>
 				</div>

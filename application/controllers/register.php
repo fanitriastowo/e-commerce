@@ -26,7 +26,6 @@ class Register extends Frontend_Controller {
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
-		$captcha_word = $this->input->post('captcha_word');
 		$additional = array(
 				'first_name' => $first_name,
 				'last_name' => $last_name,
@@ -38,6 +37,7 @@ class Register extends Frontend_Controller {
 
 		// set validation rules
 		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_rules('captcha_word', 'Captcha', 'required|callback__check_captcha');
 
 		// check validation
 		if ($this->form_validation->run() == TRUE) {
@@ -65,7 +65,6 @@ class Register extends Frontend_Controller {
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
-		$captcha_word = $this->input->post('captcha_word');
 		$additional = array(
 				'first_name' => $first_name,
 				'last_name' => $last_name,
@@ -77,6 +76,7 @@ class Register extends Frontend_Controller {
 
 		// set validation rules
 		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_rules('captcha_word', 'Captcha', 'required|callback__check_captcha');
 
 		// check validation
 		if ($this->form_validation->run() == TRUE) {
@@ -121,7 +121,7 @@ class Register extends Frontend_Controller {
 			return true;
 		}
 		else{
-			$this->form_validation->set_message('_check_captcha', 'Please enter correct words!');
+			$this->form_validation->set_message('_check_captcha', '%s not valid!');
 			return false;
 		}
 	}

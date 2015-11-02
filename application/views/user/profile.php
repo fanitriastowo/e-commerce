@@ -9,13 +9,15 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
+	
+		<h1 class="text-right">Your Profile</h1> 
+		<hr class="colorgraph">
+
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
 		<div class="col-sm-10">
-			<h2 class="text-center">Welcome <?php echo $principal->first_name; ?></h2> <hr>
 
 			<?php if (!empty($this->session->flashdata('error_update'))): ?>
 				<div class="alert alert-danger alert-dismissible" role="alert">

@@ -68,6 +68,7 @@
 				</tbody>
 			</table>
 			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member</p>
+			<p class="text-warning">** Barang pesanan akan dikirim maksimal dalam 2 hari</p>
 			<a href="<?php echo site_url('product/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>
 		</div>
 	</div>

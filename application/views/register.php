@@ -9,12 +9,17 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
+
+		<h1 class="text-right">Registration Form</h1> 
+		<hr class="colorgraph">
+
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 
 		<!-- Main Content (Product) -->
-		<div class="col-sm-10">
-			<h1>Registration Form</h1> <hr>
+		<div class="col-sm-6">
+			<p class="text-warning"><strong>*Silahkan inputkan field-field berikut ini</strong></p>
+			
 			<!-- Registration Modal -->
 			<?php echo form_open('register/registration', 'class="form-horizontal" id="registration_form"'); ?>
 
@@ -62,11 +67,18 @@
 				</div>
 
 				<div class="form-group">
-					<div class="col-sm-12">
+					<div class="col-xs-offset-10 col-sm-offset-10">
 						<?php echo form_submit('submit', 'Register', 'class = "btn btn-primary"'); ?>
 					</div>
 				</div>
 			<?php echo form_close(); ?>
+		</div>
+		<div class="col-sm-4">
+			<h3 class="dark-grey"><strong>Syarat dan Ketentuan</strong></h3> <hr>
+			<p>Dengan melakukan "registrasi" Anda setuju dengan syarat dan ketentuan Perusahaan Randu Jati Meubel</p>
+			<p>Meskipun jarang, perubahan harga didasarkan pada fluktuasi nilai tukar produk, Kami dapat meminta pembayaran tambahan. Anda memiliki pilihan untuk meminta pengembalian dana penuh atau membayar harga baru.</p>
+			<p>Apabila ada kesalahan dalam deskripsi atau harga dari suatu produk, kami akan memberikan Anda dengan pengembalian dana penuh.</p>
+			<p>Penerimaan pesanan tergantung pada kemampuan pemasok Kami untuk menyediakan produk.</p>
 		</div>
 
 	</div>

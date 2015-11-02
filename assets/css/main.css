@@ -1,12 +1,12 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #555;
-	padding-top: 70px;
+	padding-top: 50px;
+	color: #5a5a5a;
 }
 
 .e-masthead {
-	background-color: #428bca;
+	background-color: #663300;
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -69,9 +69,43 @@ body {
 	}
 }
 
+/* Carousel base class */
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 10;
+	color: #FFF;
+}
+
+.carousel-image {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+	height: 500px;
+	background-color: #777;
+}
+
+.carousel-inner > .item > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
+
 /*FOOTER 1*/
 .footer1 .footer {
-	background-color: #94C3EA;
+	background-color: #CC9900;
 	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 	padding: 35px 0;
@@ -79,7 +113,7 @@ body {
 }
 
 .footer1 .footer .footer-desc p {
-	color: #000;
+	color: #cdddeb;
 	margin: 15px 0 8px;
 }
 
@@ -140,7 +174,7 @@ body {
 }
 
 .footer1 .footer-bottom {
-	background-color: #0A5A9C;
+	background-color: #CC6600;
 	padding: 15px 0;
 	color: #FFF;
 	font-size: 13px;
@@ -259,4 +293,15 @@ body {
 	.nav-side-menu .menu-list .menu-content {
 		display: block;
 	}
+}
+
+.colorgraph {
+	height: 7px;
+	border-top: 0;
+	background: #c4e17f;
+	border-radius: 5px;
+	background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }

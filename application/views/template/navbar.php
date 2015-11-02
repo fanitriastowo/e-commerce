@@ -1,4 +1,4 @@
-
+<div class="navbar-wrapper">
 <div class="e-masthead navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -35,4 +35,5 @@
  			</nav>
 		</div>
 	</div>
+</div>
 </div>

@@ -8,8 +8,8 @@
 <body>
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
+	<?php $this->load->view('template/header'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
 		<div class="row">
 			<!-- Left Content (Categories) -->
 			<?php $this->load->view('template/left'); ?>

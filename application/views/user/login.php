@@ -27,6 +27,9 @@
 			</div>
 		<?php endif ?>
 
+		<div class="modal-dialog">
+		<div class="modal-content">
+		 <div class="modal-body">
 		<div class="wrapper">
 
 			<?php echo form_open('user/user/post_login', array('class' => 'form-signin')); ?>
@@ -38,6 +41,9 @@
 
 			<?php echo form_submit('submit', 'Login', 'class = "btn btn-lg btn-primary btn-block"'); ?>
 			<?php echo form_close(); ?>
+		</div>
+		</div>
+		</div>
 		</div>
 
 		<?php if (($this->session->flashdata('error'))): ?>

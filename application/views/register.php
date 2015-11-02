@@ -13,7 +13,7 @@
 		<?php $this->load->view('template/left'); ?>
 
 		<!-- Main Content (Product) -->
-		<div class="col-sm-8">
+		<div class="col-sm-10">
 			<h1>Registration Form</h1> <hr>
 			<!-- Registration Modal -->
 			<?php echo form_open('register/registration', 'class="form-horizontal" id="registration_form"'); ?>
@@ -69,8 +69,6 @@
 			<?php echo form_close(); ?>
 		</div>
 
-		<!-- Right Content (New Product) -->
-		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->

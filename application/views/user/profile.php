@@ -14,7 +14,7 @@
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
-		<div class="col-sm-8">
+		<div class="col-sm-10">
 			<h2 class="text-center">Welcome <?php echo $principal->first_name; ?></h2> <hr>
 
 			<?php if (!empty($this->session->flashdata('error_update'))): ?>
@@ -35,7 +35,7 @@
 
 			<div class="col-sm-6">
 
-				<div class="form-group">
+				<div class="text-center">
 					<img class="img-thumbnail" src="<?php echo site_url('images/blank.jpg'); ?>" alt="Your Avatar">
 				</div>
 				<hr>
@@ -102,8 +102,6 @@
 			<button type="button" id="trigger-update-profile" class="btn btn-primary btn-lg btn-block">Ganti Akun</button>
 		</div>
 
-		<!-- Right Content (New Product) -->
-		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->

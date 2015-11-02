@@ -11,11 +11,12 @@
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
 		<?php $this->load->view('template/header'); ?>
+
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
-		<div class="col-sm-8">
+		<div class="col-sm-10">
 			<?php if (!empty($this->session->flashdata('failed'))): ?>
 				<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -69,9 +70,6 @@
 			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member</p>
 			<a href="<?php echo site_url('product/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>
 		</div>
-
-		<!-- Right Content (New Product) -->
-		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->
@@ -104,8 +102,8 @@
 							<h3 class="form-signin-heading">Please sign in</h3>
 							<hr class="colorgraph">
 							<br>
-							<?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Email Address', 'required' => '', 'autofocus' => '')); ?>
-							<?php echo form_password(array('name' => 'password', 'id' => 'password', 'value' => '', 'class' => 'form-control', 'placeholder' => 'Password', 'required' => '')); ?>
+							<?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => '', 'class' => 'form-control-login', 'placeholder' => 'Email Address', 'required' => '', 'autofocus' => '')); ?>
+							<?php echo form_password(array('name' => 'password', 'id' => 'password', 'value' => '', 'class' => 'form-control-login', 'placeholder' => 'Password', 'required' => '')); ?>
 							<?php echo form_submit('submit', 'Login', 'class = "btn btn-lg btn-primary btn-block"'); ?>
 						<?php echo form_close(); ?>
 					</div>

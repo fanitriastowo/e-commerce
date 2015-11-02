@@ -73,7 +73,7 @@ class Product_m extends MY_Model {
 	 * @param  integer $limit [default limitation if there's no parameter]
 	 * @return [products]         [Return all product]
 	 */
-	public function get_all_limit($limit = 4) {
+	public function get_all_limit($limit = 3) {
 
 		// Cast parameter to Integer for security
 		$limit = (int) $limit;

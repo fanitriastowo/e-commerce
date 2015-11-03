@@ -20,7 +20,7 @@ password: `password`
 	* Menampilkan daftar pemesanan terdahulu
 	* redesign report
 6. JQuery Validation di daftar member (administrator)
-7. Halaman Config Admin (Setting Akun)
+7. ~~Halaman Config Admin (Setting Akun)~~
 8. Form registrasi
 	* ~~Jquery validation~~
 	* ~~CAPTCHA~~
@@ -41,8 +41,8 @@ password: `password`
 	* ~~Redesign report~~
 11. Render Image dan upload image ke filesystem
 	* user profile
-	* admin product
-	* scale images
+	* ~~admin product~~
+	* ~~scale images~~
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk
 14. Limit left and right bar item

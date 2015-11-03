@@ -17,11 +17,11 @@ password: `password`
 	* ~~Approve pemesanan~~
 	* ~~generate bukti pemesanan~~
 	* ~~ubah status pemesanan menjadi terkirim~~
-	* Menampilkan daftar pemesanan terdahulu
-	* redesign report
+	* ~~Menampilkan daftar pemesanan terdahulu~~
+	* ~~redesign report~~
 6. JQuery Validation di daftar member (administrator)
 7. ~~Halaman Config Admin (Setting Akun)~~
-8. Form registrasi
+8. ~~Form registrasi~~
 	* ~~Jquery validation~~
 	* ~~CAPTCHA~~
 9. ~~Halaman Profile Member (Setting akun)~~
@@ -45,14 +45,14 @@ password: `password`
 	* ~~scale images~~
 12. ~~Ganti Footer supaya menarik~~
 13. Search produk
-14. Limit left and right bar item
+14. ~~Limit left and right bar item~~
 15. Cache left dan right bar
 16. Stok produk
 
 ### Issue Pemesanan
 1. Member
-	* pesan 2 kali
-	* batal pesan
+	* ~~pesan 2 kali~~
+	* ~~batal pesan~~
 2. Admin
 	* Pemesanan Ganda
 	* batal pemesanan member

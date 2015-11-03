@@ -67,6 +67,20 @@ class Product extends Frontend_Controller {
 	}
 
 	/**
+	 * [delete single cart item]
+	 * @param  [integer] $id [rowid]
+	 */
+	public function delete($id) {
+		$data = array(
+			'rowid'   => $id,
+			'qty'     => 0
+		);
+
+		$this->cart->update($data); 
+		redirect('product/show_all_products');
+	}
+
+	/**
 	 * [menampilkan daftar pesanan]
 	 * tampilkan di halaman daftar pesanan
 	 */

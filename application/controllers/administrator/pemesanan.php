@@ -52,11 +52,14 @@ class Pemesanan extends Admin_Controller {
 		// load library
 		$this->load->library('Report_Controller');
 
-		// load pemesanan_detail_m model
+		// load model
 		$this->load->model('pemesanan_detail_m');
+		$this->load->model('user_m');
 
 		// Ambil pemesanan berdasarkan id
 		$pemesanan = $this->pemesanan_m->get($id, TRUE);
+
+		$principal = $this->user_m->get($pemesanan->user_id, TRUE);
 
 		// ambil detail pemesanan berdasarkan id pemesanan
 		$pemesanan_detail = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
@@ -72,7 +75,7 @@ class Pemesanan extends Admin_Controller {
 		$pdf->SetKeywords('pemesanan');
 
 		// set default header data
-		$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+		$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' Bukti Pemesanan Member', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
 		$pdf->setFooterData(array(0,64,0), array(0,64,128));
 
 		// set header and footer fonts
@@ -100,7 +103,7 @@ class Pemesanan extends Admin_Controller {
 		// helvetica is a UTF-8 Unicode font, if you only need to
 		// print standard ASCII chars, you can use core fonts like
 		// helvetica or times to reduce file size.
-		$pdf->SetFont('helvetica', '', 10, '', true);
+		$pdf->SetFont('helvetica', '', 12, '', true);
 
 		// Add a page
 		// This method has several options, check the source code documentation for more information.
@@ -112,17 +115,17 @@ class Pemesanan extends Admin_Controller {
 		// Construct content
 		$tbl_header = '
 		<style>
-		table {
+		.table {
 		    border-collapse: collapse;
 		    border-spacing: 0;
 		    margin: 0 20px;
 		    width : 100%;
 		}
-		tr {
+		.tr {
 		    padding: 3px 0;
 		}
 
-		th {
+		.th {
 		    background-color: #CCCCCC;
 		    border: 1px solid #DDDDDD;
 		    color: #333333;
@@ -136,27 +139,43 @@ class Pemesanan extends Admin_Controller {
 		    border: 1px solid #CCCCCC;
 		    padding: 3px 7px 2px;
 		}
+
+		.text-right {
+			text-align : right;
+			padding : 0;
+			margin : 0;
+		}
 		</style>
 
-		<table>
-			<tr>
-		        <th width="5%"><font face="Arial, Helvetica, sans-serif">No.</font></th>
-		        <th width="30%"><font face="Arial, Helvetica, sans-serif">Name</font></th>
-		        <th width="5%"><font face="Arial, Helvetica, sans-serif">Qty</font></th>
-		        <th width="15%"><font face="Arial, Helvetica, sans-serif">Harga</font></th>
-		        <th width="15%"><font face="Arial, Helvetica, sans-serif">Subtotal</font></th>
+		<div class="text-right">
+			<strong>No Pemesanan : ' . $pemesanan->unique_pemesanan . '</strong>
+			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
+		</div>
+		<br>
+		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
+		<p>Alamat : ' . $principal->address . '</p>
+		<p>Telepon : ' . $principal->phone . '</p>
+
+		<table class="table">
+			<tr class="tr">
+		        <th class="th" width="5%"><font face="Arial, Helvetica, sans-serif">No.</font></th>
+		        <th class="th" width="50%"><font face="Arial, Helvetica, sans-serif">Name</font></th>
+		        <th class="th" width="5%"><font face="Arial, Helvetica, sans-serif">Qty</font></th>
+		        <th class="th" width="20%"><font face="Arial, Helvetica, sans-serif">Harga</font></th>
+		        <th class="th" width="20%"><font face="Arial, Helvetica, sans-serif">Subtotal</font></th>
 		    </tr>';
 
 		$tbl = '';
 
 		// $i sebagai index untuk nomor urut
 		$i = 1;
+		$total = 0;
 
 		// generate setiap detail pemesanan
 		foreach ($pemesanan_detail as $detail) {
 
 			$tbl .= '
-			    <tr>
+			    <tr class="tr">
 			        <td>' . $i . '.</td>
 			        <td>'. $detail->name .'</td>
 			        <td>'. $detail->qty .'</td>
@@ -165,9 +184,46 @@ class Pemesanan extends Admin_Controller {
 			    </tr>
 			';
 			$i++;
+			$total += $detail->subtotal;
 		}
 
-		$tbl_footer = '</table>';
+		$tbl_footer = '
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Jumlah</td>
+				<td>Rp. 
+					' . $total . '
+				</td>
+			</tr>
+		';
+		$tbl_footer .= '</table>';
+		$tbl_footer .= 
+		'
+			<br>
+			<br>
+			<p>Dengan ini saya menyatakan barang yang dipesan telah diterima dan segala tindakan pelanggaran hukum akan dipertanggungjawabkan kepihak berwajib</p>
+			<p>tertanda,</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Penerima,</th>
+						<th>Pengirim,</th>
+					</tr>
+					<tr><th></th></tr>
+					<tr><th></th></tr>
+					<tr><th></th></tr>
+					<tr><th></th></tr>
+					<tr><th></th></tr>
+					<tr><th></th></tr>
+					<tr>
+						<th><strong>' . $principal->first_name . ' ' . $principal->last_name . '</strong></th>
+						<th>Agen Randu Jati</th>
+					</tr>
+				</thead>
+			</table>
+		';
 
 		// output the HTML content
 		$pdf->writeHTML($tbl_header . $tbl . $tbl_footer, true, false, false, false, '');

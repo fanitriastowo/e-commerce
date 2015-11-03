@@ -15,7 +15,7 @@
 			<?php $this->load->view('template/left'); ?>
 
 			<!-- Main Content (Product) -->
-			<div class="col-sm-8">
+			<div class="col-sm-10">
 				<h3 class="text-center bg-info"><strong>Detail Categories</strong></h3>
 				<?php foreach ($produts_by_categories as $category_detail): ?>
 					<div class="col-sm-4">

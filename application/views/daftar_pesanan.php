@@ -10,8 +10,7 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<?php $this->load->view('template/header'); ?>
-
+		
 		<!-- Left Content (Categories) -->
 		<?php $this->load->view('template/left'); ?>
 		
@@ -56,12 +55,12 @@
 						<td><?php echo $pemesanan['price']; ?></td>
 						<td><?php echo $pemesanan['qty']; ?></td>
 						<td>
-								<?php foreach ($this->cart->product_options($pemesanan['rowid']) as $option_name => $option_value): ?>
-									<?php echo $option_value; ?>
-								<?php endforeach ?>
-							</td>
+							<?php foreach ($this->cart->product_options($pemesanan['rowid']) as $option_name => $option_value): ?>
+								<?php echo $option_value; ?>
+							<?php endforeach ?>
+						</td>
 						<td><?php echo $pemesanan['subtotal']; ?></td>
-						<td><a href="#" class="btn btn-xs btn-warning"><i class="fa fa-times"></i>&nbsp;Batal</a></td>
+						<td><a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-warning"><i class="fa fa-times"></i>&nbsp;Batal</a></td>
 					</tr>
 						<?php $i++; ?>
 					<?php endforeach ?>

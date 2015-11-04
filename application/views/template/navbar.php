@@ -4,6 +4,17 @@
 		<div class="navbar-header">
  			<?php echo anchor('/', '<span class="fa fa-lg fa-internet-explorer"></span> - Randu Jati', 'class="e-navbar-brand"'); ?>
  		</div>
+ 		<div class="col-sm-4 col-md-4">
+ 			<?php echo form_open('', 'class="navbar-form" role="search"'); ?>
+	 			<div class="input-group">
+	 				<input size="40" type="text" placeholder="Pencarian" class="form-control" name="search">
+	 				<div class="input-group-btn">
+	 					<button class="btn btn-default" type="submit">
+	 						<i class="glyphicon glyphicon-search"></i></button>
+	 				</div>
+ 				</div>
+			<?php echo form_close(); ?>
+ 		</div>
 		<div class="navbar-right">
 			<nav class="e-nav">
  				<?php if (!$this->ion_auth->logged_in()): ?>

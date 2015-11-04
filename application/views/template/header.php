@@ -15,6 +15,7 @@
 						<h1>Produk berkualitas</h1>
 						<p>Produk yang berkualitas adalah kunci kepuasan pelanggan.</p>
 						<p>Produk kami datangkan langsung dari pabrik yang sudah berpengalaman lebih dari 20 Tahun.</p>
+						<hr> 
 					</div>
 				</div>
 			</div>
@@ -25,6 +26,7 @@
 						<h1>Kami utamakan kepuasan pelanggan</h1>
 						<p>Kunci dari puasnya pelanggan adalah dengan pelayanan yang maksimal.</p>
 						<p>Kami pastikan produk yang kami kirimkan tepat waktu dan sesuai dengan kondisi yang baik.</p>
+						<hr> 
 					</div>
 				</div>
 			</div>
@@ -33,14 +35,7 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Pencarian Produk</h1>
-						<p>Ketikan keyword produk yang Anda cari di bawah ini.</p>
-						<?php echo form_open(); ?>
-						<div class="input-group">
-							<input type="text" placeholder="Pencarian" class="form-control" name="search" autofocus>
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">Search</button></span>
-						</div>
-						<?php echo form_close(); ?>
+						<p>Ketikan keyword produk yang Anda cari di kotak pencarian.</p>
 						<hr> 
 					</div>
 				</div>

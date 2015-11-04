@@ -18,18 +18,11 @@
 				<strong><?php echo $this->session->flashdata('notif_register'); ?></strong>
 			</div>
 		<?php endif ?>
-
-		<?php if (!empty($this->session->flashdata('error_register'))): ?>
-			<div class="alert alert-danger alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span></button>
-				<strong><?php echo $this->session->flashdata('error_register'); ?></strong>
-			</div>
-		<?php endif ?>
+		
 
 		<div class="modal-dialog">
 		<div class="modal-content">
-		 <div class="modal-body">
+		<div class="modal-body">
 		<div class="wrapper">
 
 			<?php echo form_open('user/user/post_login', array('class' => 'form-signin')); ?>

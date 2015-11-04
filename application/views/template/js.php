@@ -88,19 +88,19 @@ setInterval( function() {
 	// Add a leading zero to the hours value
 	$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
 }, 1000);	
+
+$(".count_product_by_category").each(function(){
+   	var id = $(this).attr('id');
+	var count = '<?php echo site_url("product/count_product_by_category/"); ?>/' + id;
+	$.getJSON(count, function(data) {
+		$('.count_product_by_category_result_' + id).html(data);
+	});
+});
 	
 <?php if (!$this->ion_auth->is_admin()): ?>
 	var totalProductsURL = '<?php echo site_url("product/total_products"); ?>';
 	$.getJSON(totalProductsURL, function(data) {
 		$('#cart').html(data);
-	});
-	
-	$(".count_product_by_category").each(function(){
-	   	var id = $(this).attr('id');
-		var count = '<?php echo site_url("product/count_product_by_category/"); ?>/' + id;
-		$.getJSON(count, function(data) {
-			$('.count_product_by_category_result_' + id).html(data);
-		});
 	});
 <?php endif ?>
 });

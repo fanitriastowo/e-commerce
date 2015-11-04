@@ -19,7 +19,7 @@ password: `password`
 	* ~~ubah status pemesanan menjadi terkirim~~
 	* ~~Menampilkan daftar pemesanan terdahulu~~
 	* ~~redesign report~~
-6. JQuery Validation di daftar member (administrator)
+6. ~~JQuery Validation di daftar member (administrator)~~
 7. ~~Halaman Config Admin (Setting Akun)~~
 8. ~~Form registrasi~~
 	* ~~Jquery validation~~

@@ -25,6 +25,7 @@
 				</tr>
 			</thead>
 			<tbody>
+			<?php $jumlah = 0; ?>
 			<?php foreach ($pemesanan_details as $i => $pemesanan_detail): ?>
 				<tr>
 					<td><?php echo $i + 1; ?></td>
@@ -33,8 +34,18 @@
 					<td><?php echo $pemesanan_detail->price; ?></td>
 					<td><?php echo $pemesanan_detail->subtotal; ?></td>
 				</tr>
+				<?php $jumlah += $pemesanan_detail->subtotal; ?>
 			<?php endforeach ?>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><strong>Jumlah</strong></td>
+					<td><strong><?php echo $jumlah; ?></strong></td>
+				</tr>
+			</tfoot>
 		</table>
 		<hr>
 		<?php echo form_submit('submit', 'Approve', 'class="btn btn-lg btn-block btn-success"'); ?>

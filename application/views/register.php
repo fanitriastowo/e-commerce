@@ -18,6 +18,15 @@
 
 		<!-- Main Content (Product) -->
 		<div class="col-sm-6">
+
+			<?php if (!empty($this->session->flashdata('error_register'))): ?>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<strong><?php echo $this->session->flashdata('error_register'); ?></strong>
+				</div>
+			<?php endif ?>
+			
 			<p class="text-warning"><strong>*Silahkan inputkan field-field berikut ini</strong></p>
 			
 			<!-- Registration Modal -->

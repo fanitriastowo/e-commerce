@@ -42,11 +42,11 @@ class Register extends Frontend_Controller {
 		// check validation
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
-			$this->session->set_flashdata('notif_register', 'Registration Successful!');
+			$this->session->set_flashdata('notif_register', 'Registration Successful! Silahkan Login');
 			redirect('user/user/login');
 		} else {
 			$this->session->set_flashdata('error_register', validation_errors());
-			redirect('user/user/login');
+			redirect('register');
 		}
 	}
 	

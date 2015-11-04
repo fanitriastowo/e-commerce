@@ -71,7 +71,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open_multipart('administrator/product/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/product/insert', 'class="form-horizontal" id="add_product_modal"'); ?>
 	<?php echo form_hidden('form_insert', 'form_insert'); ?>
 		<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -135,7 +135,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open_multipart('administrator/product/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/product/update', 'class="form-horizontal" id="update_product_modal"'); ?>
 	<?php echo form_hidden('form_update', 'form_update'); ?>
 		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -235,6 +235,80 @@
 			$('#products').addClass('active');
 			$('#products_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
+			});
+
+			$("#add_product_modal").validate({
+				rules: {
+					name: {
+						required : true,
+						maxlength : 255,
+						pattern : /^[0-9a-zA-Z'.\s]{1,40}$/
+					},
+					category_id: {
+						required : true
+					},
+					price: {
+						required : true,
+						number : true
+					}
+				},
+				messages: {
+					name: {
+						required : "Nama produk harus diisi",
+						maxlength : "Maksimal 255 Karakter",
+						pattern : "Tidak boleh mengandung special character"
+					},
+					category_id: {
+						required : "Kategori harus diisi"
+					},
+					price: {
+						required : "Harga produk harus diisi",
+						number : "Harga produk hanya berupa angka"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
+
+			$("#update_product_modal").validate({
+				rules: {
+					update_name: {
+						required : true,
+						maxlength : 255,
+						pattern : /^[0-9a-zA-Z'.\s]{1,40}$/
+					},
+					update_price: {
+						required : true
+					},
+					update_category_id: {
+						required : true,
+						number : true
+					}
+				},
+				messages: {
+					update_name: {
+						required : "Nama produk harus diisi",
+						maxlength : "Maksimal 255 Karakter",
+						pattern : "Tidak boleh mengandung special character"
+					},
+					update_price: {
+						required : "Kategori harus diisi"
+					},
+					update_category_id: {
+						required : "Harga produk harus diisi",
+						number : "Harga produk hanya berupa angka"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
 			});
 		});
 

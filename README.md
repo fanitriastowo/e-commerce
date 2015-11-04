@@ -9,7 +9,7 @@ password: `password`
 2. ~~Pisah Login Admin dan Member~~
     * ~~login admin `localhost/e-commerce/admin`~~
     * ~~login user `klik login di navbar`~~
-3. JQuery Validation di products (administrator)
+3. ~~jquery Validation di products (administrator)~~
 4. JQuery Validation di categories (administrator)
 5. Daftar pemesanan (administrator)
 	* ~~Daftar pemesanan hari ini (Ascending Datetime)~~ 

@@ -58,6 +58,7 @@ class Product extends Frontend_Controller {
 				'description' => $product->description
 			)
 		);
+
 		// simpan $data array ke keranjang
 		$this->cart->insert($data);
 
@@ -70,9 +71,9 @@ class Product extends Frontend_Controller {
 	 * [delete single cart item]
 	 * @param  [integer] $id [rowid]
 	 */
-	public function delete($id) {
+	public function delete($rowid) {
 		$data = array(
-			'rowid'   => $id,
+			'rowid'   => $rowid,
 			'qty'     => 0
 		);
 

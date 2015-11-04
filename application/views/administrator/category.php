@@ -61,7 +61,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open_multipart('administrator/category/insert', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/category/insert', 'class="form-horizontal" id="add_category_modal"'); ?>
 	<div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="add-category-modal-label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -99,7 +99,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open_multipart('administrator/category/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('administrator/category/update', 'class="form-horizontal" id="update_category_modal"'); ?>
 	<?php echo form_hidden('update_id'); ?>
 	<div class="modal fade" id="update-category-modal" tabindex="-1" role="dialog" aria-labelledby="update-category-modal-label">
 		<div class="modal-dialog" role="document">
@@ -168,6 +168,47 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#categories').addClass('active');
+			$("#add_category_modal").validate({
+				rules: {
+					name: {
+						required : true,
+						maxlength : 100,
+					}
+				},
+				messages: {
+					name: {
+						required : "Nama kategori harus diisi",
+						maxlength : "Maksimal 100 Karakter"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
+
+			$("#update_category_modal").validate({
+				rules: {
+					update_name: {
+						required : true,
+						maxlength : 100,
+					}
+				},
+				messages: {
+					update_name: {
+						required : "Nama kategori harus diisi",
+						maxlength : "Maksimal 100 Karakter"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
 		});
 
 		$('.trigger-update').click(function(e) {

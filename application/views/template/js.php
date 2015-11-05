@@ -1,4 +1,5 @@
 <script type="text/javascript" src="<?php echo site_url('assets/js/jquery.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo site_url('assets/js/jquery-ui.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo site_url('assets/js/jquery.validate.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo site_url('assets/js/additional-methods.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo site_url('assets/js/additional-methods.min.js'); ?>"></script>
@@ -97,6 +98,10 @@ $(".count_product_by_category").each(function(){
 	});
 });
 // ====================================================================================
+
+$("#search").autocomplete({
+    source: "<?php echo site_url('product/get_product_autocomplete'); ?>" // path to the get products method
+});
 
 <?php if (!$this->ion_auth->is_admin()): ?>
 	var totalProductsURL = '<?php echo site_url("product/total_products"); ?>';

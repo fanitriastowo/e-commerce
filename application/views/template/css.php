@@ -2,6 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="<?php echo site_url('assets/images/favicon.png'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap-theme.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/font-awesome.min.css'); ?>">

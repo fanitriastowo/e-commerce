@@ -44,7 +44,7 @@ password: `password`
 	* ~~admin product~~
 	* ~~scale images~~
 12. ~~Ganti Footer supaya menarik~~
-13. Search produk
+13. ~~Search produk~~
 14. ~~Limit left and right bar item~~
 15. Cache left dan right bar
 16. Stok produk

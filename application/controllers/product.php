@@ -159,7 +159,17 @@ class Product extends Frontend_Controller {
 	* @param [string] [product name]
 	*/
 	public function get_product_autocomplete() {
-		
+		$product_name = $_GET['term'];
+		if (isset($_GET['term'])){
+			$q = strtolower($_GET['term']);
+			$result = $this->product_m->get_product_like($q);
+			if($result->num_rows > 0){
+				foreach ($result->result_array() as $row){
+	        		$row_set[] = htmlentities(stripslashes($row['name'])); //build an array
+	      		}
+	      		echo json_encode($row_set); //format the array into json data
+			}
+		}
 	}
 
 	/**
@@ -168,8 +178,13 @@ class Product extends Frontend_Controller {
 	*/
 	public function search() {
 		$product_name = $this->input->post('search');
-		$result = $this->product_m->get_product_like($product_name);
-		dump($result);
+		$result = $this->product_m->get_by('name', $product_name, TRUE);
+		if (count($result)) {
+			redirect('product/detail/' . $result->id);
+		} else {
+			$this->session->set_flashdata('not_found', 'Ooopss!! Produk Tidak Ditemukan');
+			redirect('home');
+		}
 	}
 	
 }

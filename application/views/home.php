@@ -10,6 +10,15 @@
 	<?php $this->load->view('template/navbar'); ?>
 	<?php $this->load->view('template/header'); ?>
 	<div class="container">
+
+		<?php if (!empty($this->session->flashdata('not_found'))): ?>
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>	</button>
+				<strong><?php echo $this->session->flashdata('not_found'); ?></strong>
+			</div>
+		<?php endif ?>
+
 		<div class="row">
 			<!-- Left Content (Categories) -->
 			<?php $this->load->view('template/left'); ?>

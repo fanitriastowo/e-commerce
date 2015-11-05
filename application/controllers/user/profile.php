@@ -98,6 +98,10 @@ class Profile extends User_Controller {
 		// ambil detail pemesanan berdasarkan id pemesanan
 		$pemesanan_detail = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
 
+		if ($principal->id !== $pemesanan->user_id) {
+			return show_404();
+		}
+
 		// create new PDF document
 		$pdf = new Report_Controller(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 

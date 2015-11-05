@@ -110,7 +110,7 @@
 	<?php $this->load->view('template/footer'); ?>
 
 	<!-- Ganti Akun Modal -->
-	<?php echo form_open('user/profile/update', 'class="form-horizontal"'); ?>
+	<?php echo form_open('user/profile/update', 'class="form-horizontal" id="change_profile_modal"'); ?>
 	<?php echo form_hidden('update_id', '') ?>
 	<div class="modal fade" id="ganti_akun_modal" tabindex="-1" role="dialog" aria-labelledby="ganti_akun_modal_label">
 		<div class="modal-dialog" role="document">
@@ -132,10 +132,10 @@
 
 					<div class="form-group">
 						<div class="col-sm-6">
-							<?php echo form_password('password','', 'class="form-control" placeholder="Password" '); ?>
+							<?php echo form_password('password','', 'id="update_password" class="form-control" placeholder="Password" '); ?>
 						</div>
 						<div class="col-sm-6">
-							<?php echo form_password('confirm_password','', 'class="form-control" placeholder="Confirm Password" '); ?>
+							<?php echo form_password('confirm_password','', 'id="update_confirm_password" class="form-control" placeholder="Confirm Password" '); ?>
 						</div>
 					</div>
 
@@ -171,6 +171,69 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#profile').addClass('active');
+
+			$("#change_profile_modal").validate({
+				rules: {
+					first_name: {
+						required : true,
+						maxlength : 50
+					},
+					last_name: {
+						required : true,
+						maxlength : 50
+					},
+					password: {
+						minlength: 3
+					},
+					confirm_password: {
+						minlength: 3,
+						equalTo: "#update_password"
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					phone: {
+						required: true,
+						number : true,
+						maxlength : 15
+					},
+					address: "required"
+				},
+				messages: {
+					first_name: {
+						required : "Firstname harap diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					last_name: {
+						required : "Lastname harap  diisi",
+						maxlength : "Maksimal 50 karakter"
+					},
+					password: {
+						minlength: "minimal 3 karakter"
+					},
+					confirm_password: {
+						minlength: "minimal 3 karakter",
+						equalTo: "Confirm Password tidak sama"
+					},
+					email: {
+						required: "Email harap diisi",
+						email: "Format email tidak valid"
+					},
+					phone: {
+						required: "Nomor telepon harap diisi",
+						number : "Input hanya berupa angka",
+						maxlength : "Maksimal 50 Karakter"
+					},
+					address: "Alamat harap diisi"
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
 		});
 
 		$('#trigger-update-profile').click(function(e) {

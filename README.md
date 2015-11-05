@@ -26,7 +26,7 @@ password: `password`
 	* ~~CAPTCHA~~
 9. ~~Halaman Profile Member (Setting akun)~~
 	* ~~Form ganti Profile~~
-	* JQuery Validation di ganti akun (member)
+	* ~~JQuery Validation di ganti akun (member)~~
 	* ~~Daftar Pemesanan terdahulu + status~~
 10. Pemesanan Member
 	* ~~sebelum pesan, check login status~~

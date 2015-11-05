@@ -96,7 +96,8 @@ $(".count_product_by_category").each(function(){
 		$('.count_product_by_category_result_' + id).html(data);
 	});
 });
-	
+// ====================================================================================
+
 <?php if (!$this->ion_auth->is_admin()): ?>
 	var totalProductsURL = '<?php echo site_url("product/total_products"); ?>';
 	$.getJSON(totalProductsURL, function(data) {

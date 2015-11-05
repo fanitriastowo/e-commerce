@@ -153,6 +153,24 @@ class Product extends Frontend_Controller {
 			redirect('product/show_all_products');
 		}	
 	}
+
+	/**
+	* [Get method autocomplete]
+	* @param [string] [product name]
+	*/
+	public function get_product_autocomplete() {
+		
+	}
+
+	/**
+	* [Post method search autocomplete]
+	* @param [string] [product name]
+	*/
+	public function search() {
+		$product_name = $this->input->post('search');
+		$result = $this->product_m->get_product_like($product_name);
+		dump($result);
+	}
 	
 }
 

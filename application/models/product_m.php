@@ -134,6 +134,17 @@ class Product_m extends MY_Model {
 		$this->db->from('products');
 		return $this->db->count_all_results();
 	}
+	
+	/**
+	 * Get Product By name
+	 * @param String product_name
+	 */
+	public function get_product_like($product_name) {
+		$this->db->like('name', $product_name);
+		$this->db->order_by('name');
+		$query = $this->db->get('products', 10);
+		return $query->result();
+	}
 }
 
 /* End of file product_m.php */

@@ -4,6 +4,76 @@
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
 	<title>Your Profile</title>
+	<style>
+		.view {
+			margin: 5px;
+			float: left;
+			border: 5px solid #fff;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			box-shadow: 0px 0px 5px #aaa;
+			cursor: default;
+		}
+
+		.view .mask {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			overflow: hidden;
+			top: 0;
+			left: 0;
+		}
+
+		.view img {
+			display: block;
+			position: relative;
+			height: auto;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: auto;
+			margin-top: auto;
+		}
+
+		.view a.info {
+			background: url(<?php echo site_url('assets/images/link.png'); ?>) center no-repeat;
+			display: inline-block;
+			text-decoration: none;
+			padding: 0;
+			text-indent: -9999px;
+			width: 20px;
+			height: 20px;
+		}
+
+		.third-effect .mask {
+			opacity: 0;
+			overflow: visible;
+			border: 100px solid rgba(0, 0, 0, 0.7);
+			box-sizing: border-box;
+			transition: all 0.4s ease-in-out;
+		}
+
+		.third-effect a.info {
+			position: relative;
+			top: 10px; 
+			left: 50px; 
+			opacity: 0;
+			transition: opacity 0.5s 0s ease-in-out;
+		}
+
+		.third-effect:hover .mask {
+			opacity: 1;
+			border: 100px solid rgba(0, 0, 0, 0.7);
+		}
+
+		.third-effect:hover a.info {
+			opacity: 1;
+			transition-delay: 0.3s;
+			cursor: hand;
+			opacity: 1;
+		}
+	</style>
 </head>
 <body>
 	<!-- Navbar -->
@@ -37,8 +107,13 @@
 
 			<div class="col-sm-6">
 
-				<div class="text-center">
-					<img class="img-thumbnail" src="<?php echo site_url('images/blank.jpg'); ?>" alt="Your Avatar">
+				<div class="row">
+					<div class="view third-effect">
+						<img class="img-thumbnail" src="<?php echo site_url('images/blank.jpg'); ?>" alt="Your Avatar">
+						<div class="mask">
+							<a href="#" class="info" data-toggle="modal" data-target="#modalImage" ></a>
+						</div>
+					</div>
 				</div>
 				<hr>
 
@@ -166,6 +241,40 @@
 	</div>
 	<?php echo form_close(); ?>
 
+	<!-- Upload Modal -->
+	<?php echo form_open_multipart('profile/upload', 'class="form-horizontal"'); ?>
+	<div class="modal fade" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Unggah Foto</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label for="fileUpload" class="col-sm-2 control-label">Upload</label>
+						<div class="col-sm-10">
+							<input type="file" name="fileUpload" size="20" id="insert_image"  class="form-control"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<img class="img-responsive image_profile" src="">
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+					<input type="submit" class="btn btn-primary" value="Simpan" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo form_close(); ?>
+
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
 	<script type="text/javascript">
@@ -248,6 +357,20 @@
 				$('#update_address').val(data.address);
 			});
 			$('#ganti_akun_modal').modal();
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('.image_profile').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#insert_image").change(function(){
+			readURL(this);
 		});
 	</script>
 </body>

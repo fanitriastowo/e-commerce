@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `ecommerce` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ecommerce`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: ecommerce
 -- ------------------------------------------------------
--- Server version	5.6.26
+-- Server version	5.6.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -65,6 +63,53 @@ LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
 INSERT INTO `groups` VALUES (1,'admin','Administrator'),(2,'members','General User');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login_attempts`
+--
+
+DROP TABLE IF EXISTS `login_attempts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login_attempts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ip_address` varbinary(16) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+LOCK TABLES `login_attempts` WRITE;
+/*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `version` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (5);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -154,7 +199,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (7,4,'Meja Komputer',700000,'','2015-10-29 08:37:21','1446088627Meja_Komputer.jpg'),(8,4,'Meja Komputer small',600000,'','2015-10-29 08:38:36','1446125916Meja_Komputer_small.jpg'),(9,4,'Meja Tulis Standart',450000,'','2015-10-29 08:39:29','1446125969Meja_Tulis_Standart.jpg'),(10,4,'Sofa Hello Kitty',3900000,'','2015-10-29 08:41:30','1446126090Sofa_Hello_Kitty.jpg'),(11,5,'Kursi Monaco Ganesha',8500000,'Spesial edition \r\nKursi MONACO GANESHA SUPER 3211+3\r\nKain oscar super .timbul.motif.','2015-10-29 08:46:43','1446126168Kursi_Monaco_Ganesha.jpg'),(12,5,'Sofa santai wenen',2500000,'','2015-10-29 08:46:24','1446126235Sofa_santai_wenen.jpg'),(13,5,'Sofa selonjoran+baringan model recleaning',3000000,'1 set sofa multi fungsi.\r\nReady stock warna merah dan cokelat.\r\nGaransi 3tahun\r\nNb: tanpa meja.','2015-10-29 08:45:56','1446126356Sofa_selonjoran+baringan_model_recleaning.jpg'),(14,5,'Sofabed',2850000,'','2015-10-29 08:48:02','1446126482Sofabed.jpg'),(15,6,'Lemari almunium kombinasi kaca 4pintu',3700000,'Kanan kiri sap..tengah gantungan.','2015-10-29 08:50:16','1446126616Lemari_almunium_kombinasi_kaca_4pintu.jpg'),(16,6,'Buffet Pendek Alumunium',3000000,'','2015-10-29 08:52:04','1446126724Buffet_Pendek_Alumunium.jpg'),(17,7,'Sofa model L + meja ',3250000,'Garansi 3 tahun.','2015-10-29 08:55:36','1446126936Sofa_model_L_+_meja_.jpg'),(18,7,'Sofa 221 merah + meja kaca',4000000,'','2015-10-29 08:56:38','1446126998Sofa_221_merah_+_meja_kaca.jpg'),(19,8,'Matras elite plush top 160x200',2000000,'','2015-10-29 08:58:06','1446127086Matras_elite_plush_top_160x200.jpg'),(20,8,'Set Sorong anak Frozen',2450000,'Atas+bawah+sandaran. Ukuran 120x200.','2015-10-29 08:58:51','1446127131Set_Sorong_anak_Frozen.jpg');
+INSERT INTO `products` VALUES (7,4,'Meja Komputer',700000,'','2015-10-29 08:37:21','1446088627Meja_Komputer.jpg'),(8,4,'Meja Komputer small',600000,'','2015-10-29 08:38:36','1446125916Meja_Komputer_small.jpg'),(9,4,'Meja Tulis Standart',450000,'','2015-10-29 08:39:29','1446125969Meja_Tulis_Standart.jpg'),(10,4,'Sofa Hello Kitty',3900000,'','2015-10-29 08:41:30','1446126090Sofa_Hello_Kitty.jpg'),(11,5,'Kursi Monaco Ganesha',8500000,'Spesial edition \r\nKursi MONACO GANESHA SUPER 3211+3\r\nKain oscar super .timbul.motif.','2015-10-29 08:46:43','1446126168Kursi_Monaco_Ganesha.jpg'),(12,5,'Sofa santai wenen',2500000,'','2015-10-29 08:46:24','1446126235Sofa_santai_wenen.jpg'),(13,5,'Sofa selonjoran baringan model recleaning',3000000,'1 set sofa multi fungsi.\r\nReady stock warna merah dan cokelat.\r\nGaransi 3tahun\r\nNb: tanpa meja.','2015-10-29 08:45:56','1446126356Sofa_selonjoran+baringan_model_recleaning.jpg'),(14,5,'Sofabed',2850000,'','2015-10-29 08:48:02','1446126482Sofabed.jpg'),(15,6,'Lemari almunium kombinasi kaca 4pintu',3700000,'Kanan kiri sap..tengah gantungan.','2015-10-29 08:50:16','1446126616Lemari_almunium_kombinasi_kaca_4pintu.jpg'),(16,6,'Buffet Pendek Alumunium',3000000,'','2015-10-29 08:52:04','1446126724Buffet_Pendek_Alumunium.jpg'),(17,7,'Sofa model L meja ',3250000,'Garansi 3 tahun.','2015-10-29 08:55:36','1446126936Sofa_model_L_+_meja_.jpg'),(18,7,'Sofa 221 merah meja kaca',4000000,'','2015-10-29 08:56:38','1446126998Sofa_221_merah_+_meja_kaca.jpg'),(19,8,'Matras elite plus top 160x200',2000000,'','2015-10-29 08:58:06','1446127086Matras_elite_plush_top_160x200.jpg'),(20,8,'Set Sorong anak Frozen',2450000,'Atas+bawah+sandaran. Ukuran 120x200.','2015-10-29 08:58:51','1446127131Set_Sorong_anak_Frozen.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +270,7 @@ CREATE TABLE `users_groups` (
 
 LOCK TABLES `users_groups` WRITE;
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
-INSERT INTO `users_groups` VALUES (1,1,1),(2,2,2);
+INSERT INTO `users_groups` VALUES (1,1,1);
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -238,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-29 21:19:56
+-- Dump completed on 2015-11-05 13:16:58

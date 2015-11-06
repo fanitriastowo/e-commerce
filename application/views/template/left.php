@@ -17,4 +17,66 @@
 		</div>
 	</div>
 	<hr>
+
+	<style type="text/css">
+		.calendar {
+			position: relative;
+			background-color: #663300;
+		}
+
+		.clock {
+			width: auto;
+			margin: 0 auto;
+			border: 1px solid #333;
+			color: #fff;
+		}
+
+		#Date {
+			font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			text-align: center;
+			text-shadow: 0 0 5px #00c6ff;
+		}
+
+		.separator {
+			width: 180px;
+			margin: 0 auto;
+			padding: 0px;
+			list-style: none;
+			text-align: center;
+		}
+
+		.separator > .inline-time {
+			display: inline;
+			font-size: 12px;
+			text-align: center;
+			font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+			text-shadow: 0 0 5px #00c6ff;
+		}
+
+		#point {
+			position: relative;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		.brand-calendar {
+			background-color: #94C3EA;
+			line-height: 40px;
+			display: block;
+			text-align: center;
+			font-size: 23px;
+		}
+	</style>
+	<div class="brand-calendar"><strong>Hari ini</strong></div>
+	<div class="calendar">
+		<div class="clock">
+			<div id="Date"></div>
+			<ul class="separator">
+				<li class="inline-time" id="hours"></li>
+				<li class="inline-time" id="point">:</li>
+				<li class="inline-time" id="min"></li>
+			</ul>
+		</div>
+	</div>
 </div>

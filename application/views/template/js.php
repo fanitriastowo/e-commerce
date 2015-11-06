@@ -5,62 +5,6 @@
 <script type="text/javascript" src="<?php echo site_url('assets/js/additional-methods.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo site_url('assets/js/bootstrap.min.js'); ?>"></script>
 
-<style type="text/css">
-	.calendar {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		background-color: #663300;
-	}
-
-	.clock {
-		width: 180px;
-		margin: 0 auto;
-		border: 1px solid #333;
-		color: #fff;
-	}
-
-	#Date {
-		font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-		font-size: 12px;
-		text-align: center;
-		text-shadow: 0 0 5px #00c6ff;
-	}
-
-	.separator {
-		width: 180px;
-		margin: 0 auto;
-		padding: 0px;
-		list-style: none;
-		text-align: center;
-	}
-
-	.separator > .inline-time {
-		display: inline;
-		font-size: 12px;
-		text-align: center;
-		font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-		text-shadow: 0 0 5px #00c6ff;
-	}
-
-	#point {
-		position: relative;
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-</style>
-
-<div class="calendar">
-	<div class="clock">
-		<div id="Date"></div>
-		<ul class="separator">
-			<li class="inline-time" id="hours"></li>
-			<li class="inline-time" id="point">:</li>
-			<li class="inline-time" id="min"></li>
-		</ul>
-	</div>
-</div>
-
 <script type="text/javascript">
 $(document).ready(function(){
 

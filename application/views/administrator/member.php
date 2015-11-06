@@ -52,9 +52,9 @@
 					<td><?php echo $member->email; ?></td>
 					<td><?php echo $member->phone; ?></td>
 					<td>
-						<a href="<?php echo site_url('administrator/member/detail/' . $member->id); ?>" class="btn btn-xs btn-info trigger-update">
+						<a href="<?php echo site_url('akuinginwisuda/member/detail/' . $member->id); ?>" class="btn btn-xs btn-info trigger-update">
 							<i class="fa fa-pencil"></i> Update</a>
-						<a href="<?php echo site_url('administrator/member/delete/' . $member->id); ?>" class="btn btn-xs btn-danger trigger-delete">
+						<a href="<?php echo site_url('akuinginwisuda/member/delete/' . $member->id); ?>" class="btn btn-xs btn-danger trigger-delete">
 							<i class="fa fa-trash"></i> Delete</a>
 					</td>
 				</tr>
@@ -64,7 +64,7 @@
 	</div>
 
 	<!-- Insert Modal -->
-	<?php echo form_open('administrator/member/insert', 'class="form-horizontal insert_modal"'); ?>
+	<?php echo form_open('akuinginwisuda/member/insert', 'class="form-horizontal insert_modal"'); ?>
 	<div class="modal fade" id="insert_modal" tabindex="-1" role="dialog" aria-labelledby="insert_modal_label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -121,7 +121,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open('administrator/member/update', 'class="form-horizontal update_modal"'); ?>
+	<?php echo form_open('akuinginwisuda/member/update', 'class="form-horizontal update_modal"'); ?>
 	<div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="update_modal_label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

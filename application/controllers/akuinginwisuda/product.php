@@ -70,7 +70,7 @@ class Product extends Admin_Controller {
 
 					$this->product_m->save($product);
 					$this->session->set_flashdata('notif', 'Insert Product Successful!');
-					redirect('administrator/product');
+					redirect('akuinginwisuda/product');
 				} else {
 					$data = $this->upload->data();
 					
@@ -85,11 +85,11 @@ class Product extends Admin_Controller {
 
 					$this->product_m->save($product);
 					$this->session->set_flashdata('notif', 'Insert Product Successful!');
-					redirect('administrator/product');
+					redirect('akuinginwisuda/product');
 				}
 			} else {
 				$this->session->set_flashdata('error_insert', validation_errors());
-				redirect('administrator/product');
+				redirect('akuinginwisuda/product');
 			}
 		}
 	}
@@ -110,7 +110,7 @@ class Product extends Admin_Controller {
 
 		// redirect dan tampilkan keterangan
 		$this->session->set_flashdata('notif', 'Delete Product Successful!');
-		redirect('administrator/product');
+		redirect('akuinginwisuda/product');
 	}
 
 	/**
@@ -155,7 +155,7 @@ class Product extends Admin_Controller {
 					);
 					$this->product_m->save($product, $id);
 					$this->session->set_flashdata('notif', 'Update Product Successful!');
-					redirect('administrator/product');
+					redirect('akuinginwisuda/product');
 				} else {
 					$data = $this->upload->data();
 					$product = $this->product_m->get($id, TRUE);
@@ -172,15 +172,15 @@ class Product extends Admin_Controller {
 					);
 					$this->product_m->save($product, $id);
 					$this->session->set_flashdata('notif', 'Update Product Successful!');
-					redirect('administrator/product');
+					redirect('akuinginwisuda/product');
 				}
 			} else {
 				$this->session->set_flashdata('error_update', validation_errors());
-				redirect('administrator/product');
+				redirect('akuinginwisuda/product');
 			}
 		}
 	}
 }
 
 /* End of file product.php */
-/* Location: ./application/controllers/administrator/product.php */
+/* Location: ./application/controllers/akuinginwisuda/product.php */

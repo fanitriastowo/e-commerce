@@ -45,8 +45,8 @@
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">
-									<a href="<?php echo site_url('administrator/category/detail/' . $category->id); ?>" class="btn btn-info trigger-update"><i class="fa fa-pencil"></i>&nbsp; Update</a>
-									<a href="<?php echo site_url('administrator/category/delete/' . $category->id); ?>" class="btn btn-danger trigger-delete"><i class="fa fa-trash"></i>&nbsp; Delete</a>
+									<a href="<?php echo site_url('akuinginwisuda/category/detail/' . $category->id); ?>" class="btn btn-info trigger-update"><i class="fa fa-pencil"></i>&nbsp; Update</a>
+									<a href="<?php echo site_url('akuinginwisuda/category/delete/' . $category->id); ?>" class="btn btn-danger trigger-delete"><i class="fa fa-trash"></i>&nbsp; Delete</a>
 								</div>
 							</div>
 						</div>
@@ -61,7 +61,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open_multipart('administrator/category/insert', 'class="form-horizontal" id="add_category_modal"'); ?>
+	<?php echo form_open_multipart('akuinginwisuda/category/insert', 'class="form-horizontal" id="add_category_modal"'); ?>
 	<div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="add-category-modal-label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -99,7 +99,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open_multipart('administrator/category/update', 'class="form-horizontal" id="update_category_modal"'); ?>
+	<?php echo form_open_multipart('akuinginwisuda/category/update', 'class="form-horizontal" id="update_category_modal"'); ?>
 	<?php echo form_hidden('update_id'); ?>
 	<div class="modal fade" id="update-category-modal" tabindex="-1" role="dialog" aria-labelledby="update-category-modal-label">
 		<div class="modal-dialog" role="document">

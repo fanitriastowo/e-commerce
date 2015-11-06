@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Administrator extends Admin_Controller {
+class Akuinginwisuda extends Admin_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -13,7 +13,7 @@ class Administrator extends Admin_Controller {
 	public function login() {
 		// redirect if already logged in
         if ($this->ion_auth->is_admin()) {
-            redirect('administrator/pemesanan');
+            redirect('akuinginwisuda/pemesanan');
         } 
 		$this->load->view('administrator/login');
 	}
@@ -26,11 +26,11 @@ class Administrator extends Admin_Controller {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		if ($this->ion_auth->login($email, $password) && $this->ion_auth->is_admin()) {
-			redirect('administrator/pemesanan');
+			redirect('akuinginwisuda/pemesanan');
 		} else {
 			$this->ion_auth->logout();
 			$this->session->set_flashdata('error', TRUE);
-			redirect('administrator/administrator/login');
+			redirect('akuinginwisuda/akuinginwisuda/login');
 		}
 	}
 
@@ -41,12 +41,12 @@ class Administrator extends Admin_Controller {
 	public function logout () {
 		if ($this->ion_auth->logged_in()) {
 			$this->ion_auth->logout();
-			redirect('administrator/administrator/login');
+			redirect('akuinginwisuda/akuinginwisuda/login');
 		} else {
-			redirect('administrator/administrator/login');
+			redirect('akuinginwisuda/akuinginwisuda/login');
 		}
 	}
 }
 
-/* End of file administrator.php */
-/* Location: ./application/controllers/administrator/administrator.php */
+/* End of file akuinginwisuda.php */
+/* Location: ./application/controllers/akuinginwisuda/akuinginwisuda.php */

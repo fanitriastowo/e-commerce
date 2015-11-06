@@ -61,8 +61,8 @@
 					<td><?php echo $product->description; ?></td>
 					<td><?php echo $product->category_name; ?></td>
 					<td>
-						<a href="<?php echo site_url('administrator/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i> Update</a>
-						<a href="<?php echo site_url('administrator/product/delete/' . $product->id); ?>" class="btn btn-xs btn-danger trigger-delete"><i class="fa fa-trash"></i> Delete</a>
+						<a href="<?php echo site_url('akuinginwisuda/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i> Update</a>
+						<a href="<?php echo site_url('akuinginwisuda/product/delete/' . $product->id); ?>" class="btn btn-xs btn-danger trigger-delete"><i class="fa fa-trash"></i> Delete</a>
 					</td>
 				</tr>
 				<?php endforeach ?>
@@ -71,7 +71,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<?php echo form_open_multipart('administrator/product/insert', 'class="form-horizontal" id="add_product_modal"'); ?>
+	<?php echo form_open_multipart('akuinginwisuda/product/insert', 'class="form-horizontal" id="add_product_modal"'); ?>
 	<?php echo form_hidden('form_insert', 'form_insert'); ?>
 		<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -135,7 +135,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Update Modal -->
-	<?php echo form_open_multipart('administrator/product/update', 'class="form-horizontal" id="update_product_modal"'); ?>
+	<?php echo form_open_multipart('akuinginwisuda/product/update', 'class="form-horizontal" id="update_product_modal"'); ?>
 	<?php echo form_hidden('form_update', 'form_update'); ?>
 		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">

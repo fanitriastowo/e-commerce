@@ -45,13 +45,13 @@ class Config extends Admin_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->update($id, $data);
 			$this->session->set_flashdata('notif', 'Update Admin Successful!');
-			redirect('administrator/config');
+			redirect('akuinginwisuda/config');
 		} else {
 			$this->session->set_flashdata('error_update', validation_errors());
-			redirect('administrator/config');
+			redirect('akuinginwisuda/config');
 		}
 	}
 }
 
 /* End of file config.php */
-/* Location: ./application/controllers/administrator/config.php */
+/* Location: ./application/controllers/akuinginwisuda/config.php */

@@ -49,7 +49,7 @@ class Category extends Admin_Controller {
 				);
 				$this->category_m->save($category);
 				$this->session->set_flashdata('notif', 'Insert Category Successful!');
-				redirect('administrator/category');
+				redirect('akuinginwisuda/category');
 			} else {
 				$data = $this->upload->data();
 				$category = array(
@@ -58,11 +58,11 @@ class Category extends Admin_Controller {
 				);
 				$this->category_m->save($category);
 				$this->session->set_flashdata('notif', 'Insert Category Successful!');
-				redirect('administrator/category');
+				redirect('akuinginwisuda/category');
 			}
 		} else {
 			$this->session->set_flashdata('error_insert', validation_errors());
-			redirect('administrator/category');
+			redirect('akuinginwisuda/category');
 		}
 	}
 
@@ -92,7 +92,7 @@ class Category extends Admin_Controller {
 
 		//tampilkan notifikasi
 		$this->session->set_flashdata('notif', 'Delete Category Successful!');
-		redirect('administrator/category');
+		redirect('akuinginwisuda/category');
 	}
 
 	/**
@@ -130,7 +130,7 @@ class Category extends Admin_Controller {
 				);
 				$this->category_m->save($category, $id);
 				$this->session->set_flashdata('notif', 'Update Category Successful!');
-				redirect('administrator/category');
+				redirect('akuinginwisuda/category');
 			} else {
 				$data = $this->upload->data();
 				$category = $this->category_m->get($id, TRUE);
@@ -144,11 +144,11 @@ class Category extends Admin_Controller {
 				);
 				$this->category_m->save($category, $id);
 				$this->session->set_flashdata('notif', 'Update Category Successful!');
-				redirect('administrator/category');
+				redirect('akuinginwisuda/category');
 			}
 		} else {
 			$this->session->set_flashdata('error_update', validation_errors());
-			redirect('administrator/category');
+			redirect('akuinginwisuda/category');
 		}
 	}
 }

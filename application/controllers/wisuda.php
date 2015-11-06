@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Akuinginwisuda extends Admin_Controller {
+class Wisuda extends Admin_Controller {
 
 	/**
 	 * default constructor turunan Admin_Controller
@@ -14,7 +14,7 @@ class Akuinginwisuda extends Admin_Controller {
 	 * redirect halaman login admin
 	 */
 	public function index() {
-		redirect('administrator/administrator/login');
+		redirect('akuinginwisuda/akuinginwisuda/login');
 	}
 }
 

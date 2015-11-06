@@ -12,7 +12,7 @@
 		<!-- Main Content (Login Form) -->
 
 		<div class="wrapper">
-			<?php echo form_open('administrator/administrator/post_login', array('class' => 'form-signin')); ?>
+			<?php echo form_open('akuinginwisuda/akuinginwisuda/post_login', array('class' => 'form-signin')); ?>
 			<h3 class="form-signin-heading">Welcome Administrator</h3>
 			<p class="text-center text-warning">*Please Login using Administrator Credential</p>
 			<hr class="colorgraph"><br>

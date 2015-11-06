@@ -40,7 +40,7 @@ class Pemesanan extends Admin_Controller {
 			'status' => 'Disetujui'
 		);
 		$this->pemesanan_m->approve_pemesanan($data, $id);
-		redirect('administrator/pemesanan');
+		redirect('akuinginwisuda/pemesanan');
 	}
 
 	/**

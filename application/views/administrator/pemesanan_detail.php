@@ -12,7 +12,7 @@
 	<div class="container">
 		<h1>Detail Pemesanan</h1><hr>
 		<p>Nama Pemesan : <?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></p><hr>
-		<?php echo form_open('administrator/pemesanan/approve'); ?>
+		<?php echo form_open('akuinginwisuda/pemesanan/approve'); ?>
 		<?php echo form_hidden('approve_id', $pemesanan->id); ?>
 		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped">
 			<thead>

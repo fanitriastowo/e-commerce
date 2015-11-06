@@ -45,10 +45,10 @@ class Member extends Admin_Controller {
 		if ($this->form_validation->run() == TRUE) {
 			$this->ion_auth->register($first_name, $password, $email, $additional);
 			$this->session->set_flashdata('notif', 'Insert new User Successful!');
-			redirect('administrator/member');
+			redirect('akuinginwisuda/member');
 		} else {
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('administrator/member');
+			redirect('akuinginwisuda/member');
 		}
 	}
 
@@ -59,7 +59,7 @@ class Member extends Admin_Controller {
 	public function delete($id) {
 		$this->ion_auth->delete_user($id);
 		$this->session->set_flashdata('notif', 'Delete User Successful!');
-		redirect('administrator/member');
+		redirect('akuinginwisuda/member');
 	}
 
 	/**
@@ -106,13 +106,13 @@ class Member extends Admin_Controller {
 			$this->ion_auth->update($id, $data);
 			$this->session->set_flashdata('notif', 'Update User Successful!');
 			dump($data);
-			redirect('administrator/member');
+			redirect('akuinginwisuda/member');
 		} else {
 			$this->session->set_flashdata('error', validation_errors());
-			redirect('administrator/member');
+			redirect('akuinginwisuda/member');
 		}
 	}
 }
 
 /* End of file member.php */
-/* Location: ./application/controllers/administrator/member.php */
+/* Location: ./application/controllers/akuinginwisuda/member.php */

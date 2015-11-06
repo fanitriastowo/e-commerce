@@ -30,7 +30,7 @@
 				<div class="col-sm-8">
 
 					<!-- Registration Modal -->
-					<?php echo form_open('administrator/config/update', 'class="form-horizontal" id="config_administrator"'); ?>
+					<?php echo form_open('akuinginwisuda/config/update', 'class="form-horizontal" id="config_administrator"'); ?>
 					<?php echo form_hidden('update_id', $admin->id); ?>
 						<div class="form-group">
 							<div class="col-sm-6">

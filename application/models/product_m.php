@@ -69,11 +69,11 @@ class Product_m extends MY_Model {
 	}
 
 	/**
-	 * [Fetch all products but limit to 7 item only]
+	 * [Fetch all products but limit]
 	 * @param  integer $limit [default limitation if there's no parameter]
 	 * @return [products]         [Return all product]
 	 */
-	public function get_all_limit($limit = 4) {
+	public function get_all_limit($limit = 5) {
 
 		// Cast parameter to Integer for security
 		$limit = (int) $limit;

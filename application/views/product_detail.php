@@ -28,7 +28,7 @@
 				<?php endif ?>
 				
 				<div class="thumbnail">
-					<img class="img-responsive" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+					<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 					<div class="caption text-center">
 						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 						<p><?php echo $product_detail->description; ?></p>
@@ -37,7 +37,7 @@
 						<?php if (!$this->ion_auth->is_admin()): ?>
 							<?php echo form_open('product/add_product/' . $product_detail->id); ?>
 							<fieldset>
-								<label>Quantity</label> 
+								<label>Jumlah</label> 
 								<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;"'); ?>
 								<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
 							</fieldset>

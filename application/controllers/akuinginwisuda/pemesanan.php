@@ -159,8 +159,9 @@ class Pemesanan extends Admin_Controller {
 		<div class="text-right">
 			<strong>No Pemesanan : ' . $pemesanan->unique_pemesanan . '</strong>
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
+		<hr>
 		</div>
-		<br>
+		<img src="' . site_url('images/members/' . $principal->photo) . '" width="200px">
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>

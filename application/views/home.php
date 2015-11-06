@@ -33,7 +33,8 @@
 							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="80%">
 						</a>
 						<div class="caption text-center">
-							<strong class="text-danger"><?php echo $product_rand->name; ?></strong>
+							<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
+							<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">Beli</a>
 						</div>
 					</div>
 					</div>

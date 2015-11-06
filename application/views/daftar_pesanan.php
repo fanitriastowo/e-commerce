@@ -32,40 +32,57 @@
 				<strong><?php echo $this->session->flashdata('notif'); ?></strong>
 			</div>
 			<?php endif ?>
-			<h2 class="text-center">Daftar Pesanan Anda</h2>
-			<hr>
-			<table class="table table-hover table-bordered table-striped">
-				<thead>
-					<tr>
-						<th>No.</th>
-						<th>Name</th>
-						<th>Harga</th>
-						<th>Jumlah</th>
-						<th>Deskripsi</th>
-						<th>Subtotal</th>
-						<th>Operation</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php $i = 1; ?>
-					<?php foreach ($pemesanans as $count => $pemesanan): ?>
+			
+			<h1 class="text-right">Daftar Pesanan Anda</h1> 
+			<hr class="colorgraph">
+
+			<?php if (count($pemesanans)): ?>
+			<div class="table-responsive">
+				<table class="table table-hover table-striped">
+					<thead>
 						<tr>
-						<td><?php echo $i; ?></td>
-						<td><?php echo $pemesanan['name']; ?></td>
-						<td><?php echo $pemesanan['price']; ?></td>
-						<td><?php echo $pemesanan['qty']; ?></td>
-						<td>
-							<?php foreach ($this->cart->product_options($pemesanan['rowid']) as $option_name => $option_value): ?>
-								<?php echo $option_value; ?>
-							<?php endforeach ?>
-						</td>
-						<td><?php echo $pemesanan['subtotal']; ?></td>
-						<td><a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-warning"><i class="fa fa-times"></i>&nbsp;Batal</a></td>
-					</tr>
+							<th>No.</th>
+							<th>Name</th>
+							<th>Harga</th>
+							<th>Jumlah</th>
+							<th>Subtotal</th>
+							<th>Operation</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $i = 1; ?>
+						<?php $jumlah = 0; ?>
+						<?php foreach ($pemesanans as $count => $pemesanan): ?>
+							<tr>
+								<td><?php echo $i; ?></td>
+								<td><?php echo $pemesanan['name']; ?></td>
+								<td><?php echo $pemesanan['price']; ?></td>
+								<td><?php echo $pemesanan['qty']; ?></td>
+								<td>Rp. <?php echo $pemesanan['subtotal']; ?></td>
+								<td><a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-warning"><i class="fa fa-times"></i>&nbsp;Batal</a></td>
+							</tr>
+						<?php $jumlah += $pemesanan['subtotal']; ?>
 						<?php $i++; ?>
-					<?php endforeach ?>
-				</tbody>
-			</table>
+						<?php endforeach ?>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>Jumlah</td>
+							<td>Rp. <?php echo $jumlah; ?></td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<?php else: ?>
+				<div class="text-center">
+					<p class="label label-warning">Oopppssss!!! Anda belum memesan produk kami!</p>
+				</div>
+			<?php endif ?>
+			<hr>
 			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member</p>
 			<p class="text-warning">** Barang pesanan akan dikirim maksimal dalam 2 hari</p>
 			<a href="<?php echo site_url('product/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>

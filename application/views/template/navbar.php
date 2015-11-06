@@ -17,10 +17,12 @@
  		</div>
 		<div class="navbar-right">
 			<nav class="e-nav">
+				
  				<?php if (!$this->ion_auth->logged_in()): ?>
 	 				<a href="<?php echo site_url('product/show_all_products'); ?>" class="btn btn-default">
 	 					<span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;<span id="cart" class="badge"></span></a>
  					<?php echo anchor('about', 'About', 'id="about" class="e-nav-item"'); ?>
+ 					<?php echo anchor('testimoni', 'Testimonial', 'id="testimoni" class="e-nav-item"'); ?>
  					<?php echo anchor('caramemesan', 'Cara Pemesanan', 'id="caramemesan" class="e-nav-item"'); ?>
  					<?php echo anchor('register', 'Registration', 'id="registration" class="e-nav-item" title="Input your registration identity"'); ?>
  					<?php echo anchor('user/user/login', 'Login', 'id="login" class="e-nav-item"'); ?>

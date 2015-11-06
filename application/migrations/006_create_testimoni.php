@@ -12,6 +12,8 @@ class Migration_Create_testimoni extends CI_Migration {
 			  `name` varchar(100) NOT NULL,
 			  `email` varchar(100) NOT NULL,
 			  `pesan` TEXT NOT NULL,
+			  `kota` varchar(100) NOT NULL,
+			  `created` datetime NOT NULL,
 			  PRIMARY KEY (`id`)
 			) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 		

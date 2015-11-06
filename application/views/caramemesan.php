@@ -9,7 +9,7 @@
 	<!-- Navbar -->
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
-		<h1 class="text-right">Cara memesan</h1>
+		<h1 class="text-right">Cara pemesanan</h1>
 		<hr class="colorgraph"><br>
 
 		<!-- Left Content (Categories) -->

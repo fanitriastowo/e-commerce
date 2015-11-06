@@ -3,8 +3,8 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="footer-desc text-center">
+                <div class="col-xs-4">
+                    <div class="footer-desc">
                         <img class="img-thumbnail" src="<?php echo site_url('assets/images/logo.png') ?>" width="82" height="48" alt="">
                         <p class="text-muted">
                             Aplikasi pemesanan online (e-commerce) furniture <br>
@@ -12,17 +12,42 @@
                         </p>
                         <p>Buka setiap hari pukul 09.00 - 17.45</p>
                     </div>
-                </div>
-                <div class="col-xs-12">
                     <ul class="social">
                         <li><a href="https://www.facebook.com/meublerandujati"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
+                <div class="col-xs-4">
+                    <style>
+                        #map {
+                            width: 400px;
+                            height: 250px;
+                            background-color: #CCC;
+                        }
+                    </style>
+                    <script src="https://maps.googleapis.com/maps/api/js"></script>
+                    <script>
+                        function initialize() {
+                            var mapCanvas = document.getElementById('map');
+                            var mapOptions = {
+                                center: new google.maps.LatLng(-7.641227, 109.242690),
+                                zoom: 18,
+                                mapTypeId: google.maps.MapTypeId.SATELLITE
+                            }
+                            var map = new google.maps.Map(mapCanvas, mapOptions);
+                        }
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                    </script>
+                    <div id="map"></div>
+                </div>
             </div> <!--/.row--> 
+
+            <div class="row">
+                <div class="col-xs-12">
+                    
+                </div>
+            </div>
         </div> <!--/.container--> 
     </div> <!--/.footer-->
     
@@ -32,3 +57,7 @@
         </div>
     </div> <!--/.footer-bottom--> 
 </footer>
+
+<script type="text/javascript">
+    
+</script>

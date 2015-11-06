@@ -35,3 +35,6 @@ class Testimoni extends Frontend_Controller {
 		redirect('testimoni');
 	}
 }
+
+/* End of file testimoni.php */
+/* Location: ./application/controllers/testimoni.php */

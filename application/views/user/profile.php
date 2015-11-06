@@ -87,7 +87,7 @@
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
-		<div class="col-sm-10">
+		<div class="col-sm-8">
 
 			<?php if (!empty($this->session->flashdata('error_update'))): ?>
 				<div class="alert alert-danger alert-dismissible" role="alert">
@@ -178,6 +178,9 @@
 
 			<button type="button" id="trigger-update-profile" class="btn btn-primary btn-lg btn-block">Ganti Akun</button>
 		</div>
+
+		<!-- Right Content (New Product) -->
+		<?php $this->load->view('template/right'); ?>
 
 	</div>
 

@@ -17,13 +17,15 @@
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
-		<div class="col-sm-10">
+		<div class="col-sm-8">
 
 			<p style="font-size : 18px; line-height: 1.5; text-align: justify">Toko Mebel Randu Jati Kroya merupakan perusahaan milik perseorangan. Mebel ini didirikan oleh Bapak Harwanto pada tanggal 18 Februari 2008. Toko yang bertempat dirumah tinggal pemiliknya yang berada di JalanBhayangkara RT 02 RW 04 Karangmangu Kroya, pada saat berdirinya hanya menjual kursi dan meja tamu yang dipasarkan di daerah Kroya dan sekitarnya. </p>
 			<img class="center-block img-responsive img-thumbnail" src="<?php echo site_url('assets/images/toko.jpg'); ?>" alt="Toko Randu Jati"> <hr>
 			<p style="font-size : 18px; line-height: 1.5; text-align : justify;">Dalam perkembangannya permintaan akan produk terus meningkat, produk andalan mebel ini adalah classic furniture (meja dan kursi), colonial (almari dan kursi makan) dan garden (meja dan kursi taman), yang menggunakan kayu jati, kayu mahoni dan kayu mindi. Ketiga produk tersebut menjadi favorit para pembeli lokal, karena model produk yang terbilang masih baru serta unik nilai seninya.</p>
 		</div>
 
+		<!-- Right Content (New Product) -->
+		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->

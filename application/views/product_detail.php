@@ -15,8 +15,9 @@
 			<?php $this->load->view('template/left'); ?>
 
 			<!-- Main Content (Product) -->
-			<div class="col-sm-10">
-				<h3 class="text-center bg-info"><strong>Detail Product</strong></h3>
+			<div class="col-sm-8">
+				<h1 class="text-right">Detail Produk</h1> 
+				<hr class="colorgraph">
 
 				<?php if (!empty($this->session->flashdata('notif'))): ?>
 					<div class="alert alert-info alert-dismissible" role="alert">
@@ -46,6 +47,8 @@
 				</div>
 			</div>
 
+			<!-- Right Content (New Product) -->
+			<?php $this->load->view('template/right'); ?>
 		</div>
 	</div>
 

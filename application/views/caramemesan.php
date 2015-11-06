@@ -16,7 +16,7 @@
 		<?php $this->load->view('template/left'); ?>
 
 		<!-- Main Content -->
-		<div class="col-sm-10">
+		<div class="col-sm-8">
 			<img class="center-block img-responsive img-thumbnail" src="<?php echo site_url('assets/images/alurpemesanan.png'); ?>">
 			<hr>
 
@@ -28,6 +28,9 @@
 				<li>Pembayaran dilakukan dengan COD (cash on delivery)</li>
 			</ol>
 		</div>
+
+		<!-- Right Content (New Product) -->
+		<?php $this->load->view('template/right'); ?>
 
 	</div>
 

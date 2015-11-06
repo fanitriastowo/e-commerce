@@ -28,7 +28,7 @@ password: `password`
 	* ~~Form ganti Profile~~
 	* ~~JQuery Validation di ganti akun (member)~~
 	* ~~Daftar Pemesanan terdahulu + status~~
-10. Pemesanan Member
+10. ~~Pemesanan Member~~
 	* ~~sebelum pesan, check login status~~
 	* ~~redirect ke halaman sebelumnya setelah login~~
 	* ~~pilih product dan quantity (tampilkan juga stock)~~
@@ -48,6 +48,7 @@ password: `password`
 14. ~~Limit left and right bar item~~
 15. Cache left dan right bar
 16. Stok produk
+17. Merubah Size Table
 
 ### Issue Pemesanan
 1. Member

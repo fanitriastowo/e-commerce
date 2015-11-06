@@ -24,7 +24,7 @@
 			<?php $this->load->view('template/left'); ?>
 
 			<!-- Main Content (Product) -->
-			<div class="col-sm-10">
+			<div class="col-sm-8">
 				<h3 class="text-center"><strong>Our Products</strong></h3>
 				<?php foreach ($products_rands as $product_rand): ?>
 					<div class="col-sm-6">
@@ -41,7 +41,7 @@
 			</div>
 
 			<!-- Right Content (New Product) -->
-			<?php // $this->load->view('template/right'); ?>
+			<?php $this->load->view('template/right'); ?>
 		</div>
 	</div>
 

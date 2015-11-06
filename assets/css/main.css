@@ -82,7 +82,8 @@ body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
 	z-index: 10;
-	color: #FFF;
+	color: #cdddeb;
+	font-weight: bolder;
 }
 
 .carousel-image {

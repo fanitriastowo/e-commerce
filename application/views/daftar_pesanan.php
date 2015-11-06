@@ -15,7 +15,7 @@
 		<?php $this->load->view('template/left'); ?>
 		
 		<!-- Main Content (Product) -->
-		<div class="col-sm-10">
+		<div class="col-sm-8">
 			<?php if (!empty($this->session->flashdata('failed'))): ?>
 				<div class="alert alert-danger alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -70,6 +70,9 @@
 			<p class="text-warning">** Barang pesanan akan dikirim maksimal dalam 2 hari</p>
 			<a href="<?php echo site_url('product/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>
 		</div>
+
+		<!-- Right Content (New Product) -->
+		<?php $this->load->view('template/right'); ?>
 	</div>
 
 	<!-- Footer -->

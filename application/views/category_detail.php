@@ -15,8 +15,9 @@
 			<?php $this->load->view('template/left'); ?>
 
 			<!-- Main Content (Product) -->
-			<div class="col-sm-10">
-				<h3 class="text-center bg-info"><strong>Detail Categories</strong></h3>
+			<div class="col-sm-8">
+				<h1 class="text-right">Detail Kategori</h1> 
+				<hr class="colorgraph">
 				<?php foreach ($produts_by_categories as $category_detail): ?>
 					<div class="col-sm-4">
 						<div class="thumbnail">
@@ -30,6 +31,9 @@
 					</div>
 				<?php endforeach ?>
 			</div>
+
+			<!-- Right Content (New Product) -->
+			<?php $this->load->view('template/right'); ?>
 
 		</div>
 	</div>

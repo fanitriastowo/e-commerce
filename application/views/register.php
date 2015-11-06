@@ -17,7 +17,7 @@
 		<?php $this->load->view('template/left'); ?>
 
 		<!-- Main Content (Product) -->
-		<div class="col-sm-6">
+		<div class="col-sm-5">
 
 			<?php if (!empty($this->session->flashdata('error_register'))): ?>
 				<div class="alert alert-danger alert-dismissible" role="alert">
@@ -82,13 +82,16 @@
 				</div>
 			<?php echo form_close(); ?>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<h3 class="dark-grey"><strong>Syarat dan Ketentuan</strong></h3> <hr>
 			<p>Dengan melakukan "registrasi" Anda setuju dengan syarat dan ketentuan Perusahaan Randu Jati Meubel</p>
 			<p>Meskipun jarang, perubahan harga didasarkan pada fluktuasi nilai tukar produk, Kami dapat meminta pembayaran tambahan. Anda memiliki pilihan untuk meminta pengembalian dana penuh atau membayar harga baru.</p>
 			<p>Apabila ada kesalahan dalam deskripsi atau harga dari suatu produk, kami akan memberikan Anda dengan pengembalian dana penuh.</p>
 			<p>Penerimaan pesanan tergantung pada kemampuan pemasok Kami untuk menyediakan produk.</p>
 		</div>
+
+		<!-- Right Content (New Product) -->
+		<?php $this->load->view('template/right'); ?>
 
 	</div>
 

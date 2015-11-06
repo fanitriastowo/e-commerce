@@ -44,6 +44,15 @@ class Pemesanan extends Admin_Controller {
 	}
 
 	/**
+	 * [Delete pemesanan]
+	 */
+	public function delete($id) {
+		$this->pemesanan_m->delete($id);
+		$this->session->set_flashdata('delete_success', 'Delete Successful');
+		redirect('akuinginwisuda/pemesanan');
+	}
+
+	/**
 	 * [generate report detail pemesanan berdasarkan id pemesanan]
 	 * @param  [integer] $id [id pemesanan]
 	 * @return [type]     [description]

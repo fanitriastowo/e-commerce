@@ -39,7 +39,7 @@ password: `password`
 	* ~~redirect ke profile (tampilkan riwayat pemesanan)~~
 	* ~~Secure Cetak Report (Cetak hanya untuk member saja)~~
 	* ~~Redesign report~~
-11. Render Image dan upload image ke filesystem
+11. ~~Render Image dan upload image ke filesystem~~
 	* ~~user profile~~
 	* ~~admin product~~
 	* ~~scale images~~
@@ -49,16 +49,19 @@ password: `password`
 15. Cache left dan right bar
 16. Stok produk
 17. Merubah Size Table
+18. Maps
+19. Statistik
+20. Chat
 
 ### Issue Pemesanan
-1. Member
+1. ~~Member~~
 	* ~~pesan 2 kali~~
 	* ~~batal pesan~~
 2. Admin
 	* Pemesanan Ganda
 	* batal pemesanan member
-	* pemesanan lampau
-	* status pengiriman
+	* ~~pemesanan lampau~~
+	* ~~status pengiriman~~
 	* ~~Tanggal harus tetap~~
 3. ~~Refactor Frontend_Controller dengan User_Controller~~
 

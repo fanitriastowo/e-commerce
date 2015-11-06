@@ -83,7 +83,7 @@
 				</div>
 			<?php endif ?>
 			<hr>
-			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member(bebas biaya pengiriman untuk area Barlingmascakeb)</p>
+			<p class="text-warning">* Barang pesanan akan dikirim ke alamat Member (bebas biaya pengiriman untuk area Barlingmascakeb)</p>
 			<p class="text-warning">** Barang pesanan akan dikirim maksimal dalam 2 hari (untuk area Barlingmascakeb)</p>
 			<a href="<?php echo site_url('product/checkout'); ?>" class="btn btn-lg btn-primary btn-block">Checkout</a>
 		</div>

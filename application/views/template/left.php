@@ -60,7 +60,7 @@
 			padding-right: 5px;
 		}
 
-		.brand-calendar {
+		.brand {
 			background-color: #94C3EA;
 			line-height: 40px;
 			display: block;
@@ -68,7 +68,7 @@
 			font-size: 23px;
 		}
 	</style>
-	<div class="brand-calendar"><strong>Hari ini</strong></div>
+	<div class="brand"><strong>Hari ini</strong></div>
 	<div class="calendar">
 		<div class="clock">
 			<div id="Date"></div>
@@ -77,6 +77,19 @@
 				<li class="inline-time" id="point">:</li>
 				<li class="inline-time" id="min"></li>
 			</ul>
+		</div>
+	</div>
+	<hr>
+
+	<div class="brand"><strong>Kontak</strong></div>
+	<div class="panel panel-warning">
+		<div class="panel-body bg-warning">
+			<p>Visit us in facebook</p>
+			<a class="btn btn-xs btn-primary btn-block" href="https://www.facebook.com/meublerandujati">Facebook</a> <hr>
+			<h3 class="label label-warning">Phone Number</h3>
+			<p class="label label-danger">0815-4266-6676</p> <hr>
+			<h3 class="">Alamat</h3>
+			<p class="">Jalan Bhayangkara RT 02 RW 04 Desa Karangmangu Kroya</p>
 		</div>
 	</div>
 </div>

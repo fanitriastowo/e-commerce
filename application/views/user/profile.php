@@ -17,8 +17,8 @@
 		}
 
 		.view .mask {
-			width: 20px;
-			height: 20px;
+			width: 200px;
+			height: 200px;
 			position: absolute;
 			overflow: hidden;
 			top: 0;
@@ -105,13 +105,25 @@
 				</div>
 			<?php endif ?>
 
+			<?php if (!empty($this->session->flashdata('success_upload'))): ?>
+				<div class="alert alert-success alert-dismissible text-center" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<strong><?php echo $this->session->flashdata('success_upload'); ?></strong>
+				</div>
+			<?php endif ?>
+
 			<div class="col-sm-6">
 
 				<div class="row">
 					<div class="view third-effect">
-						<img class="img-thumbnail" src="<?php echo site_url('images/blank.jpg'); ?>" alt="Your Avatar">
+						<?php if (count($principal->photo)): ?>
+							<img class="img-thumbnail" src="<?php echo site_url('images/members/' . $principal->photo); ?>" alt="Your Avatar">
+						<?php else: ?>
+							<img class="img-thumbnail" src="<?php echo site_url('images/blank.jpg'); ?>" alt="Your Avatar">
+						<?php endif ?>
 						<div class="mask">
-							<a href="#" class="info" data-toggle="modal" data-target="#modalImage" ></a>
+							<a href="#" class="info" id="btn_upload_image_modal"></a>
 						</div>
 					</div>
 				</div>
@@ -245,7 +257,7 @@
 	<?php echo form_close(); ?>
 
 	<!-- Upload Modal -->
-	<?php echo form_open_multipart('profile/upload', 'class="form-horizontal"'); ?>
+	<?php echo form_open_multipart('user/profile/upload', 'class="form-horizontal"'); ?>
 	<div class="modal fade" id="modalImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -254,11 +266,12 @@
 					<h4 class="modal-title" id="myModalLabel">Unggah Foto</h4>
 				</div>
 				<div class="modal-body">
+					<?php echo form_hidden('upload_id', '') ?>
 
 					<div class="form-group">
-						<label for="fileUpload" class="col-sm-2 control-label">Upload</label>
+						<label for="insert_image" class="col-sm-2 control-label">Upload</label>
 						<div class="col-sm-10">
-							<input type="file" name="fileUpload" size="20" id="insert_image"  class="form-control"/>
+							<input type="file" name="photo_upload" size="20" id="insert_image"  class="form-control"/>
 						</div>
 					</div>
 
@@ -360,6 +373,15 @@
 				$('#update_address').val(data.address);
 			});
 			$('#ganti_akun_modal').modal();
+		});
+
+		$('#btn_upload_image_modal').click(function(e) {
+			e.preventDefault();
+			var updateURL = '<?php echo site_url('user/profile/get_principal'); ?>';
+			$.getJSON(updateURL, function(data) {
+				$('input[name="upload_id"]').val(data.id);
+			});
+			$('#modalImage').modal();
 		});
 
 		function readURL(input) {

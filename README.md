@@ -40,7 +40,7 @@ password: `password`
 	* ~~Secure Cetak Report (Cetak hanya untuk member saja)~~
 	* ~~Redesign report~~
 11. Render Image dan upload image ke filesystem
-	* user profile
+	* ~~user profile~~
 	* ~~admin product~~
 	* ~~scale images~~
 12. ~~Ganti Footer supaya menarik~~

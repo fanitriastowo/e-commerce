@@ -272,6 +272,41 @@ class Profile extends User_Controller {
 		// This method has several options, check the source code documentation for more information.
 		$pdf->Output($pemesanan->created . '.pdf', 'I');
 	}
+
+	/**
+	 * Upload foto profile
+	 */
+	public function upload() {
+		if ($this->ion_auth->logged_in()) {
+			$id = $this->input->post('upload_id');
+
+			// Set filename
+			$config['file_name'] = time();
+			$config['upload_path'] = './images/members/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '500';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '1024';
+			$this->load->library('upload', $config);
+
+			// Do Upload
+			if ($this->upload->do_upload('photo_upload')){
+				$data = $this->upload->data();
+				
+				// assign ke array
+				$member = array(
+					'photo' => time().$data['file_ext']
+				);
+
+				$this->ion_auth->update($id, $member);
+				$this->session->set_flashdata('success_upload', 'Upload Successful');
+				redirect('user/profile');
+			}
+
+		} else {
+			show_404();
+		}
+	}
 }
 
 /* End of file profile.php */

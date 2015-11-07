@@ -26,7 +26,7 @@
 								<div class="text-danger">
 									<strong><?php echo $category_detail->name; ?></strong>
 								</div> <br>
-								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $category_detail->id); ?>">Beli</a>
+								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $category_detail->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
 							</div>
 						</div>
 					</div>

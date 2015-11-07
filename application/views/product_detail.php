@@ -33,12 +33,13 @@
 						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 						<p><?php echo $product_detail->description; ?></p>
 						<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+						<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
 
 						<?php if (!$this->ion_auth->is_admin()): ?>
-							<?php echo form_open('product/add_product/' . $product_detail->id); ?>
+							<?php echo form_open('product/add_product/' . $product_detail->id, 'id="form_qty"'); ?>
 							<fieldset>
 								<label>Jumlah</label> 
-								<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;"'); ?>
+								<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;" id="txt_jmlh"'); ?>
 								<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
 							</fieldset>
 							<?php echo form_close(); ?>	
@@ -52,10 +53,59 @@
 		</div>
 	</div>
 
+	<style type="text/css">
+		.modal {
+			/*   display: block;*/
+			background-color: rgba(4, 4, 4, 0.8); 
+		}
+
+		.modal-dialog {
+			top: 20%;
+			width: 100%;
+			position: absolute;
+		}
+		.modal-content {
+			border-radius: 0px;
+			border: none;
+			top: 40%;
+		}
+		.modal-body {
+			background-color: #0f8845;
+			color: white;
+		}
+
+	</style>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<div class="text-center">
+						<h2>Oooppssss!</h2>
+						<h4>Pesanan Anda melebih stok yang tersedia.</h4>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Footer -->
 	<?php $this->load->view('template/footer'); ?>
 
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#form_qty').submit(function(e) {
+				var jml = $('#txt_jmlh').val();
+				var stok = <?php echo $product_detail->stok; ?>;
+				if (jml > stok) {
+					e.preventDefault();
+					$('.bs-example-modal-lg').modal();
+				};
+			});
+		});
+	</script>
 </body>
 </html>

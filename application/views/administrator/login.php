@@ -33,9 +33,6 @@
 		<?php endif ?>
 	</div>
 
-	<!-- Footer -->
-	<?php $this->load->view('template/footer'); ?>
-
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
 </body>

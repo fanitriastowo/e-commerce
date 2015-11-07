@@ -34,7 +34,7 @@
 						</a>
 						<div class="caption text-center">
 							<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
-							<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">Beli</a>
+							<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
 						</div>
 					</div>
 					</div>

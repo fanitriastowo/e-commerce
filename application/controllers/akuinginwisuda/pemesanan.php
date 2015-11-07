@@ -35,11 +35,25 @@ class Pemesanan extends Admin_Controller {
 	 * [Ubah status pemesanan]
 	 */
 	public function approve() {
+		$this->load->model('product_m');
+
 		$id = $this->input->post('approve_id');
 		$data = array(
 			'status' => 'Disetujui'
 		);
 		$this->pemesanan_m->approve_pemesanan($data, $id);
+
+		$pemesanan_details = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
+		foreach ($pemesanan_details as $pemesanan_detail) {
+			$product = $this->product_m->get($pemesanan_detail->product_id, TRUE);
+			$stok = $product->stok;
+			$jml = $pemesanan_detail->qty;
+			$total_stok = $stok - $jml;
+			$product_update = array(
+				'stok' => $total_stok
+			);
+			$this->product_m->save($product_update, $product->id);
+		}
 		redirect('akuinginwisuda/pemesanan');
 	}
 

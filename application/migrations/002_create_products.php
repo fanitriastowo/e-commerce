@@ -37,6 +37,7 @@ class Migration_Create_products extends CI_Migration {
 			`description` text,
 			`created` datetime DEFAULT NULL,
 			`filename` varchar(100) DEFAULT NULL,
+			`stok` int(3) DEFAULT NULL,
 			PRIMARY KEY (`id`),
 			KEY `category_id` (`category_id`),
 			CONSTRAINT `category_id_fk` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
@@ -44,7 +45,21 @@ class Migration_Create_products extends CI_Migration {
 		";
 
 		$insert = "
-			INSERT INTO `products` VALUES (7,4,'Meja Komputer',700000,'','2015-10-29 08:37:21','1446088627Meja_Komputer.jpg'),(8,4,'Meja Komputer small',600000,'','2015-10-29 08:38:36','1446125916Meja_Komputer_small.jpg'),(9,4,'Meja Tulis Standart',450000,'','2015-10-29 08:39:29','1446125969Meja_Tulis_Standart.jpg'),(10,4,'Sofa Hello Kitty',3900000,'','2015-10-29 08:41:30','1446126090Sofa_Hello_Kitty.jpg'),(11,5,'Kursi Monaco Ganesha',8500000,'Spesial edition \r\nKursi MONACO GANESHA SUPER 3211+3\r\nKain oscar super .timbul.motif.','2015-10-29 08:46:43','1446126168Kursi_Monaco_Ganesha.jpg'),(12,5,'Sofa santai wenen',2500000,'','2015-10-29 08:46:24','1446126235Sofa_santai_wenen.jpg'),(13,5,'Sofa selonjoran baringan model recleaning',3000000,'1 set sofa multi fungsi.\r\nReady stock warna merah dan cokelat.\r\nGaransi 3tahun\r\nNb: tanpa meja.','2015-10-29 08:45:56','1446126356Sofa_selonjoran+baringan_model_recleaning.jpg'),(14,5,'Sofabed',2850000,'','2015-10-29 08:48:02','1446126482Sofabed.jpg'),(15,6,'Lemari almunium kombinasi kaca 4pintu',3700000,'Kanan kiri sap..tengah gantungan.','2015-10-29 08:50:16','1446126616Lemari_almunium_kombinasi_kaca_4pintu.jpg'),(16,6,'Buffet Pendek Alumunium',3000000,'','2015-10-29 08:52:04','1446126724Buffet_Pendek_Alumunium.jpg'),(17,7,'Sofa model L meja ',3250000,'Garansi 3 tahun.','2015-10-29 08:55:36','1446126936Sofa_model_L_+_meja_.jpg'),(18,7,'Sofa 221 merah meja kaca',4000000,'','2015-10-29 08:56:38','1446126998Sofa_221_merah_+_meja_kaca.jpg'),(19,8,'Matras elite plus top 160x200',2000000,'','2015-10-29 08:58:06','1446127086Matras_elite_plush_top_160x200.jpg'),(20,8,'Set Sorong anak Frozen',2450000,'Atas+bawah+sandaran. Ukuran 120x200.','2015-10-29 08:58:51','1446127131Set_Sorong_anak_Frozen.jpg');
+			INSERT INTO `products` VALUES 
+				(7,4,'Meja Komputer',700000,'','2015-10-29 08:37:21','1446088627Meja_Komputer.jpg',5),
+				(8,4,'Meja Komputer small',600000,'','2015-10-29 08:38:36','1446125916Meja_Komputer_small.jpg',5),
+				(9,4,'Meja Tulis Standart',450000,'','2015-10-29 08:39:29','1446125969Meja_Tulis_Standart.jpg',5),
+				(10,4,'Sofa Hello Kitty',3900000,'','2015-10-29 08:41:30','1446126090Sofa_Hello_Kitty.jpg',5),
+				(11,5,'Kursi Monaco Ganesha',8500000,'Spesial edition \r\nKursi MONACO GANESHA SUPER 3211+3\r\nKain oscar super .timbul.motif.','2015-10-29 08:46:43','1446126168Kursi_Monaco_Ganesha.jpg',5),
+				(12,5,'Sofa santai wenen',2500000,'','2015-10-29 08:46:24','1446126235Sofa_santai_wenen.jpg',5),
+				(13,5,'Sofa selonjoran baringan model recleaning',3000000,'1 set sofa multi fungsi.\r\nReady stock warna merah dan cokelat.\r\nGaransi 3tahun\r\nNb: tanpa meja.','2015-10-29 08:45:56','1446126356Sofa_selonjoran+baringan_model_recleaning.jpg',5),
+				(14,5,'Sofabed',2850000,'','2015-10-29 08:48:02','1446126482Sofabed.jpg',5),
+				(15,6,'Lemari almunium kombinasi kaca 4pintu',3700000,'Kanan kiri sap..tengah gantungan.','2015-10-29 08:50:16','1446126616Lemari_almunium_kombinasi_kaca_4pintu.jpg',5),
+				(16,6,'Buffet Pendek Alumunium',3000000,'','2015-10-29 08:52:04','1446126724Buffet_Pendek_Alumunium.jpg',5),
+				(17,7,'Sofa model L meja ',3250000,'Garansi 3 tahun.','2015-10-29 08:55:36','1446126936Sofa_model_L_+_meja_.jpg',5),
+				(18,7,'Sofa 221 merah meja kaca',4000000,'','2015-10-29 08:56:38','1446126998Sofa_221_merah_+_meja_kaca.jpg',5),
+				(19,8,'Matras elite plus top 160x200',2000000,'','2015-10-29 08:58:06','1446127086Matras_elite_plush_top_160x200.jpg',5),
+				(20,8,'Set Sorong anak Frozen',2450000,'Atas+bawah+sandaran. Ukuran 120x200.','2015-10-29 08:58:51','1446127131Set_Sorong_anak_Frozen.jpg',5);
 		";
 
 		$this->db->query($query);

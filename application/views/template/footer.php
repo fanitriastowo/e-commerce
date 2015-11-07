@@ -32,7 +32,7 @@
                             var mapCanvas = document.getElementById('map');
                             var mapOptions = {
                                 center: new google.maps.LatLng(-7.641227, 109.242690),
-                                zoom: 18,
+                                zoom: 16,
                                 mapTypeId: google.maps.MapTypeId.SATELLITE
                             }
                             var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -42,12 +42,6 @@
                     <div id="map"></div>
                 </div>
             </div> <!--/.row--> 
-
-            <div class="row">
-                <div class="col-xs-12">
-                    
-                </div>
-            </div>
         </div> <!--/.container--> 
     </div> <!--/.footer-->
     
@@ -57,7 +51,3 @@
         </div>
     </div> <!--/.footer-bottom--> 
 </footer>
-
-<script type="text/javascript">
-    
-</script>

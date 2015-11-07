@@ -49,7 +49,7 @@ password: `password`
 15. Cache left dan right bar
 16. Stok produk (Soldout image)
 17. Merubah Size Table
-18. Maps
+18. ~~Maps~~
 19. Statistik
 20. Chat
 

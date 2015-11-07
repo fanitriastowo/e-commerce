@@ -28,15 +28,26 @@
 				<h3 class="text-center"><strong>Our Products</strong></h3>
 				<?php foreach ($products_rands as $product_rand): ?>
 					<div class="col-sm-6">
-					<div class="thumbnail">
-						<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">
+
+					<?php if ($product_rand->stok == 0): ?>
+						<div class="thumbnail relative-thumbnail">
 							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="80%">
-						</a>
-						<div class="caption text-center">
-							<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
-							<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
+							<div class="caption text-center relative-caption">
+								<h1 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
+							</div>
 						</div>
-					</div>
+
+					<?php else: ?>
+						<div class="thumbnail">
+							<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">
+								<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="80%">
+							</a>
+							<div class="caption text-center">
+								<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
+								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
+							</div>
+						</div>
+					<?php endif ?>
 					</div>
 				<?php endforeach ?>
 			</div>

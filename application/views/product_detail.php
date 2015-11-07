@@ -70,7 +70,7 @@
 			top: 40%;
 		}
 		.modal-body {
-			background-color: #0f8845;
+			background-color: #663300;
 			color: white;
 		}
 

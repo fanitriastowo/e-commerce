@@ -20,6 +20,14 @@
 				<hr class="colorgraph">
 				<?php foreach ($produts_by_categories as $category_detail): ?>
 					<div class="col-sm-4">
+						<?php if ($category_detail->stok == 0): ?>
+						<div class="thumbnail relative-thumbnail">
+							<img src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail">
+							<div class="caption text-center relative-caption">
+								<h1 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
+							</div>
+						</div>
+						<?php else: ?>
 						<div class="thumbnail">
 							<a href="<?php echo site_url('product/detail/' . $category_detail->id); ?>"><img src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail"></a>
 							<div class="caption text-center">
@@ -29,6 +37,7 @@
 								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $category_detail->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
 							</div>
 						</div>
+						<?php endif ?>
 					</div>
 				<?php endforeach ?>
 			</div>

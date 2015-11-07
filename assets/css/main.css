@@ -310,3 +310,37 @@ body {
 	background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 	background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
+
+.relative-thumbnail {
+	position: relative;
+}
+
+.relative-caption {
+	position: absolute;
+	top: 25%;
+	left: 0;
+	width: 100%;
+}
+
+.rotate {
+
+	/* Safari */
+	-webkit-transform: rotate(-30deg);
+
+	/* Firefox */
+	-moz-transform: rotate(-30deg);
+
+	/* IE */
+	-ms-transform: rotate(-30deg);
+
+	/* Opera */
+	-o-transform: rotate(-30deg);
+
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.4);
+
+}
+
+.text-soldout {
+	color: #FC7A1A;
+}

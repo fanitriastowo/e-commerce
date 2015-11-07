@@ -45,10 +45,11 @@
 			<thead>
 				<tr>
 					<th width="5%">No.</th>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Description</th>
-					<th>Category</th>
+					<th width="20%">Name</th>
+					<th width="10%">Price</th>
+					<th width="30%">Description</th>
+					<th width="5%">Stok</th>
+					<th width="15%">Category</th>
 					<th width="15%">Operation</th>
 				</tr>
 			</thead>
@@ -57,8 +58,9 @@
 				<tr>
 					<td><?php echo $key + 1; ?></td>
 					<td><?php echo $product->name; ?></td>
-					<td><?php echo $product->price; ?></td>
+					<td>Rp. <?php echo $product->price; ?></td>
 					<td><?php echo $product->description; ?></td>
+					<td><?php echo $product->stok; ?></td>
 					<td><?php echo $product->category_name; ?></td>
 					<td>
 						<a href="<?php echo site_url('akuinginwisuda/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i> Update</a>

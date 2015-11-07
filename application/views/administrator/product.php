@@ -260,7 +260,7 @@
 	<?php $this->load->view('template/js'); ?>
 	<script type="text/javascript" src="<?php echo site_url('assets/js/jquery.datatables.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo site_url('assets/js/datatables.bootstrap.min.js'); ?>"></script>
-	<script type="text/javascript" src="http://www.jqueryscript.net/demo/Touch-Friendly-jQuery-Input-Spinner-Plugin-For-Bootstrap-3-TouchSpin/bootstrap-touchspin/bootstrap.touchspin.js"></script>
+	<script type="text/javascript" src="<?php echo site_url('assets/js/bootstrap.touchspin.js'); ?>"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#products').addClass('active');

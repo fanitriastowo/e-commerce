@@ -31,6 +31,11 @@ class Product_m extends MY_Model {
 					'field' => 'description', 
 					'label' => 'Deskripsi', 
 					'rules' => 'trim|xss_clean'
+				),
+				'stok' => array(
+					'field' => 'stok', 
+					'label' => 'Stok', 
+					'rules' => 'integer|trim|xss_clean|required'
 				)
 			);
 
@@ -59,6 +64,11 @@ class Product_m extends MY_Model {
 					'field' => 'update_description', 
 					'label' => 'Deskripsi', 
 					'rules' => 'trim|xss_clean'
+				),
+				'stok' => array(
+					'field' => 'update_stok', 
+					'label' => 'Stok', 
+					'rules' => 'integer|trim|xss_clean|required'
 				)
 			);
 	/**

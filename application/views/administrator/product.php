@@ -76,7 +76,7 @@
 	<?php echo form_open_multipart('akuinginwisuda/product/insert', 'class="form-horizontal" id="add_product_modal"'); ?>
 	<?php echo form_hidden('form_insert', 'form_insert'); ?>
 		<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -84,46 +84,59 @@
 						<h4 class="modal-title">Tambah Product</h4>
 					</div>
 					<div class="modal-body">
-						<div class="form-group">
-							<label for="add_name" class="col-sm-2 control-label">Nama:</label>
-							<div class="col-sm-10">
-								<?php echo form_input('name','', 'class="form-control" id="add_name" placeholder="Input Nama Product" required'); ?>
-							</div>
-						</div>			
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="add_name" class="col-sm-2 control-label">Nama:</label>
+									<div class="col-sm-10">
+										<?php echo form_input('name','', 'class="form-control" id="add_name" placeholder="Input Nama Product" required'); ?>
+									</div>
+								</div>			
 
-						<div class="form-group">
-							<label for="add_price" class="col-sm-2 control-label">Harga:</label>
-							<div class="col-sm-10">
-								<?php echo form_input('price','', 'class="form-control" id="add_price" placeholder="Input Harga" required'); ?>
+								<div class="form-group">
+									<label for="add_price" class="col-sm-2 control-label">Harga:</label>
+									<div class="col-sm-10">
+										<?php echo form_input('price','', 'class="form-control" id="add_price" placeholder="Input Harga" required'); ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="add_category" class="col-sm-2 control-label">Kategori:</label>
+									<div class="col-sm-4">
+										<?php echo form_dropdown('category_id', $categories_dropdown, '', 'class="form-control"'); ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="add_stok" class="col-sm-2 control-label">Stok:</label>
+									<div class="col-sm-6">
+										<?php echo form_input('stok','1', 'class="form-control" id="add_stok" placeholder="Input Stok" required'); ?>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+
+								<div class="form-group">
+									<label for="add_description" class="col-sm-2 control-label">Deskripsi:</label>
+									<div class="col-sm-10">
+										<?php echo form_textarea(array( 'name' => 'description', 'id' => 'add_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="add_filename" class="col-sm-2 control-label">Upload:</label>
+									<div class="col-sm-10">
+										<input type="file" name="add_filename" id="add_filename" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-12">
+										<img class="img-responsive img-thumbnail image_product" src="">
+									</div>
+								</div>						
 							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="add_category" class="col-sm-2 control-label">Kategori:</label>
-							<div class="col-sm-4">
-								<?php echo form_dropdown('category_id', $categories_dropdown, '', 'class="form-control"'); ?>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="add_description" class="col-sm-2 control-label">Deskripsi:</label>
-							<div class="col-sm-10">
-								<?php echo form_textarea(array( 'name' => 'description', 'id' => 'add_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="add_filename" class="col-sm-2 control-label">Upload:</label>
-							<div class="col-sm-10">
-								<input type="file" name="add_filename" id="add_filename" class="form-control">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-sm-12">
-								<img class="img-responsive image_product" src="">
-							</div>
-						</div>						
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -140,7 +153,7 @@
 	<?php echo form_open_multipart('akuinginwisuda/product/update', 'class="form-horizontal" id="update_product_modal"'); ?>
 	<?php echo form_hidden('form_update', 'form_update'); ?>
 		<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -149,46 +162,61 @@
 					</div>
 					<div class="modal-body">
 						<?php echo form_hidden('update_id'); ?>
-						<div class="form-group">
-							<label for="input_name" class="col-sm-2 control-label">Nama:</label>
-							<div class="col-sm-10">
-								<?php echo form_input('update_name','', 'class="form-control" id="input_name" placeholder="Input Nama Product" required'); ?>
-							</div>
-						</div>			
 
-						<div class="form-group">
-							<label for="input_price" class="col-sm-2 control-label">Harga:</label>
-							<div class="col-sm-10">
-								<?php echo form_input('update_price','', 'class="form-control" id="input_price" placeholder="Input Harga" required'); ?>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="input_name" class="col-sm-2 control-label">Nama:</label>
+									<div class="col-sm-10">
+										<?php echo form_input('update_name','', 'class="form-control" id="input_name" placeholder="Input Nama Product" required'); ?>
+									</div>
+								</div>			
+
+								<div class="form-group">
+									<label for="input_price" class="col-sm-2 control-label">Harga:</label>
+									<div class="col-sm-10">
+										<?php echo form_input('update_price','', 'class="form-control" id="input_price" placeholder="Input Harga" required'); ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="select_category" class="col-sm-2 control-label">Kategori:</label>
+									<div class="col-sm-4">
+										<?php echo form_dropdown('update_category_id', $categories_dropdown, '', 'class="form-control" id="select_category"'); ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="input_stok" class="col-sm-2 control-label">Stok:</label>
+									<div class="col-sm-6">
+										<?php echo form_input('update_stok','', 'class="form-control" id="input_stok" placeholder="Input Stok" required'); ?>
+									</div>
+								</div>		
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="input_description" class="col-sm-2 control-label">Deskripsi:</label>
+									<div class="col-sm-10">
+										<?php echo form_textarea(array( 'name' => 'update_description', 'id' => 'input_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
+									</div>
+								</div>	
+
+								<div class="form-group">
+									<label for="input_filename" class="col-sm-2 control-label">Upload:</label>
+									<div class="col-sm-10">
+										<input type="file" name="update_filename" id="input_filename" class="form-control">
+									</div>
+								</div>	
+
+								<div class="form-group">
+									<div class="col-sm-12">
+										<img class="img-responsive img-thumbnail image_product" src="">
+									</div>
+								</div>				
 							</div>
 						</div>
+						
 
-						<div class="form-group">
-							<label for="select_category" class="col-sm-2 control-label">Kategori:</label>
-							<div class="col-sm-4">
-								<?php echo form_dropdown('update_category_id', $categories_dropdown, '', 'class="form-control" id="select_category"'); ?>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="input_description" class="col-sm-2 control-label">Deskripsi:</label>
-							<div class="col-sm-10">
-								<?php echo form_textarea(array( 'name' => 'update_description', 'id' => 'input_description', 'style' => 'resize:none', 'rows' => 3, 'class' => 'form-control')); ?>
-							</div>
-						</div>	
-
-						<div class="form-group">
-							<label for="input_filename" class="col-sm-2 control-label">Upload:</label>
-							<div class="col-sm-10">
-								<input type="file" name="update_filename" id="input_filename" class="form-control">
-							</div>
-						</div>	
-
-						<div class="form-group">
-							<div class="col-sm-12">
-								<img class="img-responsive image_product" src="">
-							</div>
-						</div>				
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -232,11 +260,24 @@
 	<?php $this->load->view('template/js'); ?>
 	<script type="text/javascript" src="<?php echo site_url('assets/js/jquery.datatables.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo site_url('assets/js/datatables.bootstrap.min.js'); ?>"></script>
+	<script type="text/javascript" src="http://www.jqueryscript.net/demo/Touch-Friendly-jQuery-Input-Spinner-Plugin-For-Bootstrap-3-TouchSpin/bootstrap-touchspin/bootstrap.touchspin.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#products').addClass('active');
 			$('#products_table').DataTable({
 				"lengthMenu": [ 5, 10 ]
+			});
+
+			$("input[name='stok']").TouchSpin({
+				min: 1,
+				max: 100,
+				stepinterval: 50
+			});
+
+			$("input[name='update_stok']").TouchSpin({
+				min: 1,
+				max: 100,
+				stepinterval: 50
 			});
 
 			$("#add_product_modal").validate({
@@ -250,6 +291,10 @@
 						required : true
 					},
 					price: {
+						required : true,
+						number : true
+					},
+					stok: {
 						required : true,
 						number : true
 					}
@@ -266,6 +311,10 @@
 					price: {
 						required : "Harga produk harus diisi",
 						number : "Harga produk hanya berupa angka"
+					},
+					stok: {
+						required : "Stok produk harus diisi",
+						number : "Stok produk hanya berupa angka"
 					}
 				},
 				highlight : function(element) {
@@ -289,6 +338,10 @@
 					update_category_id: {
 						required : true,
 						number : true
+					},
+					update_stok: {
+						required : true,
+						number : true
 					}
 				},
 				messages: {
@@ -303,6 +356,10 @@
 					update_category_id: {
 						required : "Harga produk harus diisi",
 						number : "Harga produk hanya berupa angka"
+					},
+					update_stok: {
+						required : "Stok produk harus diisi",
+						number : "Stok produk hanya berupa angka"
 					}
 				},
 				highlight : function(element) {
@@ -322,6 +379,7 @@
 				$('#input_name').val(data.name);
 				$('#input_price').val(data.price);
 				$('#select_category').val(data.category_id);
+				$('#input_stok').val(data.stok);
 				$('#input_description').val(data.description);
 				if (!data.filename) {
 					$('.image_product').attr('src', '<?php echo site_url("images/blank.jpg"); ?>');

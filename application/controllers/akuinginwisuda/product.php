@@ -38,6 +38,7 @@ class Product extends Admin_Controller {
 		$price = $this->input->post('price');
 		$category_id = $this->input->post('category_id');
 		$description = $this->input->post('description');
+		$stok = $this->input->post('stok');
 
 		// ambil product rules
 		$rules = $this->product_m->rules;
@@ -65,7 +66,8 @@ class Product extends Admin_Controller {
 						'category_id' => $category_id,
 						'name' => $name,
 						'price' => $price,
-						'description' => $description
+						'description' => $description,
+						'stok' => $stok
 					);
 
 					$this->product_m->save($product);
@@ -80,6 +82,7 @@ class Product extends Admin_Controller {
 						'name' => $name,
 						'price' => $price,
 						'description' => $description,
+						'stok' => $stok,
 						'filename' => time().$nice_name.$data['file_ext']
 					);
 
@@ -125,6 +128,7 @@ class Product extends Admin_Controller {
 		$price = $this->input->post('update_price');
 		$category_id = $this->input->post('update_category_id');
 		$description = $this->input->post('update_description');
+		$stok = $this->input->post('update_stok');
 
 		// ambil rules
 		$rules = $this->product_m->rules_update;
@@ -151,7 +155,8 @@ class Product extends Admin_Controller {
 						'category_id' => $category_id,
 						'name' => $name,
 						'price' => $price,
-						'description' => $description
+						'description' => $description,
+						'stok' => $stok
 					);
 					$this->product_m->save($product, $id);
 					$this->session->set_flashdata('notif', 'Update Product Successful!');
@@ -168,6 +173,7 @@ class Product extends Admin_Controller {
 						'name' => $name,
 						'price' => $price,
 						'description' => $description,
+						'stok' => $stok,
 						'filename' => time().$nice_name.$data['file_ext']
 					);
 					$this->product_m->save($product, $id);

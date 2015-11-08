@@ -27,25 +27,40 @@
 					</div>
 				<?php endif ?>
 				
-				<div class="thumbnail">
-					<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
-					<div class="caption text-center">
-						<h3><strong><?php echo $product_detail->name; ?></strong></h3>
-						<p><?php echo $product_detail->description; ?></p>
-						<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
-						<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
-
-						<?php if (!$this->ion_auth->is_admin()): ?>
-							<?php echo form_open('product/add_product/' . $product_detail->id, 'id="form_qty"'); ?>
-							<fieldset>
-								<label>Jumlah</label> 
-								<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;" id="txt_jmlh"'); ?>
-								<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-							</fieldset>
-							<?php echo form_close(); ?>	
-						<?php endif ?>
+				<?php if ($product_detail->stok == 0): ?>
+					<div class="thumbnail relative-thumbnail">
+						<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+						<div class="caption text-center relative-caption">
+							<h1 style="font-size: 100px" class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
+						</div>
+						<div class="caption text-center">
+							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
+							<p><?php echo $product_detail->description; ?></p>
+							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
+						</div>
 					</div>
-				</div>
+				<?php else: ?>
+					<div class="thumbnail">
+						<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+						<div class="caption text-center">
+							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
+							<p><?php echo $product_detail->description; ?></p>
+							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
+
+							<?php if (!$this->ion_auth->is_admin()): ?>
+								<?php echo form_open('product/add_product/' . $product_detail->id, 'id="form_qty"'); ?>
+								<fieldset>
+									<label>Jumlah</label> 
+									<?php echo form_input('qty', '1', 'maxlength="2" style="width: 18px;" id="txt_jmlh"'); ?>
+									<button type="submit" class="btn btn-primary">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
+								</fieldset>
+								<?php echo form_close(); ?>	
+							<?php endif ?>
+						</div>
+					</div>
+				<?php endif ?>
 			</div>
 
 			<!-- Right Content (New Product) -->

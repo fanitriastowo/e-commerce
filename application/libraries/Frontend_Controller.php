@@ -4,6 +4,7 @@ class Frontend_Controller extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
+		$this->load->library('user_agent');
 		
 		// Load Model
 		$this->load->model('category_m');
@@ -14,6 +15,8 @@ class Frontend_Controller extends MY_Controller {
 
 		// Fetch All Products
 		$this->data['products'] = $this->product_m->get_all_limit();
+		$this->data['ip_address'] = $this->input->ip_address();
+		$this->data['user_agent'] = $this->agent->browser();
 	}
 
 	/**

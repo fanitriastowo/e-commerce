@@ -51,7 +51,7 @@ password: `password`
 17. Merubah Size Table
 18. ~~Maps~~
 19. Statistik
-20. Chat
+20. ~~Chat (using yahoo messenger)~~
 
 ### Issue Pemesanan
 1. ~~Member~~

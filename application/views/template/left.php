@@ -19,8 +19,8 @@
 	<hr>
 	<div class="nav-side-menu">
 		<div class="brand"><strong>Live Chat</strong></div>
-		<a href="ymsgr:SendIM?jerome_107">
-		<img border=0 src="http://opi.yahoo.com/online?u=jerome_107&m=g&t=13"></a>
+		<a href="ymsgr:SendIM?mikeybest_drummer">
+		<img border=0 src="http://opi.yahoo.com/online?u=mikeybest_drummer&m=g&t=13"></a>
 	</div>
 	<hr>
 
@@ -84,7 +84,7 @@
 				<li class="inline-time" id="min"></li>
 			</ul>
 			<hr>
-			<label>Your Ip: 127.0.0.1</label>
+			<label>Your Ip: <?php echo $ip_address; ?></label>
 			<label>Your Browser: <?php echo $user_agent; ?></label>
 			<label>Visitor: 40</label>
 		</div>

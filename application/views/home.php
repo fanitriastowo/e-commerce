@@ -3,7 +3,7 @@
 <head>
 	<!-- CSS -->
 	<?php $this->load->view('template/css'); ?>
-	<title>Selamat datang pengujung</title>
+	<title>Selamat Di Aplikasi Pemesanan Furniture</title>
 </head>
 <body>
 	<!-- Navbar -->
@@ -44,7 +44,7 @@
 							</a>
 							<div class="caption text-center">
 								<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
-								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Beli</a>
+								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Detail</a>
 							</div>
 						</div>
 					<?php endif ?>
@@ -62,5 +62,6 @@
 
 	<!-- Javascript -->
 	<?php $this->load->view('template/js'); ?>
+
 </body>
 </html>

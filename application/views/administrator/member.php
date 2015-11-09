@@ -31,6 +31,8 @@
 		<div class="text-right">
 			<button class="btn btn-success" data-toggle="modal" data-target="#insert_modal">
 				<i class="fa fa-plus"></i> Add member</button>
+			<a class="btn btn-info" href="<?php echo site_url('akuinginwisuda/member/cetak_semua'); ?>">
+				<i class="fa fa-print"></i> Cetak</a>
 		</div> <br />
 		<table id="member_table" class="table table-hover table-striped table-bordered">
 			<thead>

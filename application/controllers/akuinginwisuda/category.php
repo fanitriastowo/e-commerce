@@ -293,7 +293,7 @@ class Category extends Admin_Controller {
 		
 		// Close and output PDF document
 		// This method has several options, check the source code documentation for more information.
-		$pdf->Output('Product-' . date('d-m-Y') . '.pdf', 'I');
+		$pdf->Output('Categories-' . date('d-m-Y') . '.pdf', 'I');
 	}
 }
 

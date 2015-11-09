@@ -47,6 +47,7 @@
 								<div class="btn-group" role="group" aria-label="Operation">
 									<a href="<?php echo site_url('akuinginwisuda/category/detail/' . $category->id); ?>" class="btn btn-info trigger-update"><i class="fa fa-pencil"></i>&nbsp; Update</a>
 									<a href="<?php echo site_url('akuinginwisuda/category/delete/' . $category->id); ?>" class="btn btn-danger trigger-delete"><i class="fa fa-trash"></i>&nbsp; Delete</a>
+									<a href="<?php echo site_url('akuinginwisuda/category/cetak_id_product/' . $category->id); ?>" class="btn btn-warning"><i class="fa fa-print"></i>&nbsp; Cetak</a>
 								</div>
 							</div>
 						</div>

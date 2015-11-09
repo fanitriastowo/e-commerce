@@ -290,10 +290,10 @@ class Product extends Admin_Controller {
 		<table class="table">
 			<tr class="tr">
 		        <th class="th" width="5%"><font face="Arial, Helvetica, sans-serif">No</font></th>
-		        <th class="th" width="15%"><font face="Arial, Helvetica, sans-serif">*Tgl</font></th>
+		        <th class="th" width="15%"><font face="Arial, Helvetica, sans-serif">Tgl Input</font></th>
 		        <th class="th" width="50%"><font face="Arial, Helvetica, sans-serif">Name</font></th>
 		        <th class="th" width="10%"><font face="Arial, Helvetica, sans-serif">Stok</font></th>
-		        <th class="th" width="20%"><font face="Arial, Helvetica, sans-serif">Harga</font></th>
+		        <th class="th" width="20%"><font face="Arial, Helvetica, sans-serif">Harga Satuan</font></th>
 		    </tr>';
 
 		$tbl = '';

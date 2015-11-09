@@ -118,12 +118,15 @@ class Product_m extends MY_Model {
 	/**
 	 * [Fetch all products base on category id]
 	 * @param  Integer $id [Category Id]
+	 * @param  boolean $not_limit [TRUE or FALSE]
 	 * @return [products]     [products by category id]
 	 */
-	public function get_all_by_category_id($id) {
+	public function get_all_by_category_id($id, $not_limit = FALSE) {
 
-		// Limit data
-		$this->db->limit(6);
+		// Limit data secara Default
+		if ($not_limit) {
+			$this->db->limit(6);
+		}
 
 		// return it using get_by() method from MY_Model
 		return parent::get_by('category_id', $id);

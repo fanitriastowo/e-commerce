@@ -32,7 +32,7 @@ class Migration_Create_products extends CI_Migration {
 			CREATE TABLE `products` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`category_id` int(11) DEFAULT NULL,
-			`name` varchar(255) NOT NULL,
+			`name` text NOT NULL,
 			`price` double NOT NULL,
 			`description` text,
 			`created` datetime DEFAULT NULL,

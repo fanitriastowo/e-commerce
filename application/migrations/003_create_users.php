@@ -9,7 +9,7 @@ class Migration_Create_users extends CI_Migration {
 			CREATE TABLE `groups` (
 		  	`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
 		  	`name` varchar(20) NOT NULL,
-		  	`description` varchar(100) NOT NULL,
+		  	`description` text NOT NULL,
 		  	PRIMARY KEY (`id`)
 			) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 		";
@@ -18,7 +18,7 @@ class Migration_Create_users extends CI_Migration {
 				CREATE TABLE `users` (
 		  		`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`ip_address` varbinary(16) NOT NULL,
-				`username` varchar(100) NOT NULL,
+				`username` text NOT NULL,
 				`password` varchar(80) NOT NULL,
 				`salt` varchar(40) DEFAULT NULL,
 				`email` varchar(100) NOT NULL,

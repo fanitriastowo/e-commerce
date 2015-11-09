@@ -8,7 +8,7 @@ class Migration_Create_Pemesanan_Detail extends CI_Migration {
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`pemesanan_id` int(11) NOT NULL,
 			`product_id` int(11) NOT NULL,
-			`name` varchar(100) NOT NULL,
+			`name` text NOT NULL,
 			`qty` int(11) NOT NULL,
 			`price` bigint(15) NOT NULL,
 			`subtotal` bigint(15) NOT NULL,

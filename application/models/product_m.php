@@ -155,6 +155,17 @@ class Product_m extends MY_Model {
 		$query = $this->db->get('products', 10);
 		return $query;
 	}
+
+	/**
+	 * [ambil semua products order by stok asc dan return]
+	 * @return [products] [list of product]
+	 */
+	public function cetak_semua() {
+		$this->db->order_by('stok asc');
+		$this->db->from('products');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 /* End of file product_m.php */

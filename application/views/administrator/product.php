@@ -38,7 +38,8 @@
 		
 		<div class="text-right">
 			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-modal">
-				<span class="fa fa-plus" aria-hidden="true"></span> Add Product</button> <br /> <br />
+				<span class="fa fa-plus" aria-hidden="true"></span>&nbsp;Tambah</button> 
+			<a href="<?php echo site_url('akuinginwisuda/product/cetak_semua'); ?>" class="btn btn-info"><span class="fa fa-print"></span>&nbsp;Cetak</a> <br /> <br />
 		</div>
 
 		<table id="products_table" class="table table-hover table-striped table-bordered">

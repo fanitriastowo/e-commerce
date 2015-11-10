@@ -8,8 +8,8 @@ class Config extends Admin_Controller {
 	}
 
 	public function index() {
-		$principal['admin'] = $this->ion_auth->user()->row();
-		$this->load->view('administrator/config', $principal);
+		$this->data['admin'] = $this->ion_auth->user()->row();
+		$this->load->view('administrator/config', $this->data);
 	}
 
 	/**

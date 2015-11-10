@@ -11,8 +11,8 @@ class Category extends Admin_Controller {
 	 * [tampilkan daftar kategory]
 	 */
 	public function index() {
-		$model['categories'] = $this->category_m->get();
-		$this->load->view('administrator/category', $model);
+		$this->data['categories'] = $this->category_m->get();
+		$this->load->view('administrator/category', $this->data);
 	}
 
 	/**

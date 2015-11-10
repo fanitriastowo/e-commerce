@@ -19,7 +19,7 @@ class User extends User_Controller {
 		if ($this->ion_auth->logged_in()) {
         	redirect('user/profile');
         }
-		$this->load->view('user/login');
+		$this->load->view('user/login', $this->data);
 	}
 
 	/**

@@ -12,9 +12,9 @@ class Product extends Admin_Controller {
 	 * [tampilkan daftar product]
 	 */
 	public function index() {
-		$model['products'] = $this->product_m->get_all_product_and_category();
-		$model['categories_dropdown'] = $this->category_m->get_all_array();
-		$this->load->view('administrator/product', $model);
+		$this->data['products'] = $this->product_m->get_all_product_and_category();
+		$this->data['categories_dropdown'] = $this->category_m->get_all_array();
+		$this->load->view('administrator/product', $this->data);
 	}
 
 	/**

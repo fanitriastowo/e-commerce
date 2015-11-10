@@ -12,8 +12,8 @@ class Pemesanan extends Admin_Controller {
 	 * [ambil daftar pemesanan dengan status proses dan tanggal ASC]
 	 */
 	public function index() {
-		$model['pemesanans'] = $this->pemesanan_m->get_pemesanan_with_user();
-		$this->load->view('administrator/pemesanan', $model);
+		$this->data['pemesanans'] = $this->pemesanan_m->get_pemesanan_with_user();
+		$this->load->view('administrator/pemesanan', $this->data);
 	}
 
 	/**
@@ -24,11 +24,9 @@ class Pemesanan extends Admin_Controller {
 	public function detail($id)	{
 		$pemesanan = $this->pemesanan_m->get_pemesanan_and_user_by_pemesanan_id($id);
 		$pemesanan_details = $this->pemesanan_detail_m->get_pemesanan_detail_by_pemesanan_id($id);
-		$model = array(
-			'pemesanan' => $pemesanan, 
-			'pemesanan_details' => $pemesanan_details
-		);
-		$this->load->view('administrator/pemesanan_detail', $model);
+		$this->data['pemesanan'] = $pemesanan;
+		$this->data['pemesanan_details'] = $pemesanan_details;
+		$this->load->view('administrator/pemesanan_detail', $this->data);
 	}
 
 	/**
@@ -86,6 +84,13 @@ class Pemesanan extends Admin_Controller {
 
 		// ambil detail pemesanan berdasarkan id pemesanan
 		$pemesanan_detail = $this->pemesanan_detail_m->get_by('pemesanan_id', $id);
+
+		$photo = '';
+		if (count($principal->photo)) {
+			$photo = site_url('images/members/' . $principal->photo);
+		} else {
+			$photo = site_url('images/blank.jpg');
+		}
 
 		// create new PDF document
 		$pdf = new Report_Controller(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -175,7 +180,7 @@ class Pemesanan extends Admin_Controller {
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
 		<hr>
 		</div>
-		<img src="' . site_url('images/members/' . $principal->photo) . '" width="200px">
+		<img width="200px" src="' . $photo . '" >
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>

@@ -15,7 +15,7 @@ class Akuinginwisuda extends Admin_Controller {
         if ($this->ion_auth->is_admin()) {
             redirect('akuinginwisuda/pemesanan');
         } 
-		$this->load->view('administrator/login');
+		$this->load->view('administrator/login', $this->data);
 	}
 
 	/**

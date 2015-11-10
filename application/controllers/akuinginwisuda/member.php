@@ -11,8 +11,8 @@ class Member extends Admin_Controller {
 	 * [tampilkan daftar member]
 	 */
 	public function index() {
-		$model['members'] = $this->ion_auth->users(2)->result();
-		$this->load->view('administrator/member', $model);
+		$this->data['members'] = $this->ion_auth->users(2)->result();
+		$this->load->view('administrator/member', $this->data);
 	}
 
 	/**

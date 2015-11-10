@@ -20,7 +20,10 @@
 		<?php endif ?>
 	
 		<h1>Daftar Pemesanan</h1>
-
+		<div class="text-right">
+			<a href="#" class="btn btn-info">
+				<i class="fa fa-print"></i>&nbsp;Cetak</a><br><br>
+		</div>
 		<table id="pemesanan_table" class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
@@ -28,6 +31,7 @@
 					<th>Tanggal</th>
 					<th>Status</th>
 					<th>Pemesan</th>
+					<th>Domisili</th>
 					<th width="20%">Aksi</th>
 				</tr>
 			</thead>
@@ -38,6 +42,7 @@
 					<td><?php echo date("d F Y G.i", strtotime($pemesanan->created)); ?></td>
 					<td><?php echo $pemesanan->status; ?></td>
 					<td><?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></td>
+					<td><?php echo $pemesanan->domisili; ?></td>
 					<td>
 						<a href="<?php echo site_url('akuinginwisuda/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning"><i class="fa fa-gear"></i> Detail</a>
 						<?php if ($pemesanan->status === 'Disetujui'): ?>

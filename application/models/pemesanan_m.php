@@ -35,7 +35,7 @@ class Pemesanan_m extends MY_Model {
 	 */
 	public function get_pemesanan_with_user(){
 		// select P.id, P.created, P.status, U.first_name, U.last_name
-		$this->db->select('P.id, P.created, P.status, U.first_name, U.last_name');
+		$this->db->select('P.id, P.created, P.status, U.first_name, U.last_name, U.domisili');
 		
 		// from Pemesanan P
 		$this->db->from('pemesanan P');

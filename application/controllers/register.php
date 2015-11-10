@@ -25,12 +25,14 @@ class Register extends Frontend_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$domisili = $this->input->post('domisili');
 		$address = $this->input->post('address');
 		$additional = array(
 				'first_name' => $first_name,
 				'last_name' => $last_name,
 				'phone' => $phone,
-				'address' => $address 
+				'domisili' => $domisili,
+				'address' => $address
 		);
 		// ambil rule dari 'model/user_m'
 		$rules = $this->user_m->rules;
@@ -64,12 +66,14 @@ class Register extends Frontend_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$domisili = $this->input->post('domisili');
 		$address = $this->input->post('address');
 		$additional = array(
 				'first_name' => $first_name,
 				'last_name' => $last_name,
 				'phone' => $phone,
-				'address' => $address 
+				'domisili' => $domisili,
+				'address' => $address
 		);
 		// ambil rule dari 'model/user_m'
 		$rules = $this->user_m->rules;

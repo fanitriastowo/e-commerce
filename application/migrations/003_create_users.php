@@ -34,6 +34,7 @@ class Migration_Create_users extends CI_Migration {
 				`company` varchar(100) DEFAULT NULL,
 				`phone` varchar(20) DEFAULT NULL,
 				`address` text,
+				`domisili` varchar(100),
 				`photo` varchar(100) DEFAULT NULL,
 				PRIMARY KEY (`id`)
 			) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
@@ -68,10 +69,12 @@ class Migration_Create_users extends CI_Migration {
 		";
 
 		$insert_user = "
-			INSERT INTO `users` VALUES (1,'\0\0','administrator','59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4','9462e8eee0','admin@admin.com','',NULL,NULL,NULL,1268889823,1446125747,1,'Admin','istrator','ADMIN','081542666676','Jalan Bhayangkara RT 02 RW 04 Desa Karangmangu Kroya',NULL),(2,'\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','Fani','d9ff9405655368d9d1218af99bb6e5e63be93682',NULL,'fani.triastowo@gmail.com',NULL,NULL,NULL,NULL,1446083221,1446083226,1,'Fani','Triastowo',NULL,'085747505359','Patikraja','1446779923.gif');
+			INSERT INTO `users` VALUES 
+			(1,'\0\0','administrator','59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4','9462e8eee0','admin@admin.com','',NULL,NULL,NULL,1268889823,1446125747,1,'Admin','istrator','ADMIN','081542666676','Jalan Bhayangkara RT 02 RW 04 Desa Karangmangu Kroya',NULL, NULL),
+			(2,'\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','Fani','d9ff9405655368d9d1218af99bb6e5e63be93682',NULL,'fani.triastowo@gmail.com',NULL,NULL,NULL,NULL,1446083221,1446083226,1,'Fani','Triastowo',NULL,'085747505359','Patikraja', 'Banyumas','1446779923.gif');
 		";
 					
-		$insert_user_group = "INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES (1,1,1)";
+		$insert_user_group = "INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES (1,1,1), (2,2,2)";
 
 		$this->db->query($group);
 		$this->db->query($user);

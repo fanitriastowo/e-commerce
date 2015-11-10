@@ -49,6 +49,7 @@ class Profile extends User_Controller {
 		$confirm_password = $this->input->post('confirm_password');
 		$email = $this->input->post('email');
 		$phone = $this->input->post('phone');
+		$domisili = $this->input->post('domisili');
 		$address = $this->input->post('address');
 
 		// Assign ke array
@@ -59,6 +60,7 @@ class Profile extends User_Controller {
 					'confirm_password' => $confirm_password,
 					'email' => $email,
 					'phone' => $phone,
+					'domisili' => $domisili,
 					'address' => $address
 				);
 		// ambil rules_update

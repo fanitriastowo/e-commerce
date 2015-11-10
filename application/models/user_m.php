@@ -35,6 +35,11 @@ class User_m extends MY_Model {
 					'label' => 'Phone', 
 					'rules' => 'trim|integer|max_length[15]|required|xss_clean'
 				),
+				'domisili' => array(
+					'field' => 'domisili', 
+					'label' => 'Domisili', 
+					'rules' => 'trim|required|xss_clean'
+				),
 				'address' => array(
 					'field' => 'address', 
 					'label' => 'Address', 
@@ -72,6 +77,11 @@ class User_m extends MY_Model {
 					'field' => 'phone', 
 					'label' => 'Phone', 
 					'rules' => 'trim|integer|max_length[15]|required'
+				),
+				'domisili' => array(
+					'field' => 'domisili', 
+					'label' => 'Domisili', 
+					'rules' => 'trim|required|xss_clean'
 				),
 				'address' => array(
 					'field' => 'address', 

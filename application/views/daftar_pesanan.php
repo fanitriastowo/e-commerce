@@ -167,7 +167,13 @@
 									<?php echo form_input('phone','', 'class="form-control" id="register_phone" placeholder="Phone Number" required'); ?>
 								</div>
 							</div>
-			
+
+							<div class="form-group">
+								<div class="col-sm-12">
+									<?php echo form_dropdown('domisili',array('Banjarnegara' => 'Banjarnegara','Purbalingga' => 'Purbalingga','Banyumas' => 'Banyumas','Cilacap' => 'Cilacap','Kebumen' => 'Kebumen'),'Cilacap', 'class="form-control" id="register_domisili"');?>
+								</div>
+							</div>
+
 							<div class="form-group">
 								<div class="col-sm-12">
 									<textarea name="address" rows="3" class="form-control" id="register_address" placeholder="Alamat member (alamat penerima)" style="resize : none;" required></textarea>
@@ -266,6 +272,7 @@
 						number : true,
 						maxlength : 15
 					},
+					domisili: "required",
 					address: "required",
 					captcha_word : "required"
 				},
@@ -296,6 +303,7 @@
 						number : "Input hanya berupa angka",
 						maxlength : "Maksimal 50 Karakter"
 					},
+					domisili: "Domisili harap diisi",
 					address: "Alamat harap diisi",
 					captcha_word : "Inputkan karakter captcha"
 				},

@@ -108,6 +108,12 @@
 					
 					<div class="form-group">
 						<div class="col-sm-12">
+							<?php echo form_dropdown('domisili',array('Banjarnegara' => 'Banjarnegara','Purbalingga' => 'Purbalingga','Banyumas' => 'Banyumas','Cilacap' => 'Cilacap','Kebumen' => 'Kebumen'),'Cilacap', 'class="form-control" id="register_domisili"');?>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-12">
 							<textarea name="address" rows="3" class="form-control" id="register_address" placeholder="Alamat member (alamat penerima)" style="resize : none;"></textarea>
 						</div>
 					</div>
@@ -161,6 +167,12 @@
 					<div class="form-group">
 						<div class="col-sm-12">
 							<?php echo form_input('phone','', 'class="form-control" id="update_phone" placeholder="Phone Number"'); ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<?php echo form_dropdown('domisili',array('Banjarnegara' => 'Banjarnegara','Purbalingga' => 'Purbalingga','Banyumas' => 'Banyumas','Cilacap' => 'Cilacap','Kebumen' => 'Kebumen'),'Cilacap', 'class="form-control" id="update_domisili"');?>
 						</div>
 					</div>
 					
@@ -351,6 +363,7 @@
 				$('#update_lastname').val(data.last_name);
 				$('#update_email').val(data.email);
 				$('#update_phone').val(data.phone);
+				$('#update_domisili').val(data.domisili);
 				$('#update_address').val(data.address);
 			});
 			$('#update_modal').modal();

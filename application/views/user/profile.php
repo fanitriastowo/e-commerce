@@ -243,6 +243,12 @@
 
 					<div class="form-group">
 						<div class="col-sm-12">
+							<?php echo form_dropdown('domisili',array('Banjarnegara' => 'Banjarnegara','Purbalingga' => 'Purbalingga','Banyumas' => 'Banyumas','Cilacap' => 'Cilacap','Kebumen' => 'Kebumen'),'Cilacap', 'class="form-control" id="update_domisili"');?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
 							<?php echo form_textarea('address','', 'class="form-control" id="update_address" placeholder="Alamat Member (alamat penerima)" style="resize : none;" required'); ?>
 						</div>
 					</div>
@@ -370,6 +376,7 @@
 				$('#update_lastname').val(data.last_name);
 				$('#update_email').val(data.email);
 				$('#update_phone').val(data.phone);
+				$('#update_domisili').val(data.domisili);
 				$('#update_address').val(data.address);
 			});
 			$('#ganti_akun_modal').modal();

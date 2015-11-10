@@ -27,11 +27,13 @@ class Member extends Admin_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$domisili = $this->input->post('domisili');
 		$address = $this->input->post('address');
 		$additional = array(
 				'first_name' => $first_name,
 				'last_name' => $last_name,
 				'phone' => $phone,
+				'domisili' => $domisili,
 				'address' => $address 
 		);
 
@@ -85,6 +87,7 @@ class Member extends Admin_Controller {
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm_password');
 		$phone = $this->input->post('phone');
+		$domisili = $this->input->post('domisili');
 		$address = $this->input->post('address');
 		$data = array (
 				'first_name' => $first_name,
@@ -92,6 +95,7 @@ class Member extends Admin_Controller {
 				'email' => $email,
 				'password' => $password,
 				'phone' => $phone,
+				'domisili' => $domisili,
 				'address' => $address 
 		);
 		

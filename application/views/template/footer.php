@@ -18,7 +18,7 @@
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-5">
                     <style>
                         #map {
                             width: 400px;
@@ -40,6 +40,23 @@
                         google.maps.event.addDomListener(window, 'load', initialize);
                     </script>
                     <div id="map"></div>
+                </div>
+                <style type="text/css">
+                    .container .jumbotron{
+                        padding: 1px 25px 1px 25px;
+                    }
+
+                    .jumbotron p {
+                        font-size: 10px;
+                    }
+                </style>
+                <div class="col-xs-3 jumbotron">
+                    <h3 class="text-info">Testimoni</h3> <hr>
+                    <?php foreach ($testimonis_footer as $testimoni_foot): ?>
+                        <p><?php echo $testimoni_foot->name; ?> - <?php echo $testimoni_foot->kota; ?></p>
+                        <p><?php echo $testimoni_foot->pesan; ?></p>
+                        <hr>
+                    <?php endforeach ?>
                 </div>
             </div> <!--/.row--> 
         </div> <!--/.container--> 

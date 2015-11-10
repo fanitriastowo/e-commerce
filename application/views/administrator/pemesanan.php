@@ -21,8 +21,8 @@
 	
 		<h1>Daftar Pemesanan</h1>
 		<div class="text-right">
-			<a href="#" class="btn btn-info">
-				<i class="fa fa-print"></i>&nbsp;Cetak</a><br><br>
+			<a href="<?php echo site_url('akuinginwisuda/pemesanan/cetak_chart'); ?>" class="btn btn-info">
+				<i class="fa fa-print"></i>&nbsp;Report</a><br><br>
 		</div>
 		<table id="pemesanan_table" class="table table-hover table-bordered table-striped">
 			<thead>

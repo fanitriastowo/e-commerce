@@ -91,6 +91,35 @@ class Product extends Frontend_Controller {
 		$this->data['pemesanans'] = $this->cart->contents();
 		$this->load->view('daftar_pesanan', $this->data);
 	}
+
+	/**
+	 * [merubah qty sebelum checkout]
+	 */
+	public function change_qty($rowid) {
+		$new_value = $this->input->post('change_qty');
+
+		$id = 0;
+		$contents = $this->cart->contents();
+		foreach ($contents as $content) {
+			if ($content['rowid'] === $rowid) {
+				$id = $content['id'];
+			}
+		}
+
+		$product = $this->product_m->get($id, TRUE);
+
+		if ($new_value <= $product->stok) {
+			$data = array(
+				'rowid' => $rowid,
+				'qty' => $new_value
+			);
+			$this->cart->update($data); 
+			redirect('product/show_all_products');
+		} else {
+			$this->session->set_flashdata('failed', 'Jumlah Barang melebihi stok');
+			redirect('product/show_all_products');
+		}
+	}
 	
 	/**
 	 * [checkout pemesanan]

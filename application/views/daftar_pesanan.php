@@ -52,16 +52,21 @@
 					<tbody>
 						<?php $i = 1; ?>
 						<?php $jumlah = 0; ?>
+						<?php $jumlah_barang = 0; ?>
 						<?php foreach ($pemesanans as $count => $pemesanan): ?>
 							<tr>
 								<td><?php echo $i; ?></td>
 								<td><?php echo $pemesanan['name']; ?></td>
 								<td><?php echo $pemesanan['price']; ?></td>
-								<td><?php echo $pemesanan['qty']; ?></td>
+								<td id="qty<?php echo $pemesanan['rowid']; ?>"><?php echo $pemesanan['qty']; ?></td>
 								<td>Rp. <?php echo $pemesanan['subtotal']; ?></td>
-								<td><a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-warning"><i class="fa fa-times"></i>&nbsp;Batal</a></td>
+								<td>
+									<a href="<?php echo site_url('product/change_qty/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-info btn_change_qty" id="<?php echo $pemesanan['rowid']; ?>"><i class="fa fa-pencil"></i>&nbsp;Ubah</a>
+									<a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>&nbsp;Batal</a>
+								</td>
 							</tr>
 						<?php $jumlah += $pemesanan['subtotal']; ?>
+						<?php $jumlah_barang += $pemesanan['qty']; ?>
 						<?php $i++; ?>
 						<?php endforeach ?>
 					</tbody>
@@ -69,8 +74,8 @@
 						<tr>
 							<td></td>
 							<td></td>
-							<td></td>
-							<td>Jumlah</td>
+							<td>Total</td>
+							<td><?php echo $jumlah_barang; ?></td>
 							<td>Rp. <?php echo $jumlah; ?></td>
 							<td></td>
 						</tr>
@@ -184,12 +189,40 @@
 						<?php echo form_close(); ?>	
 					</div>
 				</div>
-				
-				
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal Change Quantity -->
+	<form id="form-change-qty" class="form-horizontal" action="" method="POST" accept-charset="utf-8">
+	<div class="modal fade" id="modal-change-qty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Rubah Jumlah Pesanan</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Jumlah</label>
+						<div class="col-sm-10">
+							<?php echo form_input('change_qty', '', 'id="input_change_qty" class="form-control" placeholder="Input Jumlah"') ?>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<i class="fa fa-times"></i> Cancel</button>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-check-circle"></i> Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php echo form_close(); ?>
 	
 	
 	<?php if ($this->session->flashdata('not_logged_in') === TRUE): ?>
@@ -273,6 +306,15 @@
 					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
 				}
 			});
+		});
+
+		$('.btn_change_qty').click(function(e) {
+			e.preventDefault();
+			var id = $(this).attr("id");
+			var value = $('#qty' + id).html();
+			$('#input_change_qty').val(value);
+			$('#form-change-qty').attr("action", $(this).attr("href"));
+			$('#modal-change-qty').modal();
 		});
 	</script>
 </body>

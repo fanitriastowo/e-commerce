@@ -344,3 +344,41 @@ body {
 .text-soldout {
 	color: #FC7A1A;
 }
+
+.calendar {
+	position: relative;
+}
+
+.clock {
+	width: auto;
+	margin: 0 auto;
+	color: #000;
+}
+
+#Date {
+	font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	text-shadow: 0 0 5px #00c6ff;
+}
+
+.separator {
+	margin: 0px auto;
+	padding: 0px;
+	list-style: none;
+	text-align: center;
+}
+
+.separator > .inline-time {
+	display: inline;
+	font-size: 15px;
+	text-align: center;
+	font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+	text-shadow: 0 0 5px #00c6ff;
+}
+
+#point {
+	position: relative;
+	padding-left: 5px;
+	padding-right: 5px;
+}

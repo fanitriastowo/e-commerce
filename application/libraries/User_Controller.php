@@ -8,12 +8,15 @@ class User_Controller extends MY_Controller {
 		$this->load->model('category_m');
 		$this->load->model('product_m');
 		$this->load->model('user_m');
+		$this->load->library('user_agent');
 		
 		// Fetch All Categories
 		$this->data['categories'] = $this->category_m->get();
 
 		// Fetch All Products
 		$this->data['products'] = $this->product_m->get_all_limit();
+		$this->data['ip_address'] = $this->input->ip_address();
+		$this->data['user_agent'] = $this->agent->browser();
 
 		// URL Exception
 		$exception = array(

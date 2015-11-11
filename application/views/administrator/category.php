@@ -40,8 +40,7 @@
 						<div class="thumbnail">
 							<img class="img-thumbnail" src='
 								<?php echo !empty($category->filename) ? site_url('images/categories/' . $category->filename ): 
-									site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>'
-							>
+									site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>'>
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">

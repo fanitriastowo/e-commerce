@@ -104,6 +104,13 @@ class Profile extends User_Controller {
 			return show_404();
 		}
 
+		$photo = '';
+		if (count($principal->photo)) {
+			$photo = site_url('images/members/' . $principal->photo);
+		} else {
+			$photo = site_url('images/blank.jpg');
+		}
+
 		// create new PDF document
 		$pdf = new Report_Controller(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -192,7 +199,7 @@ class Profile extends User_Controller {
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
 		<hr>
 		</div>
-		<img src="' . site_url('images/members/' . $principal->photo) . '" width="200px">
+		<img width="200px" src="' . $photo . '">
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>

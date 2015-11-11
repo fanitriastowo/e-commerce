@@ -11,7 +11,9 @@
 	<?php $this->load->view('template/navbar'); ?>
 	<div class="container">
 		<h1>Detail Pemesanan</h1><hr>
-		<p>Nama Pemesan : <?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></p><hr>
+		<h3>Pemesan: <?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></h3>
+		<p>Alamat: <?php echo $pemesanan->address; ?></p><hr>
+
 		<?php echo form_open('akuinginwisuda/pemesanan/approve'); ?>
 		<?php echo form_hidden('approve_id', $pemesanan->id); ?>
 		<table id="pemesanan_detail_table" class="table table-hover table-bordered table-striped">
@@ -48,7 +50,14 @@
 			</tfoot>
 		</table>
 		<hr>
-		<?php echo form_submit('submit', 'Approve', 'class="btn btn-lg btn-block btn-success"'); ?>
+		<?php if ($pemesanan->status === 'Proses'): ?>
+			<div class="text-center">
+				<div class="btn-group" role="group" aria-label="Operation">
+					<?php echo form_submit('submit', 'Approve', 'class="btn btn-lg btn-success"'); ?>
+					<a href="<?php echo site_url('akuinginwisuda/pemesanan/batal/' . $pemesanan->id); ?>" class="btn btn-lg btn-danger">Cancel</a>
+				</div>
+			</div>
+		<?php endif ?>
 		<?php echo form_close(); ?>
 	</div>
 	<!-- Footer -->

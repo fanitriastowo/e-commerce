@@ -332,13 +332,13 @@ class Pemesanan extends Admin_Controller {
 		$r = 50;
 
 		$pdf->SetFillColor(0, 0, 255);
-		$pdf->PieSector($xc, $yc, $r, 20, 120, 'FD', false, 0, 2);
+		$pdf->PieSector($xc, $yc, $r, 0, 120, 'FD', false, 0, 2);
 
 		$pdf->SetFillColor(0, 255, 0);
-		$pdf->PieSector($xc, $yc, $r, 120, 250, 'FD', false, 0, 2);
+		$pdf->PieSector($xc, $yc, $r, 120, 240, 'FD', false, 0, 2);
 		
 		$pdf->SetFillColor(255, 0, 0);
-		$pdf->PieSector($xc, $yc, $r, 250, 20, 'FD', false, 0, 2);
+		$pdf->PieSector($xc, $yc, $r, 240, 0, 'FD', false, 0, 2);
 
 		// write labels
 		$pdf->SetTextColor(255,255,255);

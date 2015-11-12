@@ -37,7 +37,7 @@ class Config extends Admin_Controller {
 			'address' => $address
 		);
 		// ambil rules_update
-		$rules = $this->user_m->rules_update;
+		$rules = $this->user_m->rules_update_admin;
 
 		// set rules
 		$this->form_validation->set_rules($rules);

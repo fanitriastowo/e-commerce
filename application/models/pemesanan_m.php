@@ -74,16 +74,41 @@ class Pemesanan_m extends MY_Model {
 		return $this->db->get()->row();
 	}
 
+	/**
+	 * [ambil pemesanan dengan grouping]
+	 * @return [object] [list pemesanan object]
+	 */
 	public function get_for_chart() {
-		$query = "SELECT users.domisili AS domisili, COUNT(pemesanan.id) AS jumlah FROM users JOIN pemesanan ON users.id = pemesanan.user_id GROUP BY domisili";
-		$result = $this->db->query($query);
-		return $result->result();
+		// Select users.domisili and count(pemesanan.id)
+		$this->db->select('users.domisili AS domisili, COUNT(pemesanan.id) AS jumlah');
+
+		// From users
+		$this->db->from('users');
+
+		// join pemesanan
+		$this->db->join('pemesanan', 'users.id = pemesanan.user_id');
+
+		// group by domisili
+		$this->db->group_by('domisili');
+
+		// return pemesanan object
+		return $this->db->get()->result();
 	}
 
+	/**
+	 * [count_pemesanan description]
+	 * @return [type] [description]
+	 */
 	public function count_pemesanan() {
-		$query = "SELECT COUNT(pemesanan.id) AS total FROM pemesanan";
-		$result = $this->db->query($query);
-		return $result->row();
+
+		// select count all data
+		$this->db->select('COUNT(pemesanan.id) AS total');
+
+		// from pemesanan
+		$this->db->from('pemesanan');
+
+		// return single result
+		return $this->db->get()->row();
 	}
 }
 

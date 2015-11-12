@@ -1,4 +1,4 @@
-<?php 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Category_m extends MY_Model {
 
@@ -27,7 +27,12 @@ class Category_m extends MY_Model {
 		parent::__construct();
 	}
 
+	/**
+	 * [get all category return array]
+	 * @return [array] [return array]
+	 */
 	public function get_all_array(){
+		// ambil category dalam bentuk array,
 		$result = $this->db->get($this->_table_name)->result_array();
 		$return = array();
 		if( is_array( $result ) && count( $result ) > 0 ){

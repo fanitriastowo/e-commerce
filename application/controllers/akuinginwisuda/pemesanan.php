@@ -359,7 +359,7 @@ class Pemesanan extends Admin_Controller {
 			margin : 0;
 		}
 		</style>
-		<h1 style="text-align: center;">Daftar Pesanan Domisili</h1>
+		<h1 style="text-align: center;">Prosentase Domisili Pesanan</h1>
 		<p style="text-align: center;">' . date('l d F Y') . '</p>
 		<hr>
 		<h3>Total Pesanan : ' . $total->total . '</h3>
@@ -367,8 +367,8 @@ class Pemesanan extends Admin_Controller {
 		<table class="table">
 			<tr class="tr">
 		        <th class="th" width="10%"><font face="Arial, Helvetica, sans-serif">No</font></th>
-		        <th class="th" width="50%"><font face="Arial, Helvetica, sans-serif">Domisili</font></th>
-		        <th class="th" width="10%"><font face="Arial, Helvetica, sans-serif">Jumlah</font></th>
+		        <th class="th" width="40%"><font face="Arial, Helvetica, sans-serif">Domisili</font></th>
+		        <th class="th" width="20%"><font face="Arial, Helvetica, sans-serif">Jumlah</font></th>
 		        <th class="th" width="30%"><font face="Arial, Helvetica, sans-serif">Prosentase</font></th>
 		    </tr>';
 

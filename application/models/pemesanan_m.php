@@ -73,6 +73,18 @@ class Pemesanan_m extends MY_Model {
 		// return pemesanan object
 		return $this->db->get()->row();
 	}
+
+	public function get_for_chart() {
+		$query = "SELECT users.domisili AS domisili, COUNT(pemesanan.id) AS jumlah FROM users JOIN pemesanan ON users.id = pemesanan.user_id GROUP BY domisili";
+		$result = $this->db->query($query);
+		return $result->result();
+	}
+
+	public function count_pemesanan() {
+		$query = "SELECT COUNT(pemesanan.id) AS total FROM pemesanan";
+		$result = $this->db->query($query);
+		return $result->row();
+	}
 }
 
 /* End of file pemesanan_m.php */

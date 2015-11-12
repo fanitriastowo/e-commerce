@@ -272,7 +272,8 @@ class Pemesanan extends Admin_Controller {
 		$this->load->library('Report_Controller');
 
 		// Ambil pemesanan
-		$pemesanans = $this->pemesanan_m->get();
+		$pemesanans = $this->pemesanan_m->get_for_chart();
+		$total = $this->pemesanan_m->count_pemesanan();
 
 		// create new PDF document
 		$pdf = new Report_Controller(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -324,29 +325,114 @@ class Pemesanan extends Admin_Controller {
 
 		// Construct content
 		// ---------------------------------------------------------
+		$tbl_header = '
+		<style>
+		.table {
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		    margin: 0 20px;
+		    width : 100%;
+		}
+		.tr {
+		    padding: 3px 0;
+		}
 
-		$pdf->Write(0, 'Laporan Pemesanan Berdasarkan domisili');
+		.th {
+		    background-color: #CCCCCC;
+		    border: 1px solid #DDDDDD;
+		    color: #333333;
+		    font-size: 17px;
+		    padding-bottom: 4px;
+		    padding-left: 6px;
+		    padding-top: 5px;
+		    text-align: left;
+		}
 
-		$xc = 105;
-		$yc = 100;
+		td {
+		    border: 1px solid #CCCCCC;
+		    padding: 5px 7px 2px;
+		}
+
+		.text-right {
+			text-align : right;
+			padding : 0;
+			margin : 0;
+		}
+		</style>
+		<h1 style="text-align: center;">Daftar Pesanan Domisili</h1>
+		<p style="text-align: center;">' . date('l d F Y') . '</p>
+		<hr>
+		<h3>Total Pesanan : ' . $total->total . '</h3>
+
+		<table class="table">
+			<tr class="tr">
+		        <th class="th" width="10%"><font face="Arial, Helvetica, sans-serif">No</font></th>
+		        <th class="th" width="50%"><font face="Arial, Helvetica, sans-serif">Domisili</font></th>
+		        <th class="th" width="10%"><font face="Arial, Helvetica, sans-serif">Jumlah</font></th>
+		        <th class="th" width="30%"><font face="Arial, Helvetica, sans-serif">Prosentase</font></th>
+		    </tr>';
+
+		$tbl = '';
+
+		// $i sebagai index untuk nomor urut
+		$i = 1;
+
+		// generate setiap detail pemesanan
+		foreach ($pemesanans as $pemesanan) {
+
+			$tbl .= '
+			    <tr class="tr">
+			        <td>' . $i . '.</td>
+			        <td>'. $pemesanan->domisili .'</td>
+			        <td>'. $pemesanan->jumlah .'</td>
+			        <td>'. ($pemesanan->jumlah / $total->total) * 100 . ' %</td>
+			    </tr>
+			';
+			$i++;
+		}
+
+		$tbl_footer = '</table>';
+		// output the HTML content
+		$pdf->writeHTML($tbl_header . $tbl . $tbl_footer, true, false, false, false, '');
+		// ---------------------------------------------------------------------------------
+
+		$xc = 70;
+		$yc = 160;
 		$r = 50;
+		$i = 0;
+		$color = 50;
+		foreach ($pemesanans as $pemesanan) {
+			$besar_pie = ($pemesanan->jumlah / $total->total) * 100;
+			$end = ($besar_pie / 100) * 360;
 
-		$pdf->SetFillColor(0, 0, 255);
-		$pdf->PieSector($xc, $yc, $r, 0, 120, 'FD', false, 0, 2);
+			$pdf->SetFillColor($color, $color + 100, $color + 100);
+			$pdf->PieSector($xc, $yc, $r, $i, $end + $i, 'FD', false, 0, 2);
+			$i += $end;
+			$color += 50;
+		}
 
-		$pdf->SetFillColor(0, 255, 0);
-		$pdf->PieSector($xc, $yc, $r, 120, 240, 'FD', false, 0, 2);
-		
-		$pdf->SetFillColor(255, 0, 0);
-		$pdf->PieSector($xc, $yc, $r, 240, 0, 'FD', false, 0, 2);
+		$pdf->SetTextColor(0, 0, 0);
+		$pdf->Text(120, 110, 'KETERANGAN:');
+		$j = 120;
+		$color_text = 50;
+		$border_style = array(
+			'all' => array(
+				'width' => 2,
+				'cap' => 'square',
+				'join' => 'miter',
+				'dash' => 0,
+				'phase' => 0
+			)
+		);
+		foreach ($pemesanans as $key => $pemesanan) {
+			$pdf->SetFillColor($color_text, $color_text + 100, $color_text + 100);
+			$pdf->Rect(130, $j, 10, 10, 'DF', $border_style);
+			$pdf->Text(145, $j, $key + 1 . '. ' . $pemesanan->domisili);
+			$j += 10;
+			$color_text += 50;
+		}
 
-		// write labels
-		$pdf->SetTextColor(255,255,255);
-		$pdf->Text(105, 65, 'BLUE');
-		$pdf->Text(60, 95, 'GREEN');
-		$pdf->Text(120, 115, 'RED');
-
-		// ---------------------------------------------------------
+		// Write chart label
 		
 		// Close and output PDF document
 		// This method has several options, check the source code documentation for more information.

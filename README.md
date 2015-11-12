@@ -1,4 +1,7 @@
 ### User Admin
+PHP.ini Configuration: extension=php_pgsql.dll
+
+### User Admin
 username: `admin@admin.com`     
 password: `password`
 

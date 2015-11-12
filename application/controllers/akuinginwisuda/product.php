@@ -106,7 +106,9 @@ class Product extends Admin_Controller {
 		$product = $this->product_m->get($id, TRUE);
 
 		// hapus file 
-		unlink('images/products/' . $product->filename);
+		if (count($product->filename)) {
+			unlink('images/products/' . $product->filename);
+		}
 
 		// Hapus product
 		$this->product_m->delete($id);

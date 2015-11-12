@@ -7,15 +7,17 @@ class Migration_Create_testimoni extends CI_Migration {
 	public function up() {
 		$query = "
 			
-			CREATE TABLE `testimoni` (
-			  `id` int(11) NOT NULL AUTO_INCREMENT,
-			  `name` varchar(100) NOT NULL,
-			  `email` varchar(100) NOT NULL,
-			  `pesan` TEXT NOT NULL,
-			  `kota` varchar(100) NOT NULL,
-			  `created` datetime NOT NULL,
-			  PRIMARY KEY (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+			CREATE TABLE testimoni (
+			  id serial NOT NULL,
+			  name text NOT NULL,
+			  email text NOT NULL,
+			  pesan text NOT NULL,
+			  kota varchar(100) NOT NULL,
+			  created time with time zone NOT NULL,
+			  CONSTRAINT testimoni_primary_key PRIMARY KEY (id)
+			) WITH (
+			  OIDS=FALSE
+			);
 		
 		";
 		

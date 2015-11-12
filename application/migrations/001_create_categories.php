@@ -5,36 +5,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Migration_Create_categories extends CI_Migration {
 
 	public function up() {
-		/*$this->dbforge->add_field(array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
-			),
-			'name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '100'
-			)
-		));
-		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->create_table('categories');*/
 		
-		// code dibawah 100% sama dengan code diatas
 		$query = "
 					
-			CREATE TABLE `categories` (
-			  `id` int(11) NOT NULL AUTO_INCREMENT,
-			  `name` varchar(100) NOT NULL,
-			  `filename` varchar(100) DEFAULT NULL,
-			  PRIMARY KEY (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+			CREATE TABLE categories(
+			   id serial NOT NULL, 
+			   name text NOT NULL, 
+			   filename text,
+			   CONSTRAINT categories_primary_key PRIMARY KEY (id)
+			) WITH (
+			  OIDS = FALSE
+			);
 			
 		";
 
 		$insert = "
 
-			INSERT INTO `categories` VALUES (4,'Meja','1446084432Meja.jpg'),(5,'Kursi','1446126030Kursi.jpg'),(6,'Lemari','1446126588Lemari.jpg'),(7,'Special Set','1446126826Special_Set.jpg'),(8,'Tempat Tidur','1446127036Tempat_Tidur.jpg');
+			INSERT INTO categories (name, filename) VALUES 
+				('Meja','1446084432Meja.jpg'),
+				('Kursi','1446126030Kursi.jpg'),
+				('Lemari','1446126588Lemari.jpg'),
+				('Special Set','1446126826Special_Set.jpg'),
+				('Tempat Tidur','1446127036Tempat_Tidur.jpg');
 	
 		";
 

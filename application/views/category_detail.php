@@ -29,7 +29,9 @@
 						</div>
 						<?php else: ?>
 						<div class="thumbnail">
-							<a href="<?php echo site_url('product/detail/' . $category_detail->id); ?>"><img src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail"></a>
+							<a href="<?php echo site_url('product/detail/' . $category_detail->id); ?>">
+								<img width="250px" src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail">
+							</a>
 							<div class="caption text-center">
 								<div class="text-danger">
 									<strong><?php echo $category_detail->name; ?></strong>

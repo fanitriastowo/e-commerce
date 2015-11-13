@@ -11,12 +11,12 @@ class Caramemesan extends Frontend_Controller {
 	}
 
 	/**
-	 * load view 'ketentuan' dan membawa category list dan latest product list
+	 * load view 'caramemesan' dan membawa category list dan latest product list
 	 */
 	public function index() {
 		$this->load->view('caramemesan', $this->data);
 	}
 }
 
-/* End of file ketentuan.php */
-/* Location: ./application/controllers/ketentuan.php */
+/* End of file caramemesan.php */
+/* Location: ./application/controllers/caramemesan.php */

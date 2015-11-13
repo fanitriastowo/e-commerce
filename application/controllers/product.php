@@ -11,7 +11,7 @@ class Product extends Frontend_Controller {
 	}
 
 	/**
-	 * generate detail for single product base on id
+	 * generate single product base on product id
 	 * @param  Integer $id [product id in products table]
 	 * @return [view(product_detail)]     [generete product detail view]
 	 */

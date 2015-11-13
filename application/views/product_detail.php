@@ -36,7 +36,7 @@
 						<div class="caption text-center">
 							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 							<p><?php echo $product_detail->description; ?></p>
-							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Harga : Rp. <?php echo number_format($product_detail->price, NULL, NULL, '.'); ?></p>
 							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 						<div class="caption text-center">
 							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 							<p><?php echo $product_detail->description; ?></p>
-							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Harga : Rp. <?php echo number_format($product_detail->price, NULL, NULL, '.'); ?></p>
 							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
 
 							<?php if (!$this->ion_auth->is_admin()): ?>

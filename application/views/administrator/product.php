@@ -59,7 +59,7 @@
 				<tr>
 					<td><?php echo $key + 1; ?></td>
 					<td><?php echo $product->name; ?></td>
-					<td>Rp. <?php echo $product->price; ?></td>
+					<td>Rp. <?php echo number_format($product->price, NULL, NULL, '.'); ?></td>
 					<td><?php echo $product->description; ?></td>
 					<td><?php echo $product->stok; ?></td>
 					<td><?php echo $product->category_name; ?></td>

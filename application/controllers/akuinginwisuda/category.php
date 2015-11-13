@@ -54,7 +54,7 @@ class Category extends Admin_Controller {
 				$data = $this->upload->data();
 				$category = array(
 					'name' => $name,
-					'filename' => time().$nice_name.$data['file_ext']
+					'filename' => time() . $nice_name . $data['file_ext']
 				);
 				$this->category_m->save($category);
 				$this->session->set_flashdata('notif', 'Insert Category Successful!');
@@ -85,7 +85,9 @@ class Category extends Admin_Controller {
 		$category = $this->category_m->get($id, TRUE);
 
 		// hapus file 
-		unlink('images/categories/' . $category->filename);
+		if (count($category->filename)) {
+			unlink('images/categories/' . $category->filename);
+		 } 
 
 		// hapus category
 		$this->category_m->delete($id);

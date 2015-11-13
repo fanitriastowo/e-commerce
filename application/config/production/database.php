@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'postgres';
-$db['default']['password'] = 'postgres';
-$db['default']['database'] = 'ecommerce';
+$db['default']['hostname'] = 'ec2-107-21-223-147.compute-1.amazonaws.com';
+$db['default']['username'] = 'ruvlybhcvthdtg';
+$db['default']['password'] = 's36cHZprhselJ9cbypVVYb7Lml';
+$db['default']['database'] = 'dbcoh7b6pos00h';
 $db['default']['dbdriver'] = 'postgre';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

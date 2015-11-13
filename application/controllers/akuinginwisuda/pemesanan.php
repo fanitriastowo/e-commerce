@@ -179,7 +179,9 @@ class Pemesanan extends Admin_Controller {
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
 		<hr>
 		</div>
-		<img width="200px" src="' . $photo . '" >
+		<div class="text-right">
+			<img width="200px" src="' . $photo . '" >
+		</div>
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>

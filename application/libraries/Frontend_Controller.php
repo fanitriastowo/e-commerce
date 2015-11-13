@@ -27,8 +27,8 @@ class Frontend_Controller extends MY_Controller {
 		$this->load->helper('captcha');
 
 		$vals = array(
-			'img_path'	=> './captcha/',
-			'img_url'	=> base_url() . 'captcha/' ,
+			'img_path'	=> "captcha/",
+			'img_url'	=> site_url() . "captcha/",
 			'img_width'	=> 150,
 			'img_height' => 30,
 			'expiration' => 7200

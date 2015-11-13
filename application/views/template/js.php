@@ -48,7 +48,7 @@ $("#search").autocomplete({
 });
 
 <?php if (!$this->ion_auth->is_admin()): ?>
-	var totalProductsURL = '<?php echo site_url("product/total_products"); ?>';
+	var totalProductsURL = "<?php echo site_url('product/total_products'); ?>";
 	$.getJSON(totalProductsURL, function(data) {
 		$('#cart').html(data);
 	});

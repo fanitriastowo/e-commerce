@@ -26,7 +26,7 @@
 			$env = 'production';
 			break;
 	}
-	define('ENVIRONMENT', 'production');
+	define('ENVIRONMENT', $env);
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

@@ -11,7 +11,7 @@ class Migration_Create_products extends CI_Migration {
 			  name text NOT NULL,
 			  price bigint NOT NULL DEFAULT 0,
 			  description text,
-			  created time with time zone NOT NULL,
+			  created timestamp with time zone NOT NULL,
 			  filename text,
 			  stok integer NOT NULL DEFAULT 0,
 			  CONSTRAINT products_primary_key PRIMARY KEY (id),

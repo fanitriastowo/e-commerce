@@ -8,7 +8,7 @@ class Migration_Create_Pemesanan extends CI_Migration {
 				id serial NOT NULL,
 				unique_pemesanan varchar(45) NOT NULL,
 				user_id integer NOT NULL,
-				created time with time zone NOT NULL,
+				created timestamp with time zone NOT NULL,
 				status varchar(50) NOT NULL,
 				CONSTRAINT pemesanan_primary_key PRIMARY KEY (id),
 				CONSTRAINT fk_pemesanan_users FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE NO ACTION

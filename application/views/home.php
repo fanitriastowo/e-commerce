@@ -31,7 +31,7 @@
 
 					<?php if ($product_rand->stok == 0): ?>
 						<div class="thumbnail relative-thumbnail">
-							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="300px">
+							<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" height="180px" width="240px">
 							<div class="caption text-center relative-caption">
 								<h1 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
 							</div>
@@ -40,7 +40,7 @@
 					<?php else: ?>
 						<div class="thumbnail">
 							<a href="<?php echo site_url('product/detail/' . $product_rand->id); ?>">
-								<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" width="300px">
+								<img src='<?php echo !empty($product_rand->filename) ? site_url('images/products/' . $product_rand->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_rand->name; ?>' class="img-responsive img-thumbnail" height="180px" width="240px">
 							</a>
 							<div class="caption text-center">
 								<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>

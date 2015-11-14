@@ -54,12 +54,12 @@ class Product extends Admin_Controller {
 				$config['file_name'] = time().$name;
 				$config['upload_path'] = './images/products/';
 				$config['allowed_types'] = 'gif|jpg|png|jpeg';
-				$config['max_size']	= '500';
-				$config['max_width']  = '1024';
-				$config['max_height']  = '1024';
+				$config['max_size']	= '1024';
+				$config['max_height'] = '1024';
+				$config['max_width'] = '1024';
 				$this->load->library('upload', $config);
 
-				// Do Upload
+				// Save Data without image
 				if ( ! $this->upload->do_upload('add_filename')){
 					// assign ke array
 					$product = array(
@@ -71,10 +71,24 @@ class Product extends Admin_Controller {
 					);
 
 					$this->product_m->save($product);
-					$this->session->set_flashdata('notif', 'Insert Product Successful!');
+					$this->session->set_flashdata('notif', $this->upload->display_errors());
 					redirect('akuinginwisuda/product');
+
+				// Save Data with image
 				} else {
 					$data = $this->upload->data();
+
+					if ($data['image_height'] > 180){
+						$configResize = array(
+							'source_image' => $data['full_path'],
+							'width' => 400,
+							'height' => 180,
+							'maintain_ratio' => TRUE
+						);
+
+						$this->load->library('image_lib', $configResize);
+						$this->image_lib->resize();  
+					}
 					
 					// assign ke array
 					$product = array(
@@ -164,11 +178,24 @@ class Product extends Admin_Controller {
 					$this->session->set_flashdata('notif', 'Update Product Successful!');
 					redirect('akuinginwisuda/product');
 				} else {
+
 					$data = $this->upload->data();
 					$product = $this->product_m->get($id, TRUE);
 
 					// hapus file 
 					unlink('images/products/' . $product->filename);
+
+					if ($data['image_height'] > 180){
+						$configResize = array(
+							'source_image' => $data['full_path'],
+							'width' => 400,
+							'height' => 180,
+							'maintain_ratio' => TRUE
+						);
+
+						$this->load->library('image_lib', $configResize);
+						$this->image_lib->resize();  
+					}
 
 					$product = array(
 						'category_id' => $category_id,
@@ -178,6 +205,7 @@ class Product extends Admin_Controller {
 						'stok' => $stok,
 						'filename' => time().$nice_name.$data['file_ext']
 					);
+
 					$this->product_m->save($product, $id);
 					$this->session->set_flashdata('notif', 'Update Product Successful!');
 					redirect('akuinginwisuda/product');

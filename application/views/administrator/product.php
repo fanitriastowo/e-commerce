@@ -127,7 +127,7 @@
 								<div class="form-group">
 									<label for="add_filename" class="col-sm-2 control-label">Upload:</label>
 									<div class="col-sm-10">
-										<input type="file" name="add_filename" id="add_filename" class="form-control">
+										<input type="file" name="add_filename" id="add_filename" class="form-control" accept="image/x-png, image/gif, image/jpeg, image/jpg">
 									</div>
 								</div>
 
@@ -205,7 +205,7 @@
 								<div class="form-group">
 									<label for="input_filename" class="col-sm-2 control-label">Upload:</label>
 									<div class="col-sm-10">
-										<input type="file" name="update_filename" id="input_filename" class="form-control">
+										<input type="file" name="update_filename" id="input_filename" class="form-control" accept="image/x-png, image/gif, image/jpeg, image/jpg">
 									</div>
 								</div>	
 

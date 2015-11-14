@@ -6,6 +6,7 @@
 	<title>Your Profile</title>
 	<style>
 		.view {
+			width: 250px;
 			margin: 5px;
 			float: left;
 			border: 5px solid #fff;
@@ -17,8 +18,7 @@
 		}
 
 		.view .mask {
-			width: 200px;
-			height: 200px;
+			width: 250px;
 			position: absolute;
 			overflow: hidden;
 			top: 0;
@@ -28,8 +28,7 @@
 		.view img {
 			display: block;
 			position: relative;
-			height: auto;
-			width: auto;
+			width: 250px;
 			margin-left: auto;
 			margin-right: auto;
 			margin-bottom: auto;
@@ -41,7 +40,7 @@
 			display: inline-block;
 			text-decoration: none;
 			padding: 0;
-			text-indent: -9999px;
+			text-indent: 0px;
 			width: 20px;
 			height: 20px;
 		}
@@ -56,8 +55,6 @@
 
 		.third-effect a.info {
 			position: relative;
-			top: 10px; 
-			left: 50px; 
 			opacity: 0;
 			transition: opacity 0.5s 0s ease-in-out;
 		}

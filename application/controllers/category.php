@@ -10,7 +10,7 @@ class Category extends Frontend_Controller {
 	}
 
 	/**
-	 * generate detail all product base on category_id
+	 * retrieve all product base on category_id
 	 * @param  Integer $id [Category Id in products table]
 	 * @return [view(category_detail)]     [generete cateogry view]
 	 */

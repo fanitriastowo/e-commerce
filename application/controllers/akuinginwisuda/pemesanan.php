@@ -74,7 +74,6 @@ class Pemesanan extends Admin_Controller {
 		$this->load->library('Report_Controller');
 
 		// load model
-		$this->load->model('pemesanan_detail_m');
 		$this->load->model('user_m');
 
 		// Ambil pemesanan berdasarkan id
@@ -180,7 +179,9 @@ class Pemesanan extends Admin_Controller {
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
 		<hr>
 		</div>
-		<img width="200px" src="' . $photo . '" >
+		<div class="text-right">
+			<img width="200px" src="' . $photo . '" >
+		</div>
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>
@@ -416,13 +417,7 @@ class Pemesanan extends Admin_Controller {
 		$j = 120;
 		$color_text = 50;
 		$border_style = array(
-			'all' => array(
-				'width' => 2,
-				'cap' => 'square',
-				'join' => 'miter',
-				'dash' => 0,
-				'phase' => 0
-			)
+			'all' => array('width' => 2,'cap' => 'square','join' => 'miter','dash' => 0,'phase' => 0)
 		);
 		foreach ($pemesanans as $key => $pemesanan) {
 			$pdf->SetFillColor($color_text, $color_text + 100, $color_text + 100);

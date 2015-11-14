@@ -90,7 +90,8 @@ class User_m extends MY_Model {
 				)
 			);
 
-	public $rules_update_admin = array(
+		public $rules_update_admin = array(
+
 				'first_name' => array(
 					'field' => 'first_name', 
 					'label' => 'Firstname', 

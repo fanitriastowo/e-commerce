@@ -199,7 +199,9 @@ class Profile extends User_Controller {
 			<p>' . date('l d F Y', strtotime($pemesanan->created)) . '</p>
 		<hr>
 		</div>
-		<img width="200px" src="' . $photo . '">
+		<div class="text-right">
+			<img width="200px" src="' . $photo . '">
+		</div>
 		<h1>Member : ' . $principal->first_name . ' ' . $principal->last_name . '</h1>
 		<p>Alamat : ' . $principal->address . '</p>
 		<p>Telepon : ' . $principal->phone . '</p>
@@ -293,7 +295,7 @@ class Profile extends User_Controller {
 			// Set filename
 			$config['file_name'] = time();
 			$config['upload_path'] = './images/members/';
-			$config['allowed_types'] = 'gif|jpg|png';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']	= '500';
 			$config['max_width']  = '1024';
 			$config['max_height']  = '1024';
@@ -310,6 +312,9 @@ class Profile extends User_Controller {
 
 				$this->ion_auth->update($id, $member);
 				$this->session->set_flashdata('success_upload', 'Upload Successful');
+				redirect('user/profile');
+			} else {
+				$this->session->set_flashdata('error_update', $this->upload->display_errors());
 				redirect('user/profile');
 			}
 

@@ -57,9 +57,9 @@
 							<tr>
 								<td><?php echo $i; ?></td>
 								<td><?php echo $pemesanan['name']; ?></td>
-								<td><?php echo $pemesanan['price']; ?></td>
+								<td>Rp. <?php echo number_format($pemesanan['price'], NULL, NULL, '.'); ?></td>
 								<td id="qty<?php echo $pemesanan['rowid']; ?>"><?php echo $pemesanan['qty']; ?></td>
-								<td>Rp. <?php echo $pemesanan['subtotal']; ?></td>
+								<td>Rp. <?php echo number_format($pemesanan['subtotal'], NULL, NULL, '.'); ?></td>
 								<td>
 									<a href="<?php echo site_url('product/change_qty/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-info btn_change_qty" id="<?php echo $pemesanan['rowid']; ?>"><i class="fa fa-pencil"></i>&nbsp;Ubah</a>
 									<a href="<?php echo site_url('product/delete/' . $pemesanan['rowid']); ?>" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>&nbsp;Batal</a>
@@ -70,13 +70,13 @@
 						<?php $i++; ?>
 						<?php endforeach ?>
 					</tbody>
-					<tfoot>
+					<tfoot class="bg-danger">
 						<tr>
 							<td></td>
 							<td></td>
-							<td>Total</td>
-							<td><?php echo $jumlah_barang; ?></td>
-							<td>Rp. <?php echo $jumlah; ?></td>
+							<td><strong>Total</strong></td>
+							<td><strong><?php echo $jumlah_barang; ?></strong></td>
+							<td><strong>Rp. <?php echo number_format($jumlah, NULL, NULL, '.'); ?></strong></td>
 							<td></td>
 						</tr>
 					</tfoot>
@@ -182,7 +182,7 @@
 			
 							<div class="form-group">
 								<div class="col-sm-12">
-									<label for="captcha_word"><?php echo $captcha['image']; ?></label>
+									<label for="register_captcha_word"><?php echo $captcha['image']; ?></label>
 									<?php echo form_input('captcha_word', '', 'class="form-control" id="register_captcha_word" placeholder="Input Text Above" required'); ?>
 								</div>
 							</div>

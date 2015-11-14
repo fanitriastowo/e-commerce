@@ -29,7 +29,7 @@
 				<li class="text-center">
 				<div class="thumbnail relative-thumbnail">
 					<a href="<?php echo site_url('product/detail/' . $product->id); ?>">
-						<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="80%">
+						<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="120px">
 					</a>
 					<div class="caption text-center relative-caption">
 						<h3 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h3>
@@ -42,7 +42,7 @@
 			<?php else: ?>
 				<li class="text-center">
 					<a href="<?php echo site_url('product/detail/' . $product->id); ?>">
-						<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="80%">
+						<img src='<?php echo !empty($product->filename) ? site_url('images/products/' . $product->filename ): site_url('images/blank.jpg'); ?>' class="img-responsive img-thumbnail" width="120px">
 					</a><br>
 					<?php echo $product->name; ?>
 				</li>

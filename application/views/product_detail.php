@@ -29,24 +29,24 @@
 				
 				<?php if ($product_detail->stok == 0): ?>
 					<div class="thumbnail relative-thumbnail">
-						<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+						<img width="600px" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 						<div class="caption text-center relative-caption">
 							<h1 style="font-size: 100px" class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
 						</div>
 						<div class="caption text-center">
 							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 							<p><?php echo $product_detail->description; ?></p>
-							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Harga : Rp. <?php echo number_format($product_detail->price, NULL, NULL, '.'); ?></p>
 							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
 						</div>
 					</div>
 				<?php else: ?>
 					<div class="thumbnail">
-						<img width="80%" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
+						<img width="600px" class="img-responsive img-rounded" src='<?php echo !empty($product_detail->filename) ? site_url('images/products/' . $product_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $product_detail->name; ?>'>
 						<div class="caption text-center">
 							<h3><strong><?php echo $product_detail->name; ?></strong></h3>
 							<p><?php echo $product_detail->description; ?></p>
-							<p>Harga : Rp. <?php echo $product_detail->price; ?></p>
+							<p>Harga : Rp. <?php echo number_format($product_detail->price, NULL, NULL, '.'); ?></p>
 							<p>Tesedia : <?php echo $product_detail->stok; ?> Stok</p>
 
 							<?php if (!$this->ion_auth->is_admin()): ?>

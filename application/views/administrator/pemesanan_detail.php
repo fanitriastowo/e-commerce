@@ -33,7 +33,7 @@
 					<td><?php echo $i + 1; ?></td>
 					<td><?php echo $pemesanan_detail->name; ?></td>
 					<td><?php echo $pemesanan_detail->qty; ?></td>
-					<td><?php echo $pemesanan_detail->price; ?></td>
+					<td><?php echo number_format($pemesanan_detail->price, NULL, NULL, '.'); ?></td>
 					<td><?php echo $pemesanan_detail->subtotal; ?></td>
 				</tr>
 				<?php $jumlah += $pemesanan_detail->subtotal; ?>
@@ -45,7 +45,7 @@
 					<td></td>
 					<td></td>
 					<td><strong>Jumlah</strong></td>
-					<td><strong><?php echo $jumlah; ?></strong></td>
+					<td><strong><?php echo number_format($jumlah, NULL, NULL, '.'); ?></strong></td>
 				</tr>
 			</tfoot>
 		</table>

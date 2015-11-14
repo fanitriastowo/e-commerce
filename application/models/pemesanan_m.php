@@ -35,18 +35,15 @@ class Pemesanan_m extends MY_Model {
 	 */
 	public function get_pemesanan_with_user(){
 		// select P.id, P.created, P.status, U.first_name, U.last_name
-		$this->db->select('P.id, P.created, P.status, U.first_name, U.last_name, U.domisili');
+		$this->db->select('pemesanan.id, pemesanan.created, pemesanan.status, users.first_name, users.last_name, users.domisili');
 		
 		// from Pemesanan P
-		$this->db->from('pemesanan P');
+		$this->db->from('pemesanan');
 
 		// Join User U ON P.user_id = U.id
-		$this->db->join('users U', 'P.user_id = U.id');
+		$this->db->join('users', 'pemesanan.user_id = users.id');
 
-		// Where P.status = 'Proses'
-		// $this->db->where('P.status', 'Proses');
-		
-		$this->db->order_by('P.status DESC');
+		$this->db->order_by('pemesanan.created ASC');
 
 		// Return list object Pemesanan & User
 		return $this->db->get()->result();
@@ -59,16 +56,16 @@ class Pemesanan_m extends MY_Model {
 	 */
 	public function get_pemesanan_and_user_by_pemesanan_id($id){
 		// select P.*, U.first_name, U.last_name, U.address
-		$this->db->select('P.*, U.first_name, U.last_name, U.address');
+		$this->db->select('pemesanan.*, users.first_name, users.last_name, users.address');
 
 		// from pemesanan P
-		$this->db->from('pemesanan P');
+		$this->db->from('pemesanan');
 
 		// join users U, ON P.user_id = U.id
-		$this->db->join('users U', 'P.user_id = U.id');
+		$this->db->join('users', 'pemesanan.user_id = users.id');
 
 		// where P.id = $id
-		$this->db->where('P.id', $id);
+		$this->db->where('pemesanan.id', $id);
 
 		// return pemesanan object
 		return $this->db->get()->row();

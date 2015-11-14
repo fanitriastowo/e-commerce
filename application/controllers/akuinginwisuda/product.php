@@ -53,7 +53,7 @@ class Product extends Admin_Controller {
 				// Set filename
 				$config['file_name'] = time().$name;
 				$config['upload_path'] = './images/products/';
-				$config['allowed_types'] = 'gif|jpg|png';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
 				$config['max_size']	= '500';
 				$config['max_width']  = '1024';
 				$config['max_height']  = '1024';
@@ -106,7 +106,9 @@ class Product extends Admin_Controller {
 		$product = $this->product_m->get($id, TRUE);
 
 		// hapus file 
-		unlink('images/products/' . $product->filename);
+		if (count($product->filename)) {
+			unlink('images/products/' . $product->filename);
+		}
 
 		// Hapus product
 		$this->product_m->delete($id);

@@ -3,7 +3,7 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-3">
                     <div class="footer-desc">
                         <img class="img-thumbnail" src="<?php echo site_url('assets/images/logo.png') ?>" width="82" height="48" alt="">
                         <p class="text-muted">
@@ -18,24 +18,30 @@
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                     <style>
                         #map {
-                            width: 400px;
-                            height: 250px;
+                            width: 550px;
+                            height: 300px;
                             background-color: #CCC;
                         }
                     </style>
                     <script src="https://maps.googleapis.com/maps/api/js"></script>
                     <script>
                         function initialize() {
+                            var myLatLng = {lat: -7.62069, lng: 109.24183};
                             var mapCanvas = document.getElementById('map');
                             var mapOptions = {
-                                center: new google.maps.LatLng(-7.641227, 109.242690),
-                                zoom: 16,
-                                mapTypeId: google.maps.MapTypeId.SATELLITE
-                            }
+                                center: new google.maps.LatLng(myLatLng),
+                                zoom: 14,
+                                mapTypeId: google.maps.MapTypeId.MAP
+                            };
                             var map = new google.maps.Map(mapCanvas, mapOptions);
+                            var marker = new google.maps.Marker({
+                                position: myLatLng,
+                                map: map,
+                                title: 'Randu Jati'
+                            });
                         }
                         google.maps.event.addDomListener(window, 'load', initialize);
                     </script>

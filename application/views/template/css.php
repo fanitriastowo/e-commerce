@@ -2,10 +2,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="<?php echo site_url('assets/images/favicon.png'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/jquery-ui.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap-theme.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/font-awesome.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/vader/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/main.css'); ?>">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

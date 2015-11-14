@@ -1,9 +1,8 @@
-<script type="text/javascript" src="<?php echo site_url('assets/js/jquery.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/js/jquery-ui.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/js/jquery.validate.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/js/additional-methods.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/js/additional-methods.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){

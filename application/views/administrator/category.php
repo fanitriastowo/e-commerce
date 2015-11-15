@@ -38,7 +38,7 @@
 				<?php foreach ($categories as $category): ?>
 					<div class="col-sm-4">
 						<div class="thumbnail">
-							<img width="80%" class="img-thumbnail img-responsive" src='<?php echo !empty($category->filename) ? site_url('images/categories/' . $category->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>'>
+							<img class="img-thumbnail img-responsive" src='<?php echo !empty($category->filename) ? site_url('images/categories/' . $category->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category->name; ?>' style="max-height: 180px">
 							<div class="caption text-center">
 								<h4><strong class="text-danger"><?php echo $category->name; ?></strong></h4>
 								<div class="btn-group" role="group" aria-label="Operation">

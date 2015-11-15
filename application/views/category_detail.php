@@ -22,7 +22,7 @@
 					<div class="col-sm-4">
 						<?php if ($category_detail->stok == 0): ?>
 						<div class="thumbnail relative-thumbnail">
-							<img width="80%" src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail">
+							<img width="80%" src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail" style="max-height: 180px;">
 							<div class="caption text-center relative-caption">
 								<h1 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
 							</div>
@@ -30,7 +30,7 @@
 						<?php else: ?>
 						<div class="thumbnail">
 							<a href="<?php echo site_url('product/detail/' . $category_detail->id); ?>">
-								<img width="80%" src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail">
+								<img src='<?php echo !empty($category_detail->filename) ? site_url('images/products/' . $category_detail->filename ): site_url('images/blank.jpg'); ?>' alt='<?php echo $category_detail->name; ?>' class="img-responsive img-thumbnail" style="max-height: 180px;">
 							</a>
 							<div class="caption text-center">
 								<div class="text-danger">

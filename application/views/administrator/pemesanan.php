@@ -28,11 +28,11 @@
 			<thead>
 				<tr>
 					<th width="5%">No.</th>
-					<th>Tanggal</th>
-					<th>Status</th>
+					<th width="20%">Tanggal</th>
 					<th>Pemesan</th>
 					<th>Domisili</th>
-					<th width="20%">Aksi</th>
+					<th>Status</th>
+					<th width="10%">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,15 +50,15 @@
 
 					<td><?php echo $i + 1; ?></td>
 					<td><?php echo date("d F Y G.i", strtotime($pemesanan->created)); ?></td>
-					<td><?php echo $pemesanan->status; ?></td>
 					<td><?php echo $pemesanan->first_name; ?> <?php echo $pemesanan->last_name; ?></td>
 					<td><?php echo $pemesanan->domisili; ?></td>
+					<td><?php echo $pemesanan->status; ?></td>
 					<td>
-						<a href="<?php echo site_url('akuinginwisuda/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning"><i class="fa fa-gear"></i> Detail</a>
+						<a title="Lihat Detail Pemesanan" href="<?php echo site_url('akuinginwisuda/pemesanan/detail/' . $pemesanan->id); ?>" class="btn btn-xs btn-warning"><i class="fa fa-gear"></i></a>
 						<?php if ($pemesanan->status === 'Disetujui'): ?>
-						<a href="<?php echo site_url('akuinginwisuda/pemesanan/cetak/' . $pemesanan->id); ?>" class="btn btn-xs btn-info"><i class="fa fa-print"></i> Cetak</a>
+						<a title="Cetak Bukti Pemesanan Member" href="<?php echo site_url('akuinginwisuda/pemesanan/cetak/' . $pemesanan->id); ?>" class="btn btn-xs btn-info"><i class="fa fa-print"></i></a>
 						<?php endif ?>
-						<a href="<?php echo site_url('akuinginwisuda/pemesanan/delete/' . $pemesanan->id); ?>" class="btn btn-xs btn-danger prepare-delete"><i class="fa fa-trash"></i> Delete</a>						
+						<a title="Hapus Pemesanan" href="<?php echo site_url('akuinginwisuda/pemesanan/delete/' . $pemesanan->id); ?>" class="btn btn-xs btn-danger prepare-delete"><i class="fa fa-trash"></i></a>						
 					</td>
 				</tr>
 			<?php endforeach ?>

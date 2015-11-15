@@ -46,12 +46,12 @@
 			<thead>
 				<tr>
 					<th width="5%">No.</th>
-					<th width="20%">Name</th>
-					<th width="10%">Price</th>
+					<th width="25%">Name</th>
+					<th width="15%">Price</th>
 					<th width="30%">Description</th>
 					<th width="5%">Stok</th>
-					<th width="15%">Category</th>
-					<th width="15%">Operation</th>
+					<th width="10%">Category</th>
+					<th width="5%">Operation</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,8 +64,8 @@
 					<td><?php echo $product->stok; ?></td>
 					<td><?php echo $product->category_name; ?></td>
 					<td>
-						<a href="<?php echo site_url('akuinginwisuda/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i> Update</a>
-						<a href="<?php echo site_url('akuinginwisuda/product/delete/' . $product->id); ?>" class="btn btn-xs btn-danger trigger-delete"><i class="fa fa-trash"></i> Delete</a>
+						<a href="<?php echo site_url('akuinginwisuda/product/detail/' . $product->id); ?>" class="btn btn-xs btn-info trigger-update"><i class="fa fa-pencil"></i></a>
+						<a href="<?php echo site_url('akuinginwisuda/product/delete/' . $product->id); ?>" class="btn btn-xs btn-danger trigger-delete"><i class="fa fa-trash"></i></a>
 					</td>
 				</tr>
 				<?php endforeach ?>

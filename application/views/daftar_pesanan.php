@@ -100,9 +100,6 @@
 	<!-- Footer -->
 	<?php $this->load->view('template/footer'); ?>
 
-	<!-- Javascript -->
-	<?php $this->load->view('template/js'); ?>
-
 	<!-- login and register Modal Window -->
 	<div class="modal fade" id="quick_login_register" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -203,18 +200,18 @@
 	<!-- Modal Change Quantity -->
 	<form id="form-change-qty" class="form-horizontal" action="" method="POST" accept-charset="utf-8">
 	<div class="modal fade" id="modal-change-qty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Rubah Jumlah Pesanan</h4>
+					<h4 class="modal-title" id="myModalLabel">Update Jumlah Pesanan</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label class="col-sm-2 control-label">Jumlah</label>
-						<div class="col-sm-10">
+						<label class="col-sm-4 control-label">Jumlah</label>
+						<div class="col-sm-6">
 							<?php echo form_input('change_qty', '', 'id="input_change_qty" class="form-control" placeholder="Input Jumlah"') ?>
 						</div>
 					</div>
@@ -230,7 +227,10 @@
 	</div>
 	<?php echo form_close(); ?>
 	
-	
+	<!-- Javascript -->
+	<?php $this->load->view('template/js'); ?>
+	<script type="text/javascript" src="<?php echo site_url('assets/js/bootstrap.touchspin.js'); ?>"></script>
+
 	<?php if ($this->session->flashdata('not_logged_in') === TRUE): ?>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -242,6 +242,10 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$("input[name='change_qty']").TouchSpin({
+				min: 1,
+				stepinterval: 50
+			});
 			
 			// validate signup form on keyup and submit
 			$("#quick_registration_form").validate({

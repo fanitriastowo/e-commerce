@@ -41,7 +41,7 @@ class Migration_Create_products extends CI_Migration {
 		";
 
 		$this->db->query($query);
-		$this->db->query($insert);
+		// $this->db->query($insert);
 	}
 
 	public function down() {

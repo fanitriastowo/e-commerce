@@ -293,10 +293,10 @@ class Profile extends User_Controller {
 			$id = $this->input->post('upload_id');
 
 			// Set filename
-			$config['file_name'] = time();
+			$config['file_name'] = date('dmy');
 			$config['upload_path'] = './images/members/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
-			$config['max_size']	= '500';
+			$config['max_size']	= '1024';
 			$config['max_width']  = '1024';
 			$config['max_height']  = '1024';
 			$this->load->library('upload', $config);
@@ -304,10 +304,23 @@ class Profile extends User_Controller {
 			// Do Upload
 			if ($this->upload->do_upload('photo_upload')){
 				$data = $this->upload->data();
-				
+
+				if ($data['image_height'] > 180 || $data['image_width'] > 320){
+					$configResize = array(
+						'image_library' => 'gd',
+						'source_image' => $data['full_path'],
+						'width' => 320,
+						'height' => 180,
+						'maintain_ratio' => FALSE
+					);
+
+					$this->load->library('image_lib', $configResize);
+					$this->image_lib->resize();  
+				}
+
 				// assign ke array
 				$member = array(
-					'photo' => time().$data['file_ext']
+					'photo' => date('dmy') . $data['file_ext']
 				);
 
 				$this->ion_auth->update($id, $member);

@@ -25,8 +25,9 @@ class Frontend_Controller extends MY_Controller {
 	public function generate_captcha() {
 		// Load captcha helper
 		$this->load->helper('captcha');
-
+		$random_number = substr(number_format(time() * rand(),0,'',''),0,6);
 		$vals = array(
+			'word' => $random_number,
 			'img_path'	=> "images/captcha/",
 			'img_url'	=> base_url() . "images/captcha/",
 			'img_width'	=> 150,

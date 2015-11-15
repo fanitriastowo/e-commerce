@@ -34,7 +34,7 @@ class Category extends Admin_Controller {
 		if ($this->form_validation->run() == TRUE) {
 
 			// Set filename
-			$config['file_name'] = time().$name;
+			$config['file_name'] = date('dmy') . $nice_name;
 			$config['upload_path'] = './images/categories/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']	= '1024';
@@ -68,7 +68,7 @@ class Category extends Admin_Controller {
 
 				$category = array(
 					'name' => $name,
-					'filename' => time() . $nice_name . $data['file_ext']
+					'filename' => date('dmy') . $nice_name . $data['file_ext']
 				);
 				$this->category_m->save($category);
 				$this->session->set_flashdata('notif', 'Insert Category Successful!');
@@ -131,7 +131,7 @@ class Category extends Admin_Controller {
 		if ($this->form_validation->run() == TRUE) {
 
 			// Set filename
-			$config['file_name'] = time().$name;
+			$config['file_name'] = date('dmy') . $nice_name;
 			$config['upload_path'] = './images/categories/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']	= '1024';
@@ -170,7 +170,7 @@ class Category extends Admin_Controller {
 
 				$category = array(
 					'name' => $name,
-					'filename' => time().$nice_name.$data['file_ext']
+					'filename' => date('dmy') . $nice_name . $data['file_ext']
 				);
 				$this->category_m->save($category, $id);
 				$this->session->set_flashdata('notif', 'Update Category Successful!');

@@ -51,7 +51,7 @@ class Product extends Admin_Controller {
 			if ($this->form_validation->run() == TRUE) {
 
 				// Set filename
-				$config['file_name'] = time().$name;
+				$config['file_name'] = date('dmy') . $nice_name;
 				$config['upload_path'] = './images/products/';
 				$config['allowed_types'] = 'gif|jpg|png|jpeg';
 				$config['max_size']	= '1024';
@@ -98,7 +98,7 @@ class Product extends Admin_Controller {
 						'price' => $price,
 						'description' => $description,
 						'stok' => $stok,
-						'filename' => time().$nice_name.$data['file_ext']
+						'filename' => date('dmy') . $nice_name . $data['file_ext']
 					);
 
 					$this->product_m->save($product);
@@ -157,7 +157,7 @@ class Product extends Admin_Controller {
 		if ($this->input->post('form_update')) {
 			if ($this->form_validation->run() == TRUE) {
 				// Set filename
-				$config['file_name'] = time().$name;
+				$config['file_name'] = date('dmy') . $nice_name;
 				$config['upload_path'] = './images/products/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$config['max_size']	= '500';
@@ -205,7 +205,7 @@ class Product extends Admin_Controller {
 						'price' => $price,
 						'description' => $description,
 						'stok' => $stok,
-						'filename' => time().$nice_name.$data['file_ext']
+						'filename' => date('dmy') . $nice_name . $data['file_ext']
 					);
 
 					$this->product_m->save($product, $id);

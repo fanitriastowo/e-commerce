@@ -37,9 +37,9 @@ class Category extends Admin_Controller {
 			$config['file_name'] = time().$name;
 			$config['upload_path'] = './images/categories/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
-			$config['max_size']	= '500';
-			$config['max_width']  = '1024';
-			$config['max_height']  = '1024';
+			$config['max_size']	= '1024';
+			$config['max_height'] = '1024';
+			$config['max_width'] = '1024';
 			$this->load->library('upload', $config);
 
 			// Do Upload
@@ -48,10 +48,24 @@ class Category extends Admin_Controller {
 					'name' => $name
 				);
 				$this->category_m->save($category);
-				$this->session->set_flashdata('notif', 'Insert Category Successful!');
+				$this->session->set_flashdata('notif', $this->upload->display_errors() . ' But data still saved');
 				redirect('akuinginwisuda/category');
 			} else {
 				$data = $this->upload->data();
+
+				if ($data['image_height'] > 180 || $data['image_width'] > 320){
+					$configResize = array(
+						'image_library' => 'gd',
+						'source_image' => $data['full_path'],
+						'width' => 320,
+						'height' => 180,
+						'maintain_ratio' => FALSE
+					);
+
+					$this->load->library('image_lib', $configResize);
+					$this->image_lib->resize();  
+				}
+
 				$category = array(
 					'name' => $name,
 					'filename' => time() . $nice_name . $data['file_ext']
@@ -119,8 +133,8 @@ class Category extends Admin_Controller {
 			// Set filename
 			$config['file_name'] = time().$name;
 			$config['upload_path'] = './images/categories/';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size']	= '500';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']	= '1024';
 			$config['max_width']  = '1024';
 			$config['max_height']  = '1024';
 			$this->load->library('upload', $config);
@@ -131,10 +145,24 @@ class Category extends Admin_Controller {
 					'name' => $name
 				);
 				$this->category_m->save($category, $id);
-				$this->session->set_flashdata('notif', 'Update Category Successful!');
+				$this->session->set_flashdata('notif', $this->upload->display_errors() . ' But data still saved');
 				redirect('akuinginwisuda/category');
 			} else {
 				$data = $this->upload->data();
+
+				if ($data['image_height'] > 180 || $data['image_width'] > 320){
+					$configResize = array(
+						'image_library' => 'gd',
+						'source_image' => $data['full_path'],
+						'width' => 320,
+						'height' => 180,
+						'maintain_ratio' => FALSE
+					);
+
+					$this->load->library('image_lib', $configResize);
+					$this->image_lib->resize();  
+				}
+
 				$category = $this->category_m->get($id, TRUE);
 
 				// hapus file 

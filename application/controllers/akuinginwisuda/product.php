@@ -71,19 +71,20 @@ class Product extends Admin_Controller {
 					);
 
 					$this->product_m->save($product);
-					$this->session->set_flashdata('notif', $this->upload->display_errors());
+					$this->session->set_flashdata('notif', $this->upload->display_errors() . ' But data still saved');
 					redirect('akuinginwisuda/product');
 
 				// Save Data with image
 				} else {
 					$data = $this->upload->data();
 
-					if ($data['image_height'] > 180){
+					if ($data['image_height'] > 180 || $data['image_width'] > 320){
 						$configResize = array(
+							'image_library' => 'gd',
 							'source_image' => $data['full_path'],
-							'width' => 400,
+							'width' => 320,
 							'height' => 180,
-							'maintain_ratio' => TRUE
+							'maintain_ratio' => FALSE
 						);
 
 						$this->load->library('image_lib', $configResize);
@@ -175,7 +176,7 @@ class Product extends Admin_Controller {
 						'stok' => $stok
 					);
 					$this->product_m->save($product, $id);
-					$this->session->set_flashdata('notif', 'Update Product Successful!');
+					$this->session->set_flashdata('notif', $this->upload->display_errors() . ' But data still saved');
 					redirect('akuinginwisuda/product');
 				} else {
 
@@ -185,12 +186,13 @@ class Product extends Admin_Controller {
 					// hapus file 
 					unlink('images/products/' . $product->filename);
 
-					if ($data['image_height'] > 180){
+					if ($data['image_height'] > 180 || $data['image_width'] > 320){
 						$configResize = array(
+							'image_library' => 'gd',
 							'source_image' => $data['full_path'],
-							'width' => 400,
+							'width' => 320,
 							'height' => 180,
-							'maintain_ratio' => TRUE
+							'maintain_ratio' => FALSE
 						);
 
 						$this->load->library('image_lib', $configResize);

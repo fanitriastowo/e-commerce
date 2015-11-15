@@ -54,6 +54,18 @@ class Pemesanan extends Admin_Controller {
 		}
 		redirect('akuinginwisuda/pemesanan');
 	}
+	/**
+	 * [Batal pemesanan]
+	 * @param type integer $id [PemesananId]
+	 */
+	public function batal($id) {
+		$data = array(
+			'status' => 'Cancel'
+		);
+		$this->pemesanan_m->approve_pemesanan($data, $id);
+		$this->session->set_flashdata('delete_success', 'Pemesanan dibatalkan');
+		redirect('akuinginwisuda/pemesanan');
+	}
 
 	/**
 	 * [Delete pemesanan]

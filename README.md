@@ -62,7 +62,7 @@ password: `password`
 	* ~~batal pesan~~
 2. Admin
 	* Pemesanan Ganda
-	* batal pemesanan member
+	* ~~batal pemesanan member~~
 	* ~~pemesanan lampau~~
 	* ~~status pengiriman~~
 	* ~~Tanggal harus tetap~~

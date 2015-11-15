@@ -37,7 +37,17 @@
 			</thead>
 			<tbody>
 			<?php foreach ($pemesanans as $i => $pemesanan): ?>
-				<tr>
+
+				<?php if ($pemesanan->status === 'Disetujui'): ?>
+					<tr class="success">
+				<?php endif ?>
+				<?php if ($pemesanan->status === 'Proses'): ?>
+					<tr class="info">
+				<?php endif ?>
+				<?php if ($pemesanan->status === 'Cancel'): ?>
+					<tr class="danger">
+				<?php endif ?>
+
 					<td><?php echo $i + 1; ?></td>
 					<td><?php echo date("d F Y G.i", strtotime($pemesanan->created)); ?></td>
 					<td><?php echo $pemesanan->status; ?></td>

@@ -22,16 +22,16 @@ class Migration_Create_categories extends CI_Migration {
 		$insert = "
 
 			INSERT INTO categories (name, filename) VALUES 
-				('Meja','1446084432Meja.jpg'),
-				('Kursi','1446126030Kursi.jpg'),
-				('Lemari','1446126588Lemari.jpg'),
-				('Special Set','1446126826Special_Set.jpg'),
-				('Tempat Tidur','1446127036Tempat_Tidur.jpg');
+				('Meja','Meja.jpg'),
+				('Kursi','Kursi.jpg'),
+				('Lemari','Lemari.jpg'),
+				('Special Set','Special_Set.jpg'),
+				('Tempat Tidur','Tempat_Tidur.jpg');
 	
 		";
 
 		$this->db->query($query);
-		// $this->db->query($insert);
+		$this->db->query($insert);
 	}
 
 	public function down() {

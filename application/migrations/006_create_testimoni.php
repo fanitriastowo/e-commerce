@@ -13,7 +13,7 @@ class Migration_Create_testimoni extends CI_Migration {
 			  email text NOT NULL,
 			  pesan text NOT NULL,
 			  kota varchar(100) NOT NULL,
-			  created time with time zone NOT NULL,
+			  created timestamp with time zone NOT NULL,
 			  CONSTRAINT testimoni_primary_key PRIMARY KEY (id)
 			) WITH (
 			  OIDS=FALSE

@@ -97,13 +97,13 @@
 								<div class="form-group">
 									<label for="add_price" class="col-sm-2 control-label">Harga:</label>
 									<div class="col-sm-10">
-										<?php echo form_input('price','', 'class="form-control" id="add_price" placeholder="Input Harga" required'); ?>
+										<?php echo form_input('price','', 'class="form-control" id="add_price" placeholder="Input Harga (tanpa titik)" required'); ?>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="add_category" class="col-sm-2 control-label">Kategori:</label>
-									<div class="col-sm-4">
+									<div class="col-sm-6">
 										<?php echo form_dropdown('category_id', $categories_dropdown, '', 'class="form-control"'); ?>
 									</div>
 								</div>
@@ -176,13 +176,13 @@
 								<div class="form-group">
 									<label for="input_price" class="col-sm-2 control-label">Harga:</label>
 									<div class="col-sm-10">
-										<?php echo form_input('update_price','', 'class="form-control" id="input_price" placeholder="Input Harga" required'); ?>
+										<?php echo form_input('update_price','', 'class="form-control" id="input_price" placeholder="Input Harga (tanpa titik)" required'); ?>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="select_category" class="col-sm-2 control-label">Kategori:</label>
-									<div class="col-sm-4">
+									<div class="col-sm-6">
 										<?php echo form_dropdown('update_category_id', $categories_dropdown, '', 'class="form-control" id="select_category"'); ?>
 									</div>
 								</div>

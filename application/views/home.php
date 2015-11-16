@@ -35,6 +35,10 @@
 							<div class="caption text-center relative-caption">
 								<h1 class="text-soldout text-primary rotate"><strong>SOLD OUT</strong></h1>
 							</div>
+							<div class="caption text-center">
+								<strong class="text-danger"><?php echo $product_rand->name; ?></strong><br><br>
+								<a class="btn btn-primary" href="<?php echo site_url('product/detail/' . $product_rand->id); ?>"><i class="fa fa-search"></i>&nbsp;Detail</a>
+							</div>
 						</div>
 
 					<?php else: ?>
